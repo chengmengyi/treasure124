@@ -1,0 +1,93 @@
+import 'dart:convert';
+import 'dart:math';
+
+import 'package:decimal/decimal.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+extension TreaColor on String{
+  Color toColordwdowfw(){
+    var hexStr = replaceAll("#", "");
+    return Color(int.parse(hexStr, radix: 16)).withAlpha(255);
+  }
+}
+
+String getTodayTime(){
+  var dateTime = DateTime.now();
+  return "${dateTime.year}-${dateTime.month}-${dateTime.day}";
+}
+
+extension StringBase64 on String{
+  String base64()=>const Utf8Decoder().convert(base64Decode(this));
+}
+
+extension Strint2Double on String{
+  double toDouble(){
+    try{
+      return double.parse(this);
+    }catch(e){
+      return 0.0;
+    }
+  }
+}
+
+double addDecimal(num1,num2){
+  try{
+    return (Decimal.parse("$num1")+Decimal.parse("$num2")).toDouble();
+  }catch(e){
+    return 0.0;
+  }
+}
+
+double doubleDecimal(num1){
+  try{
+    return (Decimal.parse("$num1")*Decimal.fromInt(2)).toDouble();
+  }catch(e){
+    return 0.0;
+  }
+}
+
+double mulDecimal(num1,num2){
+  try{
+    return (Decimal.parse("$num1")*Decimal.parse("$num2")).toDouble();
+  }catch(e){
+    return 0.0;
+  }
+}
+
+double divDecimal(num1,num2){
+  try{
+    return (Decimal.parse("$num1")/Decimal.parse("$num2")).toDouble();
+  }catch(e){
+    return 0.0;
+  }
+}
+
+showToast(String s){
+  if(s.isEmpty){
+    return;
+  }
+  Fluttertoast.showToast(
+    msg: s,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.CENTER,
+    timeInSecForIosWeb: 1,
+    backgroundColor: Colors.black45,
+    textColor: Colors.white,
+    fontSize: 16,
+  );
+}
+
+extension RandomList on List{
+  random()=> this[Random().nextInt(length)];
+}
+
+extension Str2Int on String{
+  int toInt(){
+    try{
+      return int.parse(this);
+    }catch(e){
+      return 0;
+    }
+  }
+}
