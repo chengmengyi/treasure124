@@ -2,7 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
+import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_p.dart';
+import 'package:treadwkd_bbbase/ui/trea_gradient_text_dhwiodw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
 import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_click_dhwidjow.dart';
@@ -10,7 +12,9 @@ import 'package:treadwkd_bbbb/bean/trea_play_type_info_fhwiedhi.dart';
 import 'package:treadwkd_bbbb/hep/trea_hep_dnwidi.dart';
 import 'package:treadwkd_bbbb/ui/page/trea_home_dniewdo/trea_home_dniewdo_c.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_box_widget_djwidjow.dart';
+import 'package:treadwkd_bbbb/ui/widget/trea_bubble_widget_djwiodw.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_top_widget_djheidow.dart';
+import 'package:treadwkd_bbbb/ui/widget/trea_wheel_icon_widget_djwidjiw.dart';
 
 class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
   @override
@@ -24,25 +28,14 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
         children: [
           TreaTopWidgetDjheidow(fromHome: true,),
           _boxWidget(),
-          SizedBox(height: 20.h,),
+          SizedBox(height: 8.h,),
           Expanded(
             child: _cardListWidget(),
           ),
+          _bottomWidget(),
         ],
       ),
-      Positioned(
-        bottom: 0,
-        right: 0,
-        child: TreaClickDhwidjow(
-          onTap: (){
-            treaC.test();
-          },
-          child: SizedBox(
-            width: 100,
-            height: 100,
-          ),
-        ),
-      )
+      TreaBubbleWidgetDjwiodw(),
     ],
   );
 
@@ -130,5 +123,51 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
       ),
       SizedBox(width: 20.w,),
     ],
+  );
+
+  _bottomWidget()=>SizedBox(
+    width: double.infinity,
+    height: 73.h,
+    child: Stack(
+      alignment: Alignment.center,
+      children: [
+        TreaImageDhwudhiw(name: "mdowmdow",width: double.infinity,height: 73.h,),
+        Row(
+          children: [
+            Expanded(
+              child: Center(
+                child: TreaWheelIconWidgetDjwidjiw(),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: TreaClickDhwidjow(
+                  onTap: (){
+                    treaC.clickCash();
+                  },
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      TreaImageDhwudhiw(name: "mdwmom",width: 90.w,height: 54.h,),
+                      TreaGradientTextDhwiodw(
+                        data: "Cash",
+                        size: 13.sp,
+                        lineColor: "#000000",
+                        fontWeight: FontWeight.bold,
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),]
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
   );
 }

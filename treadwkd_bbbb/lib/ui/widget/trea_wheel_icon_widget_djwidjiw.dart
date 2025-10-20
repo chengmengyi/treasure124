@@ -26,9 +26,8 @@ class _TreaWheelIconWidgetDjwidjiwState extends TreaFaWState<TreaWheelIconWidget
           top: 8.h,
           right: 20.w,
           child: Container(
-            width: 18.w,
-            height: 18.w,
             alignment: Alignment.center,
+            padding: EdgeInsets.only(left: 3.w,right: 3.w,top: 1.h,),
             decoration: BoxDecoration(
               color: "#FF4949".toColordwdowfw(),
               borderRadius: BorderRadius.circular(9.w),

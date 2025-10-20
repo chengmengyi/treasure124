@@ -13,7 +13,9 @@ class TreaValueBeanWjoomc {
       this.spinWheelPrizes, 
       this.luckyCardPrizes, 
       this.levelUpPrizes, 
-      this.withdrawTask,});
+      this.withdrawTask,
+      this.cashPop,
+  });
 
   TreaValueBeanWjoomc.fromJson(dynamic json) {
     if (json['ad_incentives'] != null) {
@@ -41,6 +43,12 @@ class TreaValueBeanWjoomc {
         luckyCardPrizes?.add(Reward.fromJson(v));
       });
     }
+    if (json['cash_pop'] != null) {
+      cashPop = [];
+      json['cash_pop'].forEach((v) {
+        cashPop?.add(Reward.fromJson(v));
+      });
+    }
     levelUpPrizes = json['level_up_prizes'] != null ? json['level_up_prizes'].cast<int>() : [];
     if (json['withdraw_task'] != null) {
       withdrawTask = [];
@@ -59,6 +67,7 @@ class TreaValueBeanWjoomc {
   NumberWinnerReward? numberWinnerReward;
   SpinWheelPrizes? spinWheelPrizes;
   List<Reward>? luckyCardPrizes;
+  List<Reward>? cashPop;
   List<int>? levelUpPrizes;
   List<WithdrawTask>? withdrawTask;
 
@@ -93,6 +102,9 @@ class TreaValueBeanWjoomc {
     }
     if (luckyCardPrizes != null) {
       map['lucky_card_prizes'] = luckyCardPrizes?.map((v) => v.toJson()).toList();
+    }
+    if (cashPop != null) {
+      map['cash_pop'] = cashPop?.map((v) => v.toJson()).toList();
     }
     map['level_up_prizes'] = levelUpPrizes;
     if (withdrawTask != null) {

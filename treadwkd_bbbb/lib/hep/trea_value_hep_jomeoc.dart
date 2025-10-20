@@ -190,6 +190,10 @@ class TreaValueHepJomeoc{
 
   double getLuckyCardReward()=>_getReward(_bean?.luckyCardPrizes??[]);
 
+  double getBubbleReward()=>_getReward(_bean?.cashPop??[]);
+
+  List<int> getCashList()=>[1000,2000,3000,5000,10000];
+
   int getUpLevelReward(){
     try{
       var level = TreaLevelHepDwifnowe.instance.handleLevel();

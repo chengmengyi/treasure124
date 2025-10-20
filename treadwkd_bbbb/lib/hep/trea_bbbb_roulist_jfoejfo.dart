@@ -1,4 +1,5 @@
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
+import 'package:treadwkd_bbbb/ui/page/trea_cash_cjwidow/trea_cash_cjwidow.dart';
 import 'package:treadwkd_bbbb/ui/page/trea_home_dniewdo/trea_home_dniewdo.dart';
 import 'package:treadwkd_bbbb/ui/page/trea_play/trea_kitten_dwidwo/trea_kitten_dwidwo.dart';
 import 'package:treadwkd_bbbb/ui/page/trea_play/trea_lucky_77_dwkdjow/trea_lucky_77_dwkdjow.dart';
@@ -15,6 +16,7 @@ class TreaBbbbRoulistJfoejfo{
   static const String magic="/bbbb/magic";
   static const String sweet="/bbbb/sweet";
   static const String number="/bbbb/number";
+  static const String cash="/bbbb/cash";
 }
 
 
@@ -52,6 +54,11 @@ var treaBBBBRouListdniwhediw=[
   GetPage(
       name: TreaBbbbRoulistJfoejfo.number,
       page: ()=> TreaNumberDnwidnow(),
+      transition: Transition.fadeIn
+  ),
+  GetPage(
+      name: TreaBbbbRoulistJfoejfo.cash,
+      page: ()=> TreaCashCjwidow(),
       transition: Transition.fadeIn
   ),
 ];

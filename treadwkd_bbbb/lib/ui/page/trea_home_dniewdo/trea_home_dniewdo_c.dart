@@ -45,6 +45,10 @@ class TreaHomeDniewdoC extends TreaFaC{
     TreaRouDwjidw.toJdeidedelde(routerName: routerName);
   }
 
+  clickCash(){
+    TreaRouDwjidw.toJdeidedelde(routerName: TreaBbbbRoulistJfoejfo.cash);
+  }
+
   _initPlayTypeList()async{
     playTypeList.clear();
     var list = await TreaPlayTypeHepFjwidjo.instance.getPlayTypeList();
