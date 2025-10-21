@@ -8,4 +8,5 @@ class TreaEventCodeDhwdhwi{
   static const int showKeyAnimator=106;
   static const int updateWheelNum=107;
   static const int showLuckyCardAnimator=108;
+  static const int updateCashAmountList=109;
 }

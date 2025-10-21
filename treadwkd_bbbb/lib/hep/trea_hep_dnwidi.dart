@@ -1,5 +1,6 @@
 import 'package:treadwkd_bbbb/bean/trea_play_type_info_fhwiedhi.dart';
 import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
+import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 import 'package:treadwkd_bbbb/hep/trea_play_type_hep_fjwidjo.dart';
 
 class TreaHepDnwidi{
@@ -12,6 +13,16 @@ class TreaHepDnwidi{
       case TreaCardType.sweet: return TreaBbbbRoulistJfoejfo.sweet;
       case TreaCardType.number: return TreaBbbbRoulistJfoejfo.number;
       default: return "";
+    }
+  }
+
+  static String getTopCashTypeIconByType(String type){
+    switch(type){
+      case TreaCashType.paypal: return "hifwfiwj";
+      case TreaCashType.cashapp: return "niwndiwm";
+      case TreaCashType.pagbank: return "wdmowmdoa";
+      case TreaCashType.pix: return "iijioxmo";
+      default: return "hifwfiwj";
     }
   }
 }

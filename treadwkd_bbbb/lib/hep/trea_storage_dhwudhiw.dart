@@ -9,6 +9,7 @@ class TreaStorageDhwudhiw{
   static const String bWheelNum="bWheelNum";
   static const String bSelectedCashType="bSelectedCashType";
   static const String bOpenEyeSwitch="bOpenEyeSwitch";
+  static const String bShowFirstHasMoneyDialog="bShowFirstHasMoneyDialog";
 }
 
 StorageData<double> bMyMoney=StorageData<double>(key: TreaStorageDhwudhiw.bMyMoney, defaultValue: 0.0);
@@ -21,3 +22,4 @@ StorageData<String> bValueConfig=StorageData<String>(key: TreaStorageDhwudhiw.bV
 StorageData<String> bSelectedCashType=StorageData<String>(key: TreaStorageDhwudhiw.bSelectedCashType, defaultValue: TreaCashType.paypal);
 
 StorageData<bool> bOpenEyeSwitch=StorageData<bool>(key: TreaStorageDhwudhiw.bOpenEyeSwitch, defaultValue: true);
+StorageData<bool> bShowFirstHasMoneyDialog=StorageData<bool>(key: TreaStorageDhwudhiw.bShowFirstHasMoneyDialog, defaultValue: true);

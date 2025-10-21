@@ -10,12 +10,16 @@ import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/SlotMachinePage.dart';
 import 'package:treadwkd_bbbb/bean/trea_play_type_info_fhwiedhi.dart';
 import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
+import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_hep_dnwidi.dart';
 import 'package:treadwkd_bbbb/hep/trea_level_hep_dwifnowe.dart';
 import 'package:treadwkd_bbbb/hep/trea_play_type_hep_fjwidjo.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
+import 'package:treadwkd_bbbb/hep/trea_user_info_hep_dwidhiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_box_dialog_dnwidiw/trea_box_dialog_dnwidiw.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_first_has_money_dialog_mwdowm/trea_first_has_money_dialog_mwdowm.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_give_money_animator_dialog_dmwodmow/trea_give_money_animator_dialog_dmwodmow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_level_up_dialog_dwidjiw/trea_level_up_dialog_dwidjiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_lucky_card_dialog_dwodo/trea_lucky_card_dialog_dwodo.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_no_chance_dialog_cnidniw/trea_no_chance_dialog_cnidniw.dart';
@@ -91,10 +95,12 @@ class TreaHomeDniewdoC extends TreaFaC{
       return;
     }
     // TreaRouDwjidw.showDdjwidjow(child: TreaBoxDialogDnwidiw());
-    // Navigator.push(context, MaterialPageRoute(builder: (_)=>SlotMachineListView()));
-    // print("kk====${Random().nextDouble()*100}");
+    // Navigator.push(context, MaterialPageRoute(builder: (_)=>PaymentDropdownDemo()));
 
-    TreaPlayTypeHepFjwidjo.instance.updatePlayNumByType(TreaCardType.lucky77, -1);
+    // TreaPlayTypeHepFjwidjo.instance.updatePlayNumByType(TreaCardType.lucky77, -1);
+
+    // TreaUserInfoHepDwidhiw.instance.updateMyMoney(200);
+    TreaRouDwjidw.showDdjwidjow(child: TreaGiveMoneyAnimatorDialogDmwodmow(cashType: TreaCashType.paypal,cashMoney: 200,dismissCallback: (){},));
   }
 
   @override

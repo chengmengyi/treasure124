@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'dart:math';
-
-import 'package:flutter/foundation.dart';
 import 'package:treadwkd_bbbase/hep/trea_firebase_hep_nievnie.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_local_djwidj.dart';
 import 'package:treadwkd_bbbb/bean/trea_value_bean_wjoomc.dart';
+import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 import 'package:treadwkd_bbbb/hep/trea_level_hep_dwifnowe.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
 
@@ -25,7 +24,7 @@ class TreaValueHepJomeoc{
     _startInitValue();
   }
 
-  bool getKey()=>kDebugMode?true:Random().nextInt(100)<(_bean?.spinWheelPrizes?.keyPoint??30);
+  bool getKey()=>Random().nextInt(100)<(_bean?.spinWheelPrizes?.keyPoint??30);
 
   bool get7()=>Random().nextInt(100)<(_bean?.lucky7Reward?.point??25);
   double get7Reward()=>_getReward(_bean?.lucky7Reward?.reward??[]);
@@ -193,6 +192,50 @@ class TreaValueHepJomeoc{
   double getBubbleReward()=>_getReward(_bean?.cashPop??[]);
 
   List<int> getCashList()=>[1000,2000,3000,5000,10000];
+
+  List<String> getCashTypeList()=>[TreaCashType.paypal,TreaCashType.cashapp];
+
+  WithdrawTask? getFirstWithdrawTask()=>_getWithdrawTaskList().first;
+
+  WithdrawTask? getWithdrawTaskById(int? id){
+    var list = _getWithdrawTaskList();
+    var indexWhere = list.indexWhere((value)=>value.id==id);
+    if(indexWhere>=0){
+      return list[indexWhere];
+    }
+    return null;
+  }
+
+  WithdrawTask? getNextWithdrawTaskById(int? id){
+    try{
+      var list = _getWithdrawTaskList();
+      var indexWhere = list.indexWhere((value)=>value.id==id);
+      if(indexWhere>=0){
+        return list[indexWhere+1];
+      }
+      return null;
+    }catch(e){
+      return null;
+    }
+  }
+
+  List<WithdrawTask> _getWithdrawTaskList(){
+    var list = _bean?.withdrawTask??[];
+    if(list.isEmpty){
+      return [
+        WithdrawTask(id: 1,type: "card",count: 20),
+        WithdrawTask(id: 2,type: "wheel",count: 20),
+        WithdrawTask(id: 3,type: "lucky",count: 20),
+        WithdrawTask(id: 4,type: "ad",count: 20),
+        WithdrawTask(id: 5,type: "wheel",count: 20),
+        WithdrawTask(id: 6,type: "lucky",count: 20),
+        WithdrawTask(id: 7,type: "ad",count: 20),
+        WithdrawTask(id: 8,type: "wheel",count: 20),
+        WithdrawTask(id: 9,type: "lucky",count: 20),
+      ];
+    }
+    return list;
+  }
 
   int getUpLevelReward(){
     try{

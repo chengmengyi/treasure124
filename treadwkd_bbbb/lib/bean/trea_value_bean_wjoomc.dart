@@ -117,20 +117,25 @@ class TreaValueBeanWjoomc {
 
 class WithdrawTask {
   WithdrawTask({
-      this.type, 
-      this.count,});
+    this.type,
+    this.count,
+    this.id,
+  });
 
   WithdrawTask.fromJson(dynamic json) {
     type = json['type'];
     count = json['count'];
+    id = json['id'];
   }
   String? type;
   int? count;
+  int? id;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['type'] = type;
     map['count'] = count;
+    map['id'] = id;
     return map;
   }
 

@@ -17,29 +17,68 @@ class TreaBoxDialogDnwidiw extends TreaFaD<TreaBoxDialogDnwidiwC>{
   Widget wwwdwjidwo() => Column(
     mainAxisSize: MainAxisSize.min,
     children: [
-      SizedBox(
-        width: double.infinity,
-        height: 570.h,
-        // margin: EdgeInsets.only(left: 35.w,right: 35.w),
-        child: Stack(
-          children: [
-            TreaImageDhwudhiw(name: "mdiwmimd",width: double.infinity,height: double.infinity,),
-            _contentWidget(),
-            Positioned(
-              top: 40.h,
-              right: 12.w,
-              child: TreaClickDhwidjow(
-                onTap: (){
-                  treaC.clickClose();
-                },
-                child: TreaImageDhwudhiw(name: "icon_close",width: 24.w,height: 24.w,),
-              ),
-            ),
-          ],
+      Container(
+        margin: EdgeInsets.only(left: 38.w,right: 38.w),
+        child: TreaImageDhwudhiw(name: "modwmomwo",width: double.infinity,height: 192.h,),
+      ),
+      _textWidget(),
+    ],
+  );
+  //     Column(
+  //   mainAxisSize: MainAxisSize.min,
+  //   children: [
+  //     SizedBox(
+  //       width: double.infinity,
+  //       height: 570.h,
+  //       // margin: EdgeInsets.only(left: 35.w,right: 35.w),
+  //       child: Stack(
+  //         children: [
+  //           TreaImageDhwudhiw(name: "mdiwmimd",width: double.infinity,height: double.infinity,),
+  //           _contentWidget(),
+  //           Positioned(
+  //             top: 40.h,
+  //             right: 12.w,
+  //             child: TreaClickDhwidjow(
+  //               onTap: (){
+  //                 treaC.clickClose();
+  //               },
+  //               child: TreaImageDhwudhiw(name: "icon_close",width: 24.w,height: 24.w,),
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //     SizedBox(height: 58.h,),
+  //     _btnWidget(),
+  //   ],
+  // );
+
+  _textWidget()=>Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      TreaGradientTextDhwiodw(
+        data: "Check in earn 3 Treasure",
+        size: 20.sp,
+        fontWeight: FontWeight.w900,
+        lineColor: "#000000",
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),"#FFFF00".toColordwdowfw()],
         ),
       ),
-      SizedBox(height: 58.h,),
-      _btnWidget(),
+      SizedBox(height: 8.h,),
+      TreaGradientTextDhwiodw(
+        data: "Chest Draw chaces",
+        size: 20.sp,
+        fontWeight: FontWeight.w900,
+        lineColor: "#000000",
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),"#FFFF00".toColordwdowfw()],
+        ),
+      ),
     ],
   );
 

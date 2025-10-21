@@ -114,7 +114,17 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
     children: [
       SizedBox(width: 20.w,),
       TreaBoxWidgetDjwidjow(),
-      Spacer(),
+      Expanded(
+        child: TreaClickDhwidjow(
+          onTap: (){
+            treaC.test();
+          },
+          child: Container(
+            width: double.infinity,
+            height: 50.h,
+          ),
+        ),
+      ),
       TreaClickDhwidjow(
         onTap: (){
 
