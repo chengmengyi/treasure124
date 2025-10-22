@@ -17,41 +17,11 @@ class TreaBoxDialogDnwidiw extends TreaFaD<TreaBoxDialogDnwidiwC>{
   Widget wwwdwjidwo() => Column(
     mainAxisSize: MainAxisSize.min,
     children: [
-      Container(
-        margin: EdgeInsets.only(left: 38.w,right: 38.w),
-        child: TreaImageDhwudhiw(name: "modwmomwo",width: double.infinity,height: 192.h,),
-      ),
+      _topWidget(),
       _textWidget(),
+      _contentWidget(),
     ],
   );
-  //     Column(
-  //   mainAxisSize: MainAxisSize.min,
-  //   children: [
-  //     SizedBox(
-  //       width: double.infinity,
-  //       height: 570.h,
-  //       // margin: EdgeInsets.only(left: 35.w,right: 35.w),
-  //       child: Stack(
-  //         children: [
-  //           TreaImageDhwudhiw(name: "mdiwmimd",width: double.infinity,height: double.infinity,),
-  //           _contentWidget(),
-  //           Positioned(
-  //             top: 40.h,
-  //             right: 12.w,
-  //             child: TreaClickDhwidjow(
-  //               onTap: (){
-  //                 treaC.clickClose();
-  //               },
-  //               child: TreaImageDhwudhiw(name: "icon_close",width: 24.w,height: 24.w,),
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //     ),
-  //     SizedBox(height: 58.h,),
-  //     _btnWidget(),
-  //   ],
-  // );
 
   _textWidget()=>Column(
     mainAxisSize: MainAxisSize.min,
@@ -82,150 +52,93 @@ class TreaBoxDialogDnwidiw extends TreaFaD<TreaBoxDialogDnwidiwC>{
     ],
   );
 
-  _contentWidget()=>Align(
-    alignment: Alignment.bottomCenter,
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
+  _contentWidget()=>Container(
+    width: double.infinity,
+    margin: EdgeInsets.only(left: 12.w,right: 12.w),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TreaGradientTextDhwiodw(
-          data: "Check in earn 3 Treasure",
-          size: 20.sp,
-          fontWeight: FontWeight.w900,
-          lineColor: "#000000",
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),"#FFFF00".toColordwdowfw()],
+        Expanded(
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              TreaImageDhwudhiw(name: "wjijewm",width: double.infinity,height: 174.h,),
+              TreaImageDhwudhiw(name: "jhwiiwj",width: double.infinity,height: 232.h,),
+              _rollerWidget(),
+            ],
           ),
         ),
-        TreaGradientTextDhwiodw(
-          data: "Chest Draw chaces",
-          size: 20.sp,
-          fontWeight: FontWeight.w900,
-          lineColor: "#000000",
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),"#FFFF00".toColordwdowfw()],
-          ),
+        Container(
+          margin: EdgeInsets.only(top: 50.h),
+          child: TreaImageDhwudhiw(name: "wuhun",width: 26.w,height: 84.h,),
         ),
-        SizedBox(height: 20.h,),
-        Stack(
-          alignment: Alignment.center,
-          children: [
-            _rollerBgWidget(),
-            _rollerWidget(),
-          ],
-        ),
-        SizedBox(height: 40.h,),
       ],
     ),
   );
 
-  _rollerBgWidget()=>Row(
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          _rollerBgItemWidget(false),
-          _rollerBgItemWidget(true),
-          _rollerBgItemWidget(false),
-        ],
-      ),
-      SizedBox(width: 18.w,),
-      Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          _rollerBgItemWidget(false),
-          _rollerBgItemWidget(true),
-          _rollerBgItemWidget(false),
-        ],
-      ),
-      SizedBox(width: 18.w,),
-      Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          _rollerBgItemWidget(false),
-          _rollerBgItemWidget(true),
-          _rollerBgItemWidget(false),
-        ],
-      ),
-    ],
-  );
-
-  _rollerBgItemWidget(bool center)=>Container(
-    width: 85.w,
-    height: treaC.itemHeight,
-    alignment: Alignment.center,
-    child: TreaImageDhwudhiw(name: center?"dmwidiw":"mdiwmdow",width: 85.w,height: 85.w,),
-  );
-  // {
-  //   if(center){
-  //     return TreaImageDhwudhiw(name: "dmwidiw",width: 85.w,height: 85.w,);
-  //   }
-  //   return TreaImageDhwudhiw(name: "mdiwmdow",width: 85.w,height: 85.w,);
-  // }
-
   _rollerWidget()=>Row(
     mainAxisSize: MainAxisSize.min,
     children: [
-      SizedBox(
-        width: 85.w,
-        height: treaC.itemHeight*3,
-        child: ListView.builder(
-          controller: treaC.controllers[0],
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: 3000,
-          itemBuilder: (context, index) {
-            var icon = treaC.iconList1[index % 3];
-            return Container(
-              width: 85.w,
-              height: treaC.itemHeight,
-              alignment: Alignment.center,
-              child: TreaImageDhwudhiw(name: icon,width: 55.w,height: 55.w,),
-            );
-          },
+      Expanded(
+        child: SizedBox(
+          width: double.infinity,
+          height: treaC.itemHeight*3,
+          child: ListView.builder(
+            controller: treaC.controllers[0],
+            // physics: const NeverScrollableScrollPhysics(),
+            itemCount: 3000,
+            itemBuilder: (context, index) {
+              var icon = treaC.iconList1[index % 3];
+              return Container(
+                width: double.infinity,
+                height: treaC.itemHeight,
+                alignment: Alignment.center,
+                child: TreaImageDhwudhiw(name: icon,width: 40.w,height: 40.w,),
+              );
+            },
+          ),
         ),
       ),
-      SizedBox(width: 18.w,),
-      SizedBox(
-        width: 85.w,
-        height: treaC.itemHeight*3,
-        child: ListView.builder(
-          controller: treaC.controllers[1],
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: 3000,
-          itemBuilder: (context, index) {
-            var icon = treaC.iconList2[index % 3];
-            return Container(
-              width: 85.w,
-              height: treaC.itemHeight,
-              alignment: Alignment.center,
-              child: TreaImageDhwudhiw(name: icon,width: 55.w,height: 55.w,),
-            );
-          },
-        ),
-      ),
-      SizedBox(width: 18.w,),
-      SizedBox(
-        width: 85.w,
-        height: treaC.itemHeight*3,
-        child: ListView.builder(
-          controller: treaC.controllers[2],
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: 3000,
-          itemBuilder: (context, index) {
-            var icon = treaC.iconList3[index % 3];
-            return Container(
-              width: 85.w,
-              height: treaC.itemHeight,
-              alignment: Alignment.center,
-              child: TreaImageDhwudhiw(name: icon,width: 55.w,height: 55.w,),
-            );
-          },
-        ),
-      ),
+      Spacer(),
+      Spacer(),
+      // SizedBox(width: 18.w,),
+      // SizedBox(
+      //   width: 85.w,
+      //   height: treaC.itemHeight*3,
+      //   child: ListView.builder(
+      //     controller: treaC.controllers[1],
+      //     physics: const NeverScrollableScrollPhysics(),
+      //     itemCount: 3000,
+      //     itemBuilder: (context, index) {
+      //       var icon = treaC.iconList2[index % 3];
+      //       return Container(
+      //         width: 85.w,
+      //         height: treaC.itemHeight,
+      //         alignment: Alignment.center,
+      //         child: TreaImageDhwudhiw(name: icon,width: 55.w,height: 55.w,),
+      //       );
+      //     },
+      //   ),
+      // ),
+      // SizedBox(width: 18.w,),
+      // SizedBox(
+      //   width: 85.w,
+      //   height: treaC.itemHeight*3,
+      //   child: ListView.builder(
+      //     controller: treaC.controllers[2],
+      //     physics: const NeverScrollableScrollPhysics(),
+      //     itemCount: 3000,
+      //     itemBuilder: (context, index) {
+      //       var icon = treaC.iconList3[index % 3];
+      //       return Container(
+      //         width: 85.w,
+      //         height: treaC.itemHeight,
+      //         alignment: Alignment.center,
+      //         child: TreaImageDhwudhiw(name: icon,width: 55.w,height: 55.w,),
+      //       );
+      //     },
+      //   ),
+      // ),
     ],
   );
 
@@ -256,5 +169,24 @@ class TreaBoxDialogDnwidiw extends TreaFaD<TreaBoxDialogDnwidiwC>{
         ],
       ),
     ),
+  );
+
+  _topWidget()=>Stack(
+    children: [
+      Container(
+        margin: EdgeInsets.only(left: 38.w,right: 38.w),
+        child: TreaImageDhwudhiw(name: "modwmomwo",width: double.infinity,height: 192.h,),
+      ),
+      Positioned(
+        top: 40.h,
+        right: 38.w,
+        child: TreaClickDhwidjow(
+          onTap: (){
+            treaC.clickClose();
+          },
+          child: TreaImageDhwudhiw(name: "icon_close",width: 24.w,height: 24.w,),
+        ),
+      ),
+    ],
   );
 }

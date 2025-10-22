@@ -101,13 +101,13 @@ class TreaHomeDniewdoC extends TreaFaC{
       return;
     }
     // TreaRouDwjidw.showDdjwidjow(child: TreaBoxDialogDnwidiw());
-    // Navigator.push(context, MaterialPageRoute(builder: (_)=>PaymentDropdownDemo()));
+    Navigator.push(context, MaterialPageRoute(builder: (_)=>WheelSlotMachine()));
 
     // TreaPlayTypeHepFjwidjo.instance.updatePlayNumByType(TreaCardType.lucky77, -1);
 
     // TreaUserInfoHepDwidhiw.instance.updateMyMoney(200);
     // TreaRouDwjidw.showDdjwidjow(child: TreaCashSuccessDialogDwiiw());
-    TreaCashHepCneimdi.instance.updateCashTask(TreaTaskType.lucky);
+    // TreaCashHepCneimdi.instance.updateCashTask(TreaTaskType.lucky);
   }
 
   @override

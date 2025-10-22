@@ -8,7 +8,7 @@ import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/hep/trea_box_hep_whidowmd.dart';
 
 class TreaBoxDialogDnwidiwC extends TreaFaC{
-  var boxNum=0,itemHeight=94.w,isSpinning = false;
+  var boxNum=0,itemHeight=50.h,isSpinning = false;
   final List<ScrollController> controllers = List.generate(3, (_) => ScrollController());
   final List<String> iconList1=["dmeimd","dmeodmoe","dmeimd"];
   final List<String> iconList2=["mdiwemodwm","dmeodmoe","dmeodmoe"];
