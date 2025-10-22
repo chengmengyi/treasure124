@@ -18,44 +18,39 @@ class TreaGiveMoneyAnimatorDialogDmwodmow extends TreaFaD<TreaGiveMoneyAnimatorD
     required this.dismissCallback,
 });
   @override
-  TreaGiveMoneyAnimatorDialogDmwodmowC cccDiheiwidow() => TreaGiveMoneyAnimatorDialogDmwodmowC();
+  TreaGiveMoneyAnimatorDialogDmwodmowC cccDiheiwidow() => TreaGiveMoneyAnimatorDialogDmwodmowC(dismissCallback);
 
   @override
-  Widget wwwdwjidwo() => TreaClickDhwidjow(
-    onTap: (){
-      TreaRouDwjidw.backdwhudie();
-    },
-    child: GetBuilder<TreaGiveMoneyAnimatorDialogDmwodmowC>(
-      id: "content",
-      builder: (_)=>Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.all(18.w),
-            margin: EdgeInsets.only(left: 20.w,right: 20.w,bottom: 45.h),
-            decoration: BoxDecoration(
-              color: "#F2FAFF".toColordwdowfw(),
-              borderRadius: BorderRadius.circular(12.w),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                _topWidget(),
-                SizedBox(height: 12.h,),
-                _moneyWidget(),
-                SizedBox(height: 12.h,),
-                _progressWidget(),
-                SizedBox(height: 12.h,),
-                TreaImageDhwudhiw(name: "weyuwhu",width: 189.w,height: 107.h,),
-                TreaImageDhwudhiw(name: "wjiwmos",width: double.infinity,height: 1.h,),
-                SizedBox(height: 40.h,),
-              ],
-            ),
+  Widget wwwdwjidwo() => GetBuilder<TreaGiveMoneyAnimatorDialogDmwodmowC>(
+    id: "content",
+    builder: (_)=>Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Container(
+          width: double.infinity,
+          padding: EdgeInsets.all(18.w),
+          margin: EdgeInsets.only(left: 20.w,right: 20.w,bottom: 45.h),
+          decoration: BoxDecoration(
+            color: "#F2FAFF".toColordwdowfw(),
+            borderRadius: BorderRadius.circular(12.w),
           ),
-          TreaImageDhwudhiw(name: treaC.showSuccess?"shiwi":"uwye8h",width: 90.w,height: 90.w,),
-        ],
-      ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _topWidget(),
+              SizedBox(height: 12.h,),
+              _moneyWidget(),
+              SizedBox(height: 12.h,),
+              _progressWidget(),
+              SizedBox(height: 12.h,),
+              TreaImageDhwudhiw(name: "weyuwhu",width: 189.w,height: 107.h,),
+              TreaImageDhwudhiw(name: "wjiwmos",width: double.infinity,height: 1.h,),
+              SizedBox(height: 40.h,),
+            ],
+          ),
+        ),
+        TreaImageDhwudhiw(name: treaC.showSuccess?"shiwi":"uwye8h",width: 90.w,height: 90.w,),
+      ],
     ),
   );
 

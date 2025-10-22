@@ -247,6 +247,27 @@ class TreaValueHepJomeoc{
     }
   }
 
+  AllRank getAllRank()=>_bean?.queueRank?.allRank??AllRank(intAll: 397,intAllDelete: [10,15]);
+
+  CurrentRank getCurrentRank()=>_bean?.queueRank?.currentRank??CurrentRank(intCurrent: 93,intCurrentDelete: [3,8]);
+
+  int getCurrentReduceNum()=>_getRandomDeduceNum(getCurrentRank().intCurrentDelete??[]);
+
+  int getAllReduceNum()=>_getRandomDeduceNum(getAllRank().intAllDelete??[]);
+
+  int _getRandomDeduceNum(List<int> list) {
+    if(list.isEmpty){
+      return 0;
+    }
+    if(list.length==1){
+      return list.first;
+    }
+    var min = list.first;
+    var max = list.last;
+    final random = Random();
+    return min + random.nextInt(max - min + 1);
+  }
+
   double _getReward(List<Reward> list){
     if(list.isEmpty){
       return 0.0;

@@ -7,8 +7,10 @@ import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
 import 'package:treadwkd_bbbb/hep/trea_value_hep_jomeoc.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_cash_task_dialog_dwidijw/trea_cash_task_dialog_dwidijw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_input_account_dialog_dmwidow/trea_input_account_dialog_dmwidow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_no_money_widowm/trea_no_money_dialog_widowm.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_rank_dialog_dwiehiw/trea_rank_dialog_dwiehiw.dart';
 
 class TreaCashCjwidowC extends TreaFaC{
   var cashType=bSelectedCashType.getData();
@@ -27,12 +29,33 @@ class TreaCashCjwidowC extends TreaFaC{
   }
 
   clickCashBtn(TreaAmountBean bean){
-    TreaRouDwjidw.showDdjwidjow(
-      child: TreaInputAccountDialogDmwidow(cashType: cashType, money: bean.money,),
-    );
-    // TreaRouDwjidw.showDdjwidjow(
-    //   child: TreaNoMoneyDialogWidowm(),
-    // );
+    if(null!=bean.cashTaskInfoBeanWiodow){
+      var completedCashTask = TreaCashHepCneimdi.instance.checkCompletedCashTask(bean.cashTaskInfoBeanWiodow);
+      if(completedCashTask){
+        TreaCashHepCneimdi.instance.showCompletedTaskDialog(taskInfo: bean.cashTaskInfoBeanWiodow!);
+        return;
+      }
+      if(bean.cashTaskInfoBeanWiodow?.isRank==1){
+        TreaCashHepCneimdi.instance.showRankDialog(bean.cashTaskInfoBeanWiodow);
+        return;
+      }
+      TreaRouDwjidw.showDdjwidjow(
+        child: TreaCashTaskDialogDwidijw(
+          cashTaskInfo: bean.cashTaskInfoBeanWiodow,
+          clickGoCallback: (){
+            TreaRouDwjidw.backdwhudie();
+          },
+        ),
+      );
+      return;
+    }
+    if(bMyMoney.getData()<bean.money){
+      TreaRouDwjidw.showDdjwidjow(
+        child: TreaNoMoneyDialogWidowm(),
+      );
+      return;
+    }
+    TreaCashHepCneimdi.instance.showInputAccountDialog(cashType,bean.money);
   }
 
   clickOpenMoneySwitch(bool data){
@@ -98,6 +121,9 @@ class TreaCashCjwidowC extends TreaFaC{
   }
 
   String getTaskStr(TreaCashTaskInfoBeanWiodow? cashTaskInfo){
+    if(cashTaskInfo?.isRank==1){
+      return "Your Current rank:${cashTaskInfo?.currentProgress??0}";
+    }
     var withdrawTask = TreaValueHepJomeoc.instance.getWithdrawTaskById(cashTaskInfo?.taskId);
     if(null==withdrawTask){
       return "";
@@ -125,6 +151,14 @@ class TreaCashCjwidowC extends TreaFaC{
     }else{
       return d;
     }
+  }
+
+  String getTaskTopRightStr(TreaCashTaskInfoBeanWiodow? cashTaskInfo){
+    if(cashTaskInfo?.isRank==1){
+      return "In queue";
+    }
+    var completedCashTask = TreaCashHepCneimdi.instance.checkCompletedCashTask(cashTaskInfo);
+    return completedCashTask?"Success":"Progressing";
   }
 
   _queryAmountList()async{

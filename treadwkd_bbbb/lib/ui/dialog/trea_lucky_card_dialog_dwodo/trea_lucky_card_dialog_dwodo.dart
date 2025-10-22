@@ -8,7 +8,7 @@ import 'package:treadwkd_bbbb/ui/dialog/trea_lucky_card_dialog_dwodo/trea_lucky_
 import 'package:treadwkd_bbbb/ui/widget/trea_luck_card_item_widget_cwodjow.dart';
 
 class TreaLuckyCardDialogDwodo extends TreaFaD<TreaLuckyCardDialogDwodoC>{
-  Function() dismissDialogCallback;
+  Function(bool played) dismissDialogCallback;
   TreaLuckyCardDialogDwodo({
     required this.dismissDialogCallback,
 });

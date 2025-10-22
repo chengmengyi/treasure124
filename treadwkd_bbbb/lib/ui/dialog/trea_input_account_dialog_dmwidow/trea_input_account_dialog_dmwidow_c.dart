@@ -3,12 +3,11 @@ import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
-import 'package:treadwkd_bbbb/hep/trea_user_info_hep_dwidhiw.dart';
 
 class TreaInputAccountDialogDmwidowC extends TreaFaC{
   TextEditingController textEditingController=TextEditingController();
 
-  clickCash(String cashType, int money)async{
+  clickCash(String cashType, int money, Function(String cashType, int cashMoney, String account) sureCallback)async{
     var content = textEditingController.text.trim();
     if(cashType==TreaCashType.cashapp&&!_isTenDigitNumber(content)){
       showToast("The format you entered is incorrect.");
@@ -18,9 +17,8 @@ class TreaInputAccountDialogDmwidowC extends TreaFaC{
       showToast("The format you entered is incorrect.");
       return;
     }
-    await TreaCashHepCneimdi.instance.createCashTask(cashType, money);
-    TreaUserInfoHepDwidhiw.instance.updateMyMoney((-money).toDouble());
     TreaRouDwjidw.backdwhudie();
+    sureCallback.call(cashType,money,content);
   }
 
   clickClose(){

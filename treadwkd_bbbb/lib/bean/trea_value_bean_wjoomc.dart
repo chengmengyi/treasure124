@@ -15,6 +15,7 @@ class TreaValueBeanWjoomc {
       this.levelUpPrizes, 
       this.withdrawTask,
       this.cashPop,
+      this.queueRank,
   });
 
   TreaValueBeanWjoomc.fromJson(dynamic json) {
@@ -31,6 +32,7 @@ class TreaValueBeanWjoomc {
       });
     }
     lucky7Reward = json['lucky_7_reward'] != null ? Lucky7Reward.fromJson(json['lucky_7_reward']) : null;
+    queueRank = json['queue_rank'] != null ? QueueRank.fromJson(json['queue_rank']) : null;
     collectorWinReward = json['collector_win_reward'] != null ? CollectorWinReward.fromJson(json['collector_win_reward']) : null;
     dogWinningReward = json['dog_winning_reward'] != null ? DogWinningReward.fromJson(json['dog_winning_reward']) : null;
     cardKingReward = json['card_king_reward'] != null ? CardKingReward.fromJson(json['card_king_reward']) : null;
@@ -70,6 +72,7 @@ class TreaValueBeanWjoomc {
   List<Reward>? cashPop;
   List<int>? levelUpPrizes;
   List<WithdrawTask>? withdrawTask;
+  QueueRank? queueRank;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -81,6 +84,9 @@ class TreaValueBeanWjoomc {
     }
     if (lucky7Reward != null) {
       map['lucky_7_reward'] = lucky7Reward?.toJson();
+    }
+    if (queueRank != null) {
+      map['queue_rank'] = queueRank?.toJson();
     }
     if (collectorWinReward != null) {
       map['collector_win_reward'] = collectorWinReward?.toJson();
@@ -486,6 +492,72 @@ class AdIncentives {
     map['lower_bound'] = lowerBound;
     map['points'] = points;
     map['upper_bound'] = upperBound;
+    return map;
+  }
+
+}
+
+class QueueRank {
+  QueueRank({
+    this.allRank,
+    this.currentRank,});
+
+  QueueRank.fromJson(dynamic json) {
+    allRank = json['all_rank'] != null ? AllRank.fromJson(json['all_rank']) : null;
+    currentRank = json['current_rank'] != null ? CurrentRank.fromJson(json['current_rank']) : null;
+  }
+  AllRank? allRank;
+  CurrentRank? currentRank;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    if (allRank != null) {
+      map['all_rank'] = allRank?.toJson();
+    }
+    if (currentRank != null) {
+      map['current_rank'] = currentRank?.toJson();
+    }
+    return map;
+  }
+
+}
+
+class CurrentRank {
+  CurrentRank({
+    this.intCurrent,
+    this.intCurrentDelete,});
+
+  CurrentRank.fromJson(dynamic json) {
+    intCurrent = json['int_current'];
+    intCurrentDelete = json['int_current_delete'] != null ? json['int_current_delete'].cast<int>() : [];
+  }
+  int? intCurrent;
+  List<int>? intCurrentDelete;
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['int_current'] = intCurrent;
+    map['int_current_delete'] = intCurrentDelete;
+    return map;
+  }
+
+}
+
+class AllRank {
+  AllRank({
+    this.intAll,
+    this.intAllDelete,});
+
+  AllRank.fromJson(dynamic json) {
+    intAll = json['int_all'];
+    intAllDelete = json['int_all_delete'] != null ? json['int_all_delete'].cast<int>() : [];
+  }
+  int? intAll;
+  List<int>? intAllDelete;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['int_all'] = intAll;
+    map['int_all_delete'] = intAllDelete;
     return map;
   }
 

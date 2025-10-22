@@ -9,7 +9,7 @@ import 'package:treadwkd_bbbb/ui/dialog/trea_reward_dialog_jwidjow/trea_reward_d
 
 class TreaLuckyCardDialogDwodoC extends TreaFaC{
   var canClick=true;
-  Function() dismissDialogCallback;
+  Function(bool played) dismissDialogCallback;
   TreaLuckyCardDialogDwodoC({
     required this.dismissDialogCallback,
 });
@@ -37,7 +37,9 @@ class TreaLuckyCardDialogDwodoC extends TreaFaC{
       child: TreaRewardDialogJwidjow(
         reward: rewardList[index],
         dismissCallback: (){
-          _closeDialog();
+          TreaUserInfoHepDwidhiw.instance.resetLuckyCardNum();
+          TreaRouDwjidw.backdwhudie();
+          dismissDialogCallback.call(true);
         },
       ),
     );
@@ -49,14 +51,10 @@ class TreaLuckyCardDialogDwodoC extends TreaFaC{
     }
     TreaAdHepNwidiow.instance.showAdndiwjdow(
       closeAd: (give){
-        _closeDialog();
+        TreaUserInfoHepDwidhiw.instance.resetLuckyCardNum();
+        TreaRouDwjidw.backdwhudie();
+        dismissDialogCallback.call(false);
       },
     );
-  }
-
-  _closeDialog(){
-    TreaUserInfoHepDwidhiw.instance.resetLuckyCardNum();
-    TreaRouDwjidw.backdwhudie();
-    dismissDialogCallback.call();
   }
 }

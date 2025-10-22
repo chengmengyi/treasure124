@@ -12,9 +12,11 @@ import 'package:treadwkd_bbbb/ui/dialog/trea_input_account_dialog_dmwidow/trea_i
 class TreaInputAccountDialogDmwidow extends TreaFaD<TreaInputAccountDialogDmwidowC>{
   String cashType;
   int money;
+  Function(String cashType,int cashMoney,String account) sureCallback;
   TreaInputAccountDialogDmwidow({
     required this.cashType,
     required this.money,
+    required this.sureCallback,
 });
 
   @override
@@ -112,7 +114,7 @@ class TreaInputAccountDialogDmwidow extends TreaFaD<TreaInputAccountDialogDmwido
 
   _btnWidget()=>TreaClickDhwidjow(
     onTap: (){
-      treaC.clickCash(cashType,money);
+      treaC.clickCash(cashType,money,sureCallback);
     },
     child: Container(
       width: double.infinity,

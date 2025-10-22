@@ -2,14 +2,13 @@ import 'dart:async';
 
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
-import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 
-class TreaGiveMoneyAnimatorDialogDmwodmowC extends TreaFaC{
-  var progressIndex=0,showSuccess=true;
+class TreaApplyAnimatorDialogDjwijowC extends TreaFaC{
+  var progressIndex=0,showSuccess=false;
   Timer? _timer;
   late Function() dismissCallback;
 
-  TreaGiveMoneyAnimatorDialogDmwodmowC(this.dismissCallback);
+  TreaApplyAnimatorDialogDjwijowC(this.dismissCallback);
 
   @override
   void onReady() {
@@ -28,21 +27,11 @@ class TreaGiveMoneyAnimatorDialogDmwodmowC extends TreaFaC{
     await Future.delayed(Duration(milliseconds: 4000));
     _timer?.cancel();
     _timer=null;
-    showSuccess=false;
+    showSuccess=true;
     update(["content"]);
     await Future.delayed(Duration(milliseconds: 1000));
     TreaRouDwjidw.backdwhudie();
     dismissCallback.call();
-  }
-
-  String getCashBg(String cashType){
-    switch(cashType){
-      case TreaCashType.paypal: return "dmiwmodwm";
-      case TreaCashType.cashapp: return "hiwdniwmd";
-      case TreaCashType.pagbank: return "wyindwm";
-      case TreaCashType.pix: return "jsihduwhduwn";
-      default: return "jsihduwhduwn";
-    }
   }
 
   @override

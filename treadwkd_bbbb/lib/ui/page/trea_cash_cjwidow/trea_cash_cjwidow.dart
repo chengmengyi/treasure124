@@ -54,7 +54,7 @@ class TreaCashCjwidow extends TreaFaP<TreaCashCjwidowC>{
             if(null==bean.cashTaskInfoBeanWiodow){
               return _amountItemWidget(bean);
             }
-            return _amountTaskItemWidget(bean.cashTaskInfoBeanWiodow);
+            return _amountTaskItemWidget(bean);
           },
         ),
       ),
@@ -96,72 +96,80 @@ class TreaCashCjwidow extends TreaFaP<TreaCashCjwidowC>{
     ),
   );
 
-  _amountTaskItemWidget(TreaCashTaskInfoBeanWiodow? cashTaskInfo)=> Container(
-    width: double.infinity,
-    height: 104.h,
-    margin: EdgeInsets.only(left: 16.w,right: 16.w,bottom: 16.h),
-    child: Stack(
-      children: [
-        TreaImageDhwudhiw(name: treaC.getAmountTaskBg(),width: double.infinity,height: double.infinity,),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Container(
-            margin: EdgeInsets.only(left: 20.w),
-            child: TreaTextDwihdw(data: "\$${cashTaskInfo?.cashMoney}", size: 24.sp, color: "#000000",fontWeight: FontWeight.bold,),
-          ),
-        ),
-        Align(
-          alignment: Alignment.topRight,
-          child: Container(
-            width: 140.w,
-            height: 30.h,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: treaC.getCashItemTopRightColor().toColordwdowfw(),
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(12.w),
-                bottomLeft: Radius.circular(12.w),
-              )
+  _amountTaskItemWidget(TreaAmountBean bean)=> TreaClickDhwidjow(
+    onTap: (){
+      treaC.clickCashBtn(bean);
+    },
+    child: Container(
+      width: double.infinity,
+      height: 104.h,
+      margin: EdgeInsets.only(left: 16.w,right: 16.w,bottom: 16.h),
+      child: Stack(
+        children: [
+          TreaImageDhwudhiw(name: treaC.getAmountTaskBg(),width: double.infinity,height: double.infinity,),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              margin: EdgeInsets.only(left: 20.w),
+              child: TreaTextDwihdw(data: "\$${bean.cashTaskInfoBeanWiodow?.cashMoney}", size: 24.sp, color: "#000000",fontWeight: FontWeight.bold,),
             ),
-            child: TreaTextDwihdw(data: "Progressing", size: 15.sp, color: "#FFFFFF",fontWeight: FontWeight.bold,),
           ),
-        ),
-        Positioned(
-          right: 14.w,
-          bottom: 8.h,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TreaTextDwihdw(data: treaC.getTaskStr(cashTaskInfo), size: 15.sp, color: "#000000",fontWeight: FontWeight.bold,),
-              SizedBox(height: 10.h,),
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    width: 184.w,
-                    height: 20.h,
-                    alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.only(left: 2.w,right: 2.w),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24.w),
-                      color: "#272B2F".toColordwdowfw(),
-                    ),
-                    child: Container(
-                      width: (180.w)*treaC.getTaskProgress(cashTaskInfo),
-                      height: 16.h,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(24.w),
-                        color: "#77FF8B".toColordwdowfw(),
-                      ),
-                    ),
-                  ),
-                  TreaTextDwihdw(data: "${cashTaskInfo?.currentProgress??0}/${cashTaskInfo?.totalProgress??0}", size: 15.sp, color: "#FFFFFF",fontWeight: FontWeight.bold,lineColor: "#000000",)
-                ],
+          Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              width: 140.w,
+              height: 30.h,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: treaC.getCashItemTopRightColor().toColordwdowfw(),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(12.w),
+                  bottomLeft: Radius.circular(12.w),
+                )
               ),
-            ],
+              child: TreaTextDwihdw(data: treaC.getTaskTopRightStr(bean.cashTaskInfoBeanWiodow), size: 15.sp, color: "#FFFFFF",fontWeight: FontWeight.bold,),
+            ),
           ),
-        ),
-      ],
+          Positioned(
+            right: 14.w,
+            bottom: 8.h,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TreaTextDwihdw(data: treaC.getTaskStr(bean.cashTaskInfoBeanWiodow), size: 15.sp, color: "#000000",fontWeight: FontWeight.bold,),
+                SizedBox(height: 10.h,),
+                Visibility(
+                  visible: bean.cashTaskInfoBeanWiodow?.isRank!=1,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        width: 184.w,
+                        height: 20.h,
+                        alignment: Alignment.centerLeft,
+                        padding: EdgeInsets.only(left: 2.w,right: 2.w),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(24.w),
+                          color: "#272B2F".toColordwdowfw(),
+                        ),
+                        child: Container(
+                          width: (180.w)*treaC.getTaskProgress(bean.cashTaskInfoBeanWiodow),
+                          height: 16.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(24.w),
+                            color: "#77FF8B".toColordwdowfw(),
+                          ),
+                        ),
+                      ),
+                      TreaTextDwihdw(data: "${bean.cashTaskInfoBeanWiodow?.currentProgress??0}/${bean.cashTaskInfoBeanWiodow?.totalProgress??0}", size: 15.sp, color: "#FFFFFF",fontWeight: FontWeight.bold,lineColor: "#000000",)
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     ),
   );
 

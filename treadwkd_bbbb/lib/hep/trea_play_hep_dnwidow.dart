@@ -8,6 +8,7 @@ import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/ui/scratcher/scratcher.dart';
 import 'package:treadwkd_bbbb/bean/trea_reward_item_bean_dwod.dart';
 import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
+import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_level_hep_dwifnowe.dart';
 import 'package:treadwkd_bbbb/hep/trea_play_type_hep_fjwidjo.dart';
@@ -68,7 +69,21 @@ class TreaPlayHepDnwidow{
     await Future.delayed(Duration(milliseconds: 1000));
     await TreaPlayTypeHepFjwidjo.instance.checkUnlockCardByLevel();
     await TreaPlayTypeHepFjwidjo.instance.updatePlayNumByType(playType, -1);
-    _checkPlayReward();
+    _checkCashTask();
+  }
+
+  _checkCashTask()async{
+    var completedTaskInfo = await TreaCashHepCneimdi.instance.updateCashTask(TreaTaskType.card);
+    if(null==completedTaskInfo){
+      _checkPlayReward();
+    }else{
+      TreaCashHepCneimdi.instance.showCompletedTaskDialog(
+        taskInfo: completedTaskInfo,
+        callback: (){
+          _checkPlayReward();
+        },
+      );
+    }
   }
 
   _checkPlayReward(){
@@ -101,8 +116,22 @@ class TreaPlayHepDnwidow{
       await Future.delayed(Duration(milliseconds: 1000));
       TreaRouDwjidw.showDdjwidjow(
         child: TreaLuckyCardDialogDwodo(
-          dismissDialogCallback: (){
-            _checkLevelStatus();
+          dismissDialogCallback: (bool played)async{
+            if(played){
+              var completedTaskInfo = await TreaCashHepCneimdi.instance.updateCashTask(TreaTaskType.lucky);
+              if(null==completedTaskInfo){
+                _checkLevelStatus();
+              }else{
+                TreaCashHepCneimdi.instance.showCompletedTaskDialog(
+                  taskInfo: completedTaskInfo,
+                  callback: (){
+                    _checkLevelStatus();
+                  },
+                );
+              }
+            }else{
+              _checkLevelStatus();
+            }
           },
         ),
       );
