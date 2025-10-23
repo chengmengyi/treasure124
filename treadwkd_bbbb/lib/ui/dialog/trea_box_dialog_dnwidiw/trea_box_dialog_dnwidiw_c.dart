@@ -1,63 +1,128 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/hep/trea_box_hep_whidowmd.dart';
+import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
+import 'package:treadwkd_bbbb/hep/trea_value_hep_jomeoc.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_reward_dialog_jwidjow/trea_reward_dialog_jwidjow.dart';
 
-class TreaBoxDialogDnwidiwC extends TreaFaC{
+class TreaBoxDialogDnwidiwC extends TreaFaC with GetSingleTickerProviderStateMixin{
   var boxNum=0,itemHeight=50.h,isSpinning = false;
-  final List<ScrollController> controllers = List.generate(3, (_) => ScrollController());
-  final List<String> iconList1=["dmeimd","dmeodmoe","dmeimd"];
-  final List<String> iconList2=["mdiwemodwm","dmeodmoe","dmeodmoe"];
-  final List<String> iconList3=["dnwijdim","dmeodmoe","mdiwemodwm"];
+  final List<FixedExtentScrollController> controllers = List.generate(3, (_) => FixedExtentScrollController());
+  List<List<String>> iconsList=[["dmeimd","dmeodmoe","dmeimd"],["mdiwemodwm","dmeodmoe","dmeodmoe"],["dnwijdim","dmeodmoe","mdiwemodwm"]];
+
+  late AnimationController _controller;
+  late Animation<double> tiltAnimation;
+
+  @override
+  void onInit() {
+    super.onInit();
+    _initAnimator();
+  }
 
   @override
   void onReady() {
     super.onReady();
     _queryBoxNum();
+    for (final c in controllers) {
+      c.jumpToItem(1);
+    }
   }
 
-  clickSpin(){
+  clickSpin()async{
     if(boxNum<=0){
       showToast("Attempts Exhausted. Please Try Again Tomorrow.");
       return;
     }
-    if (isSpinning) return;
+    if (isSpinning){
+      return;
+    }
     isSpinning = true;
 
+    _controller.forward();
+    Future.delayed(const Duration(milliseconds: 500),(){
+      _controller.reverse();
+    });
+
+    Random random = Random();
     for (int i = 0; i < controllers.length; i++) {
       final controller = controllers[i];
-      Timer? columnTimer;
+      final extraRounds = random.nextInt(10) + 10;
+      final targetIndex = iconsList[i].length * extraRounds + 1;
 
-      // 启动每列的滚动计时器
-      columnTimer = Timer.periodic(const Duration(milliseconds: 16), (t) {
-        // if (!mounted) return;
-        final newOffset = controller.offset + 25;
-        controller.jumpTo(newOffset > 100000 ? 0 : newOffset);
-      });
-
-      // 每列依次停止（间隔 0.5 秒）
-      Future.delayed(Duration(milliseconds: 2000 + i * 500), () {
-        columnTimer?.cancel();
-        controller.animateTo(
-          0,
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeOut,
+      // 每列停下时增加一点延迟，形成顺序效果
+      Future.delayed(Duration(milliseconds: i * 400), () async {
+        await controller.animateToItem(
+          targetIndex,
+          duration: const Duration(milliseconds: 2500),
+          curve: Curves.easeOutCubic,
         );
-        if (i == controllers.length - 1) isSpinning = false;
+
+        if (i == controllers.length - 1) {
+          isSpinning = false;
+          _showRewardDialog();
+        }
       });
     }
   }
 
+  _showRewardDialog(){
+    TreaBoxHepWhidowmd.instance.updateBoxNum(-1);
+    TreaRouDwjidw.showDdjwidjow(
+      child: TreaRewardDialogJwidjow(
+        reward: TreaValueHepJomeoc.instance.getBoxReward(),
+        dismissCallback: (){
+
+        },
+      ),
+    );
+  }
+
   clickClose(){
+    if (isSpinning){
+      return;
+    }
     TreaRouDwjidw.backdwhudie();
   }
 
   _queryBoxNum()async{
     boxNum = await TreaBoxHepWhidowmd.instance.queryTodayBoxNum();
     update(["btn"]);
+  }
+
+  _initAnimator(){
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+
+    // 从0旋转到-45度
+    tiltAnimation = Tween<double>(begin: 0, end: -pi / 4).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  bool initEventjdiwjdiow() => true;
+
+  @override
+  handleEventwhudwhi(TreaEventBeanDjwid bean) {
+    switch(bean.code){
+      case TreaEventCodeDhwdhwi.updateBoxNum:
+        _queryBoxNum();
+        break;
+    }
+  }
+
+  @override
+  void onClose() {
+    _controller.dispose();
+    super.onClose();
   }
 }

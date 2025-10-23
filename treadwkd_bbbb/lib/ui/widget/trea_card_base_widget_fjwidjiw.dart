@@ -98,7 +98,9 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
               children: [
                 SizedBox(
                   key: widget.playHepDnwidow.wheelIconGlobalKey,
-                  child: TreaWheelIconWidgetDjwidjiw(),
+                  child: TreaWheelIconWidgetDjwidjiw(
+                    fromHome: false,
+                  ),
                 ),
                 SizedBox(width: 20.w,),
                 TreaClickDhwidjow(

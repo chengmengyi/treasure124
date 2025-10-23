@@ -9,4 +9,6 @@ class TreaEventCodeDhwdhwi{
   static const int updateWheelNum=107;
   static const int showLuckyCardAnimator=108;
   static const int updateCashAmountList=109;
+  static const int updateBoxNum=110;
+  static const int toPlayPage=111;
 }

@@ -20,6 +20,7 @@ class TreaBoxDialogDnwidiw extends TreaFaD<TreaBoxDialogDnwidiwC>{
       _topWidget(),
       _textWidget(),
       _contentWidget(),
+      _btnWidget(),
     ],
   );
 
@@ -70,25 +71,49 @@ class TreaBoxDialogDnwidiw extends TreaFaD<TreaBoxDialogDnwidiwC>{
         ),
         Container(
           margin: EdgeInsets.only(top: 50.h),
-          child: TreaImageDhwudhiw(name: "wuhun",width: 26.w,height: 84.h,),
+          child: AnimatedBuilder(
+            animation: treaC.tiltAnimation,
+            builder: (context, child) {
+              return Transform(
+                alignment: Alignment.bottomCenter,
+                transform: Matrix4.identity()
+                  ..setEntry(3, 2, 0.002)
+                  ..rotateX(treaC.tiltAnimation.value),
+                child: child,
+              );
+            },
+            child: TreaImageDhwudhiw(name: "wuhun",width: 26.w,height: 84.h,),
+          ),
         ),
       ],
     ),
   );
 
-  _rollerWidget()=>Row(
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      Expanded(
-        child: SizedBox(
-          width: double.infinity,
-          height: treaC.itemHeight*3,
-          child: ListView.builder(
-            controller: treaC.controllers[0],
-            // physics: const NeverScrollableScrollPhysics(),
-            itemCount: 3000,
-            itemBuilder: (context, index) {
-              var icon = treaC.iconList1[index % 3];
+  _rollerWidget()=>MasonryGridView.count(
+    padding: const EdgeInsets.all(0),
+    itemCount: treaC.iconsList.length,
+    shrinkWrap: true,
+    crossAxisCount: 3,
+    mainAxisSpacing: 0,
+    crossAxisSpacing: 0,
+    physics: NeverScrollableScrollPhysics(),
+    itemBuilder: (context,largeIndwx){
+      var list = treaC.iconsList[largeIndwx];
+      return SizedBox(
+        width: double.infinity,
+        height: treaC.itemHeight*3,
+        child: ListWheelScrollView.useDelegate(
+          controller: treaC.controllers[largeIndwx],
+          physics: const FixedExtentScrollPhysics(),
+          itemExtent: treaC.itemHeight,
+          perspective: 0.002,
+          diameterRatio: 2.5,
+          overAndUnderCenterOpacity: 0.3,
+          squeeze: 1.0,
+          renderChildrenOutsideViewport: false,
+          childDelegate: ListWheelChildBuilderDelegate(
+            builder: (context, smallIndex) {
+              var icon = list[smallIndex % 3];
               return Container(
                 width: double.infinity,
                 height: treaC.itemHeight,
@@ -96,50 +121,11 @@ class TreaBoxDialogDnwidiw extends TreaFaD<TreaBoxDialogDnwidiwC>{
                 child: TreaImageDhwudhiw(name: icon,width: 40.w,height: 40.w,),
               );
             },
+            childCount: 300,
           ),
         ),
-      ),
-      Spacer(),
-      Spacer(),
-      // SizedBox(width: 18.w,),
-      // SizedBox(
-      //   width: 85.w,
-      //   height: treaC.itemHeight*3,
-      //   child: ListView.builder(
-      //     controller: treaC.controllers[1],
-      //     physics: const NeverScrollableScrollPhysics(),
-      //     itemCount: 3000,
-      //     itemBuilder: (context, index) {
-      //       var icon = treaC.iconList2[index % 3];
-      //       return Container(
-      //         width: 85.w,
-      //         height: treaC.itemHeight,
-      //         alignment: Alignment.center,
-      //         child: TreaImageDhwudhiw(name: icon,width: 55.w,height: 55.w,),
-      //       );
-      //     },
-      //   ),
-      // ),
-      // SizedBox(width: 18.w,),
-      // SizedBox(
-      //   width: 85.w,
-      //   height: treaC.itemHeight*3,
-      //   child: ListView.builder(
-      //     controller: treaC.controllers[2],
-      //     physics: const NeverScrollableScrollPhysics(),
-      //     itemCount: 3000,
-      //     itemBuilder: (context, index) {
-      //       var icon = treaC.iconList3[index % 3];
-      //       return Container(
-      //         width: 85.w,
-      //         height: treaC.itemHeight,
-      //         alignment: Alignment.center,
-      //         child: TreaImageDhwudhiw(name: icon,width: 55.w,height: 55.w,),
-      //       );
-      //     },
-      //   ),
-      // ),
-    ],
+      );
+    },
   );
 
   _btnWidget()=>GetBuilder<TreaBoxDialogDnwidiwC>(

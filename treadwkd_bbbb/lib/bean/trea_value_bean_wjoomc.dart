@@ -28,7 +28,7 @@ class TreaValueBeanWjoomc {
     if (json['daily_treasure'] != null) {
       dailyTreasure = [];
       json['daily_treasure'].forEach((v) {
-        dailyTreasure?.add(DailyTreasure.fromJson(v));
+        dailyTreasure?.add(Reward.fromJson(v));
       });
     }
     lucky7Reward = json['lucky_7_reward'] != null ? Lucky7Reward.fromJson(json['lucky_7_reward']) : null;
@@ -60,7 +60,7 @@ class TreaValueBeanWjoomc {
     }
   }
   List<AdIncentives>? adIncentives;
-  List<DailyTreasure>? dailyTreasure;
+  List<Reward>? dailyTreasure;
   Lucky7Reward? lucky7Reward;
   CollectorWinReward? collectorWinReward;
   DogWinningReward? dogWinningReward;
@@ -442,31 +442,6 @@ class Lucky7Reward {
     if (reward != null) {
       map['reward'] = reward?.map((v) => v.toJson()).toList();
     }
-    return map;
-  }
-
-}
-
-class DailyTreasure {
-  DailyTreasure({
-      this.lowerBound, 
-      this.reward, 
-      this.upperBound,});
-
-  DailyTreasure.fromJson(dynamic json) {
-    lowerBound = json['lower_bound'];
-    reward = json['reward'] != null ? json['reward'].cast<int>() : [];
-    upperBound = json['upper_bound'];
-  }
-  int? lowerBound;
-  List<int>? reward;
-  int? upperBound;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['lower_bound'] = lowerBound;
-    map['reward'] = reward;
-    map['upper_bound'] = upperBound;
     return map;
   }
 

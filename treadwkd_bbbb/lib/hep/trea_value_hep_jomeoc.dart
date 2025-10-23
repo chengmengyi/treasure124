@@ -255,6 +255,10 @@ class TreaValueHepJomeoc{
 
   int getAllReduceNum()=>_getRandomDeduceNum(getAllRank().intAllDelete??[]);
 
+  double getBoxReward()=>_getReward(_bean?.dailyTreasure??[]);
+
+  double getWheelReward()=>_getReward(_bean?.spinWheelPrizes?.reward??[]);
+
   int _getRandomDeduceNum(List<int> list) {
     if(list.isEmpty){
       return 0;

@@ -105,6 +105,18 @@ class TreaPlayTypeHepFjwidjo{
     TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.updateHomeList);
   }
 
+  unlockCardByPlayType(String? playType)async{
+    var database = await TreaSqlDwhidhwo.instance.initSql();
+    var list = await database.query(TreaSqlNamewdhiw.bPlayTypeInfo,where: 'playType = ?',whereArgs: [playType]);
+    if(list.isEmpty){
+      return;
+    }
+    var bean = TreaPlayTypeInfoFhwiedhi.fromJson(list.first);
+    bean.unlock=1;
+    await database.update(TreaSqlNamewdhiw.bPlayTypeInfo, bean.toJson(),where: 'id = ?',whereArgs: [list.first["id"]]);
+    TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.updateHomeList);
+  }
+
   String _getCardTypeByLevel(){
     var handleLevel = TreaLevelHepDwifnowe.instance.handleLevel();
     switch(handleLevel.level){

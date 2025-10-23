@@ -146,7 +146,9 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
           children: [
             Expanded(
               child: Center(
-                child: TreaWheelIconWidgetDjwidjiw(),
+                child: TreaWheelIconWidgetDjwidjiw(
+                  fromHome: true,
+                ),
               ),
             ),
             Expanded(

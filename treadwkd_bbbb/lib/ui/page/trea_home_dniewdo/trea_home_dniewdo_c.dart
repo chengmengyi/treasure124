@@ -28,8 +28,11 @@ import 'package:treadwkd_bbbb/ui/dialog/trea_give_money_animator_dialog_dmwodmow
 import 'package:treadwkd_bbbb/ui/dialog/trea_level_up_dialog_dwidjiw/trea_level_up_dialog_dwidjiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_lucky_card_dialog_dwodo/trea_lucky_card_dialog_dwodo.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_no_chance_dialog_cnidniw/trea_no_chance_dialog_cnidniw.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_no_wheel_dialog_iejiw/trea_no_wheel_dialog_iejiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_rank_dialog_dwiehiw/trea_rank_dialog_dwiehiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_reward_dialog_jwidjow/trea_reward_dialog_jwidjow.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_unlock_dialog_doowdwju/trea_unlock_dialog_doowdwju.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_wheel_dialog_dwiiwm/trea_wheel_dialog_dwiiwm.dart';
 
 class TreaHomeDniewdoC extends TreaFaC{
   Timer? _addPlayNumTimer;
@@ -48,6 +51,23 @@ class TreaHomeDniewdoC extends TreaFaC{
   }
 
   clickItem(TreaPlayTypeInfoFhwiedhi bean){
+    if(bean.unlock!=1){
+      TreaRouDwjidw.showDdjwidjow(
+        child: TreaUnlockDialogDoowdwju(bean: bean),
+      );
+      return;
+    }
+    if((bean.currentPro??0)<=0){
+      TreaRouDwjidw.showDdjwidjow(
+        child: TreaNoChanceDialogCnidniw(
+          playType: bean.playType??"",
+          clickCloseCallback: (){
+
+          },
+        ),
+      );
+      return;
+    }
     var routerName = TreaHepDnwidi.getRouterNameByType(bean.playType??"");
     if(routerName.isEmpty){
       return;
@@ -87,6 +107,16 @@ class TreaHomeDniewdoC extends TreaFaC{
       case TreaEventCodeDhwdhwi.updateHomeList:
         _initPlayTypeList();
         break;
+      case TreaEventCodeDhwdhwi.toPlayPage:
+        _toPlayPage();
+        break;
+    }
+  }
+
+  _toPlayPage(){
+    var indexWhere = playTypeList.indexWhere((value)=>value.unlock==1&&(value.currentPro??0)>0);
+    if(indexWhere>=0){
+      clickItem(playTypeList[indexWhere]);
     }
   }
 
@@ -101,12 +131,12 @@ class TreaHomeDniewdoC extends TreaFaC{
       return;
     }
     // TreaRouDwjidw.showDdjwidjow(child: TreaBoxDialogDnwidiw());
-    Navigator.push(context, MaterialPageRoute(builder: (_)=>WheelSlotMachine()));
+    // Navigator.push(context, MaterialPageRoute(builder: (_)=>SlotLeverAnimation()));
 
     // TreaPlayTypeHepFjwidjo.instance.updatePlayNumByType(TreaCardType.lucky77, -1);
 
     // TreaUserInfoHepDwidhiw.instance.updateMyMoney(200);
-    // TreaRouDwjidw.showDdjwidjow(child: TreaCashSuccessDialogDwiiw());
+    // TreaRouDwjidw.showDdjwidjow(child: TreaNoWheelDialogIejiw());
     // TreaCashHepCneimdi.instance.updateCashTask(TreaTaskType.lucky);
   }
 
