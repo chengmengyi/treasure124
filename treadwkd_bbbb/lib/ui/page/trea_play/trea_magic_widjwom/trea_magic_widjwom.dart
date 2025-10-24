@@ -62,7 +62,7 @@ class TreaMagicWidjwom extends TreaFaP<TreaMagicWidjwomC>{
 
           },
           onScratchStart: (){
-
+            treaC.playHepDnwidow.playStart();
           },
           child: Row(
             children: [

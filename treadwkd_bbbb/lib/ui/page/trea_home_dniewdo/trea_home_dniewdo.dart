@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_p.dart';
+import 'package:treadwkd_bbbase/ui/trea_finger_widget_djiwji.dart';
 import 'package:treadwkd_bbbase/ui/trea_gradient_text_dhwiodw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
+import 'package:treadwkd_bbbase/ui/trea_spine_dwjoidjow.dart';
 import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_click_dhwidjow.dart';
 import 'package:treadwkd_bbbb/bean/trea_play_type_info_fhwiedhi.dart';
@@ -36,6 +38,7 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
         ],
       ),
       TreaBubbleWidgetDjwiodw(),
+      _boxFingerWidget(),
     ],
   );
 
@@ -50,18 +53,19 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
         crossAxisCount: 2,
         mainAxisSpacing: 10.h,
         crossAxisSpacing: 22.w,
-        itemBuilder: (context,index)=>_playTypeItemWidget(treaC.playTypeList[index]),
+        itemBuilder: (context,index)=>_playTypeItemWidget(treaC.playTypeList[index],index),
       ),
     ),
   );
 
-  _playTypeItemWidget(TreaPlayTypeInfoFhwiedhi bean)=>TreaClickDhwidjow(
+  _playTypeItemWidget(TreaPlayTypeInfoFhwiedhi bean, int index)=>TreaClickDhwidjow(
     onTap: (){
       treaC.clickItem(bean);
     },
     child: SizedBox(
       width: double.infinity,
       height: 170.h,
+      key: index==0?treaC.lucky77GlobalKey:null,
       child: Stack(
         children: [
           Container(
@@ -113,7 +117,14 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
   _boxWidget()=>Row(
     children: [
       SizedBox(width: 20.w,),
-      TreaBoxWidgetDjwidjow(),
+      SizedBox(
+        key: treaC.boxGlobalKey,
+        child: TreaBoxWidgetDjwidjow(
+          clickBoxCallback: (){
+            treaC.hideBoxFinger();
+          },
+        ),
+      ),
       Expanded(
         child: TreaClickDhwidjow(
           onTap: (){
@@ -127,7 +138,7 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
       ),
       TreaClickDhwidjow(
         onTap: (){
-
+          treaC.clickMoreFun();
         },
         child: TreaImageDhwudhiw(name: "djwojdow",width: 49.w,height: 61.w,),
       ),
@@ -181,5 +192,22 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
         ),
       ],
     ),
+  );
+
+  _boxFingerWidget()=>GetBuilder<TreaHomeDniewdoC>(
+    id: "box",
+    builder: (_){
+      if(null==treaC.boxOffset){
+        return Container();
+      }
+      var dx = treaC.boxOffset?.dx??0;
+      var dy = treaC.boxOffset?.dy??0;
+      return Container(
+        margin: EdgeInsets.only(left: dx,top: dy),
+        child: IgnorePointer(
+          child: TreaFingerWidgetDjiwji(),
+        ),
+      );
+    },
   );
 }

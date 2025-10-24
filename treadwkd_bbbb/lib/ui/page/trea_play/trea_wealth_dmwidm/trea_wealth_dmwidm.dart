@@ -90,7 +90,7 @@ class TreaWealthDmwidm extends TreaFaP<TreaWealthDmwidmC>{
 
               },
               onScratchStart: (){
-
+                treaC.playHepDnwidow.playStart();
               },
               child: Stack(
                 alignment: Alignment.bottomCenter,

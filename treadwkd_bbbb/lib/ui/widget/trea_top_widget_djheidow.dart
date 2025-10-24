@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
+import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
 import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_click_dhwidjow.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_fa_w.dart';
 import 'package:treadwkd_bbbb/bean/trea_level_bean_jwijfo.dart';
+import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_level_hep_dwifnowe.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
 
 class TreaTopWidgetDjheidow extends TreaFaW{
   bool fromHome;
+  Function()? clickClose;
+  Function()? clickMoneyCallback;
+
   TreaTopWidgetDjheidow({
     this.fromHome=false,
+    this.clickClose,
+    this.clickMoneyCallback,
 });
   @override
   State<StatefulWidget> createState() => _TreaTopWidgetDjheidowState();
@@ -39,7 +46,7 @@ class _TreaTopWidgetDjheidowState extends TreaFaWState<TreaTopWidgetDjheidow>{
               visible: !widget.fromHome,
               child: TreaClickDhwidjow(
                 onTap: (){
-
+                  widget.clickClose?.call();
                 },
                 child: TreaImageDhwudhiw(name: "dwodow",width: 38.w,height: 26.h,),
               ),
@@ -61,29 +68,35 @@ class _TreaTopWidgetDjheidowState extends TreaFaWState<TreaTopWidgetDjheidow>{
     ),
   );
 
-  _moneyWidget()=>Stack(
-    alignment: Alignment.centerLeft,
-    children: [
-      Container(
-        width: 102.w,
-        height: 22.h,
-        margin: EdgeInsets.only(left: 16.w),
-        child: Stack(
-          alignment: Alignment.centerLeft,
-          children: [
-            TreaImageDhwudhiw(name: "iwdjiw",width: 102.w,height: 22.h,),
-            Container(
-              width: 102.w,
-              height: 22.h,
-              alignment: Alignment.center,
-              margin: EdgeInsets.only(left: 20.w),
-              child: TreaTextDwihdw(data: "\$${bMyMoney.getData()}", size: 15.sp, color: "#FFFFFF"),
-            ),
-          ],
+  _moneyWidget()=>TreaClickDhwidjow(
+    onTap: (){
+      widget.clickMoneyCallback?.call();
+      TreaRouDwjidw.toJdeidedelde(routerName: TreaBbbbRoulistJfoejfo.cash);
+    },
+    child: Stack(
+      alignment: Alignment.centerLeft,
+      children: [
+        Container(
+          width: 102.w,
+          height: 22.h,
+          margin: EdgeInsets.only(left: 16.w),
+          child: Stack(
+            alignment: Alignment.centerLeft,
+            children: [
+              TreaImageDhwudhiw(name: "iwdjiw",width: 102.w,height: 22.h,),
+              Container(
+                width: 102.w,
+                height: 22.h,
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(left: 20.w),
+                child: TreaTextDwihdw(data: "\$${bMyMoney.getData()}", size: 15.sp, color: "#FFFFFF"),
+              ),
+            ],
+          ),
         ),
-      ),
-      TreaImageDhwudhiw(name: "icon_money",width: 40.w,height: 37.h,),
-    ],
+        TreaImageDhwudhiw(name: "icon_money",width: 40.w,height: 37.h,),
+      ],
+    ),
   );
   
   _levelWidget(){

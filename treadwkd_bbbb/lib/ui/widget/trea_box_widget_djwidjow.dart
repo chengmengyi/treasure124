@@ -11,6 +11,10 @@ import 'package:treadwkd_bbbb/hep/trea_box_hep_whidowmd.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_box_dialog_dnwidiw/trea_box_dialog_dnwidiw.dart';
 
 class TreaBoxWidgetDjwidjow extends TreaFaW{
+  Function()? clickBoxCallback;
+  TreaBoxWidgetDjwidjow({
+    this.clickBoxCallback,
+});
   @override
   State<StatefulWidget> createState() => _TreaBoxWidgetDjwidjowState();
 }
@@ -75,6 +79,7 @@ class _TreaBoxWidgetDjwidjowState extends TreaFaWState<TreaBoxWidgetDjwidjow>{
   );
 
   _clickBox(){
+    widget.clickBoxCallback?.call();
     if(boxNum<=0){
       showToast("Attempts Exhausted. Please Try Again Tomorrow.");
       return;

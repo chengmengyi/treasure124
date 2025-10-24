@@ -10,6 +10,7 @@ import 'package:treadwkd_bbbb/bean/trea_reward_item_bean_dwod.dart';
 import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
 import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
+import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_hep_dwidmow.dart';
 import 'package:treadwkd_bbbb/hep/trea_level_hep_dwifnowe.dart';
 import 'package:treadwkd_bbbb/hep/trea_play_type_hep_fjwidjo.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
@@ -60,6 +61,13 @@ class TreaPlayHepDnwidow{
     rewardList.addAll(list);
   }
 
+  playStart(){
+    if(TreaGuideHepDwidmow.instance.checkShowAutoGuaGuide()){
+      TreaGuideHepDwidmow.instance.setNewUserGuideStep3();
+    }
+    TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.showOrHideAutoGuaAnimator,str: "hide");
+  }
+
   playEnd()async{
     canClick=false;
     scratcherKey.currentState?.reveal();
@@ -93,6 +101,7 @@ class TreaPlayHepDnwidow{
         child: TreaRewardDialogJwidjow(
           reward: allReward,
           dismissCallback: (){
+            TreaGuideHepDwidmow.instance.setNewUserGuideStep4();
             _checkLuckyStatus();
           },
         ),

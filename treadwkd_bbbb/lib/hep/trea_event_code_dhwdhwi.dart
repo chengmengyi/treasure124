@@ -11,4 +11,6 @@ class TreaEventCodeDhwdhwi{
   static const int updateCashAmountList=109;
   static const int updateBoxNum=110;
   static const int toPlayPage=111;
+  static const int showOrHideAutoGuaAnimator=112;
+  static const int showTopMoneyGuide=113;
 }

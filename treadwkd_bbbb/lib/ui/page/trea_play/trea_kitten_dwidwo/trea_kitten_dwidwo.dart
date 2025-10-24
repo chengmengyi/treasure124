@@ -66,7 +66,7 @@ class TreaKittenDwidwo extends TreaFaP<TreaKittenDwidwoC>{
 
               },
               onScratchStart: (){
-
+                treaC.playHepDnwidow.playStart();
               },
               child: Stack(
                 alignment: Alignment.bottomCenter,

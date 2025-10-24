@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_hep_dhwidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
+import 'package:treadwkd_bbbase/hep/trea_local_djwidj.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/SlotMachinePage.dart';
@@ -12,6 +14,8 @@ import 'package:treadwkd_bbbb/bean/trea_play_type_info_fhwiedhi.dart';
 import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
 import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
+import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_hep_dwidmow.dart';
+import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_step_omsmwo.dart';
 import 'package:treadwkd_bbbb/hep/trea_hep_dnwidi.dart';
 import 'package:treadwkd_bbbb/hep/trea_level_hep_dwifnowe.dart';
 import 'package:treadwkd_bbbb/hep/trea_play_type_hep_fjwidjo.dart';
@@ -37,6 +41,10 @@ import 'package:treadwkd_bbbb/ui/dialog/trea_wheel_dialog_dwiiwm/trea_wheel_dial
 class TreaHomeDniewdoC extends TreaFaC{
   Timer? _addPlayNumTimer;
   List<TreaPlayTypeInfoFhwiedhi> playTypeList=[];
+  GlobalKey lucky77GlobalKey=GlobalKey();
+
+  Offset? boxOffset;
+  GlobalKey boxGlobalKey=GlobalKey();
 
   @override
   void onInit() {
@@ -48,6 +56,8 @@ class TreaHomeDniewdoC extends TreaFaC{
   void onReady() {
     super.onReady();
     _initPlayTypeList();
+    TreaGuideHepDwidmow.instance.checkShowNewUserGuide(context,lucky77GlobalKey);
+    _checkShowBoxFinger();
   }
 
   clickItem(TreaPlayTypeInfoFhwiedhi bean){
@@ -77,6 +87,10 @@ class TreaHomeDniewdoC extends TreaFaC{
 
   clickCash(){
     TreaRouDwjidw.toJdeidedelde(routerName: TreaBbbbRoulistJfoejfo.cash);
+  }
+  
+  clickMoreFun(){
+    toWebPage(title: "More Fun", url: TreaLocalDjwidj.moreFunUrl);
   }
 
   _initPlayTypeList()async{
@@ -126,6 +140,22 @@ class TreaHomeDniewdoC extends TreaFaC{
     });
   }
 
+  _checkShowBoxFinger(){
+    if(TreaGuideHepDwidmow.instance.showHomeBoxFinger()){
+      var renderBox = boxGlobalKey.currentContext?.findRenderObject() as RenderBox;
+      boxOffset=renderBox.localToGlobal(Offset.zero);
+      update(["box"]);
+      TreaGuideHepDwidmow.instance.setTodayOpenAppTimer();
+    }
+  }
+
+  hideBoxFinger(){
+    if(null!=boxOffset){
+      boxOffset=null;
+      update(["box"]);
+    }
+  }
+
   test()async{
     if(!kDebugMode){
       return;
@@ -138,6 +168,8 @@ class TreaHomeDniewdoC extends TreaFaC{
     // TreaUserInfoHepDwidhiw.instance.updateMyMoney(200);
     // TreaRouDwjidw.showDdjwidjow(child: TreaNoWheelDialogIejiw());
     // TreaCashHepCneimdi.instance.updateCashTask(TreaTaskType.lucky);
+
+    _checkShowBoxFinger();
   }
 
   @override

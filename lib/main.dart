@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_firebase_hep_nievnie.dart';
+import 'package:treadwkd_bbbase/ui/page/trea_web_dwiodmw/trea_common_router_name_dwjidjow.dart';
 import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
 import 'package:treadwkd_bbbb/hep/trea_box_hep_whidowmd.dart';
 import 'package:treadwkd_bbbb/hep/trea_play_type_hep_fjwidjo.dart';
 import 'package:treadwkd_bbbb/hep/trea_value_hep_jomeoc.dart';
 import 'package:treasure124/trea_common/trea_roulsit_dhwuhdiw.dart';
+import 'package:spine_flutter/spine_flutter.dart';
 
 void main() async{
   await didowjo();
@@ -26,6 +28,7 @@ didowjo()async{
         systemNavigationBarColor: Colors.white,
       )
   );
+  await initSpineFlutter();
   await GetStorage.init();
 
   //b
@@ -47,7 +50,7 @@ class MyApp extends StatelessWidget {
         enableLog: true,
         darkTheme: ThemeData.dark(),
         themeMode: ThemeMode.system,
-        initialRoute: TreaRoulsitDhwuhdiw.launch,
+        initialRoute: TreaCommonRouterNameDwjidjow.launch,
         debugShowCheckedModeBanner: false,
         getPages: treaCommonRouListdniwhediw+treaBBBBRouListdniwhediw,
         defaultTransition: Transition.rightToLeft,

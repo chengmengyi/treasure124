@@ -7,6 +7,7 @@ import 'package:treadwkd_bbbase/ui/trea_gradient_text_dhwiodw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
 import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_click_dhwidjow.dart';
+import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_hep_dwidmow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_reward_dialog_jwidjow/trea_reward_dialog_jwidjow_c.dart';
 
 class TreaRewardDialogJwidjow extends TreaFaD<TreaRewardDialogJwidjowC>{
@@ -70,25 +71,28 @@ class TreaRewardDialogJwidjow extends TreaFaD<TreaRewardDialogJwidjowC>{
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          TreaClickDhwidjow(
-            onTap: (){
-              treaC.clickDouble();
-            },
-            child: Stack(
-              alignment: Alignment.topRight,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 12.h),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      TreaImageDhwudhiw(name: "nciwicw",width: 210.w,height: 46.h,),
-                      TreaTextDwihdw(data: "Claim \$${doubleDecimal(reward)}", size: 20.sp, color: "#FFFFFF",fontWeight: FontWeight.w900,lineColor: "#2B8945",),
-                    ],
+          Visibility(
+            visible: TreaGuideHepDwidmow.instance.checkShowDoubleBtn(),
+            child: TreaClickDhwidjow(
+              onTap: (){
+                treaC.clickDouble();
+              },
+              child: Stack(
+                alignment: Alignment.topRight,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 12.h),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        TreaImageDhwudhiw(name: "nciwicw",width: 210.w,height: 46.h,),
+                        TreaTextDwihdw(data: "Claim \$${doubleDecimal(reward)}", size: 20.sp, color: "#FFFFFF",fontWeight: FontWeight.w900,lineColor: "#2B8945",),
+                      ],
+                    ),
                   ),
-                ),
-                TreaImageDhwudhiw(name: "dniwn",width: 28.w,height: 28.w,),
-              ],
+                  TreaImageDhwudhiw(name: "dniwn",width: 28.w,height: 28.w,),
+                ],
+              ),
             ),
           ),
           SizedBox(height: 12.h,),

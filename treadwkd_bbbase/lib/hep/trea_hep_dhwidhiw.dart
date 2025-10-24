@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/ui/page/trea_web_dwiodmw/trea_common_router_name_dwjidjow.dart';
 
 extension TreaColor on String{
   Color toColordwdowfw(){
@@ -90,4 +92,11 @@ extension Str2Int on String{
       return 0;
     }
   }
+}
+
+toWebPage({
+  required String title,
+  required String url,
+}){
+  TreaRouDwjidw.toJdeidedelde(routerName: TreaCommonRouterNameDwjidjow.web,params: {"title":title,"url":url});
 }

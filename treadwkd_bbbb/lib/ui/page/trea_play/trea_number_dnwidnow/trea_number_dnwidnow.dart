@@ -71,7 +71,7 @@ class TreaNumberDnwidnow extends TreaFaP<TreaNumberDnwidnowC>{
 
                   },
                   onScratchStart: (){
-
+                    treaC.playHepDnwidow.playStart();
                   },
                   child: Stack(
                     alignment: Alignment.bottomCenter,

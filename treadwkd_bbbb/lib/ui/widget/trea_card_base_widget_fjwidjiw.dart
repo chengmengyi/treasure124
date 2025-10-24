@@ -4,17 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
+import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/ui/trea_finger_widget_djiwji.dart';
 import 'package:treadwkd_bbbase/ui/trea_gradient_text_dhwiodw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
 import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_click_dhwidjow.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_fa_w.dart';
 import 'package:treadwkd_bbbb/bean/trea_play_type_info_fhwiedhi.dart';
+import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
+import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_hep_dwidmow.dart';
 import 'package:treadwkd_bbbb/hep/trea_hep_dnwidi.dart';
 import 'package:treadwkd_bbbb/hep/trea_play_hep_dnwidow.dart';
 import 'package:treadwkd_bbbb/hep/trea_play_type_hep_fjwidjo.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
+import 'package:treadwkd_bbbb/ui/widget/trea_auto_gua_animator_djwidjomw.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_box_widget_djwidjow.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_key_animator_widget_dmwidow.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_lucky_card_animator_widget_diwdjiwm.dart';
@@ -34,12 +39,15 @@ class TreaCardBaseWidgetFjwidjiw extends TreaFaW{
 }
 
 class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFjwidjiw>{
+  var showGuaGuideAnimator=false,showTopMoneyGuide=false;
   TreaPlayTypeInfoFhwiedhi? playTypeInfoFhwiedhi;
 
   @override
   void initState() {
     super.initState();
     _queryPlayNum();
+    showGuaGuideAnimator=TreaGuideHepDwidmow.instance.checkShowAutoGuaGuide();
+    showTopMoneyGuide=TreaGuideHepDwidmow.instance.checkShowTopMoneyGuide();
   }
 
   @override
@@ -49,7 +57,20 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
         TreaImageDhwudhiw(name: "fkoek",width: double.infinity,height: double.infinity,),
         Column(
           children: [
-            TreaTopWidgetDjheidow(fromHome: false,),
+            TreaTopWidgetDjheidow(
+              fromHome: false,
+              clickClose: (){
+                widget.playHepDnwidow.clickClose();
+              },
+              clickMoneyCallback: (){
+                if(showTopMoneyGuide){
+                  TreaGuideHepDwidmow.instance.completedNewUserGuide();
+                  setState(() {
+                    showTopMoneyGuide=false;
+                  });
+                }
+              },
+            ),
             _luckyCardAndBoxWidget(),
             Expanded(
               child: Container(
@@ -81,6 +102,12 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
                               ),
                             ),
                           ],
+                        ),
+                      ),
+                      Visibility(
+                        visible: showGuaGuideAnimator,
+                        child: IgnorePointer(
+                          child: TreaAutoGuaAnimatorDjwidjomw(),
                         ),
                       ),
                     ],
@@ -121,6 +148,7 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
         ),
         TreaKeyAnimatorWidgetDmwidow(),
         TreaLuckyCardAnimatorWidgetDiwdjiwm(),
+        _topMoneyGuideWidget(),
       ],
     ),
     onWillPop: ()async{
@@ -206,6 +234,17 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
     ):null,
   );
 
+  _topMoneyGuideWidget()=>Visibility(
+    visible: showTopMoneyGuide,
+    child: Positioned(
+      top: 20.h,
+      left: 100.w,
+      child: IgnorePointer(
+        child: TreaFingerWidgetDjiwji(),
+      ),
+    ),
+  );
+
   @override
   bool initEventjdiwjdiow() => true;
 
@@ -217,6 +256,16 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
         break;
       case TreaEventCodeDhwdhwi.updateHomeList:
         _queryPlayNum();
+        break;
+      case TreaEventCodeDhwdhwi.showOrHideAutoGuaAnimator:
+        setState(() {
+          showGuaGuideAnimator=bean.str=="show";
+        });
+        break;
+      case TreaEventCodeDhwdhwi.showTopMoneyGuide:
+        setState(() {
+          showTopMoneyGuide=true;
+        });
         break;
     }
   }

@@ -64,7 +64,7 @@ class TreaLucky77Dwkdjow extends TreaFaP<TreaLucky77DwkdjowC>{
 
           },
           onScratchStart: (){
-
+            treaC.playHepDnwidow.playStart();
           },
           child: Stack(
             alignment: Alignment.bottomCenter,

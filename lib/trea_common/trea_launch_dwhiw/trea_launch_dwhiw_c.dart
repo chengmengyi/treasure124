@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:treadwkd_bbbase/hep/trea_ad_hep_nwidiow.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
+
+StorageData<bool> firstOpenLaunchPage=StorageData<bool>(key: "firstOpenLaunchPage", defaultValue: true);
 
 class TreaLaunchDwhiwC extends TreaFaC with GetSingleTickerProviderStateMixin{
   late AnimationController controller;
@@ -26,9 +29,26 @@ class TreaLaunchDwhiwC extends TreaFaC with GetSingleTickerProviderStateMixin{
       })
       ..addStatusListener((status) {
         if(status==AnimationStatus.completed){
-          TreaRouDwjidw.offAllfwdjowjdow(routerName: TreaBbbbRoulistJfoejfo.home);
+          _animatorEnd();
         }
       });
+  }
+
+  _animatorEnd(){
+    if(firstOpenLaunchPage.getData()){
+      firstOpenLaunchPage.saveData(false);
+      _toHome();
+      return;
+    }
+    TreaAdHepNwidiow.instance.showAdndiwjdow(
+      closeAd: (give){
+        _toHome();
+      },
+    );
+  }
+
+  _toHome(){
+    TreaRouDwjidw.offAllfwdjowjdow(routerName: TreaBbbbRoulistJfoejfo.home);
   }
 
   @override
