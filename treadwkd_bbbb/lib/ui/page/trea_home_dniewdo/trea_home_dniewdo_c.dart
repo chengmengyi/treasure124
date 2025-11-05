@@ -8,6 +8,10 @@ import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_hep_dhwidw.dart
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_local_djwidj.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
+import 'package:treadwkd_bbbase/ui/dialog/trea_ad_limit_dialog_dwijow/trea_ad_limit_dialog_dwijow.dart';
+import 'package:treadwkd_bbbase/ui/dialog/trea_no_ad_dialog_dwijow/trea_no_ad_dialog_dwijow.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/SlotMachinePage.dart';
 import 'package:treadwkd_bbbb/bean/trea_play_type_info_fhwiedhi.dart';
@@ -32,6 +36,7 @@ import 'package:treadwkd_bbbb/ui/dialog/trea_give_money_animator_dialog_dmwodmow
 import 'package:treadwkd_bbbb/ui/dialog/trea_level_up_dialog_dwidjiw/trea_level_up_dialog_dwidjiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_lucky_card_dialog_dwodo/trea_lucky_card_dialog_dwodo.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_no_chance_dialog_cnidniw/trea_no_chance_dialog_cnidniw.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_no_network_dialog_dwijow/trea_no_network_dialog_dwijow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_no_wheel_dialog_iejiw/trea_no_wheel_dialog_iejiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_rank_dialog_dwiehiw/trea_rank_dialog_dwiehiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_reward_dialog_jwidjow/trea_reward_dialog_jwidjow.dart';
@@ -43,21 +48,20 @@ class TreaHomeDniewdoC extends TreaFaC{
   List<TreaPlayTypeInfoFhwiedhi> playTypeList=[];
   GlobalKey lucky77GlobalKey=GlobalKey();
 
-  Offset? boxOffset;
   GlobalKey boxGlobalKey=GlobalKey();
 
   @override
   void onInit() {
     super.onInit();
     _startAddPlayNum();
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.home_page);
   }
 
   @override
   void onReady() {
     super.onReady();
     _initPlayTypeList();
-    TreaGuideHepDwidmow.instance.checkShowNewUserGuide(context,lucky77GlobalKey);
-    _checkShowBoxFinger();
+    TreaGuideHepDwidmow.instance.checkShowNewUserGuide(context,lucky77GlobalKey,boxGlobalKey);
   }
 
   clickItem(TreaPlayTypeInfoFhwiedhi bean){
@@ -140,22 +144,6 @@ class TreaHomeDniewdoC extends TreaFaC{
     });
   }
 
-  _checkShowBoxFinger(){
-    if(TreaGuideHepDwidmow.instance.showHomeBoxFinger()){
-      var renderBox = boxGlobalKey.currentContext?.findRenderObject() as RenderBox;
-      boxOffset=renderBox.localToGlobal(Offset.zero);
-      update(["box"]);
-      TreaGuideHepDwidmow.instance.setTodayOpenAppTimer();
-    }
-  }
-
-  hideBoxFinger(){
-    if(null!=boxOffset){
-      boxOffset=null;
-      update(["box"]);
-    }
-  }
-
   test()async{
     if(!kDebugMode){
       return;
@@ -169,7 +157,10 @@ class TreaHomeDniewdoC extends TreaFaC{
     // TreaRouDwjidw.showDdjwidjow(child: TreaNoWheelDialogIejiw());
     // TreaCashHepCneimdi.instance.updateCashTask(TreaTaskType.lucky);
 
-    _checkShowBoxFinger();
+    // _checkShowBoxFinger();
+
+    TreaGuideHepDwidmow.instance.checkShowNewUserGuide(context, lucky77GlobalKey,boxGlobalKey);
+
   }
 
   @override

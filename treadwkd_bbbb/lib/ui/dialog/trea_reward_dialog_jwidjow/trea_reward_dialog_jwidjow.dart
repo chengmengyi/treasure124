@@ -10,17 +10,27 @@ import 'package:treadwkd_bbbase/ui/widget/trea_click_dhwidjow.dart';
 import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_hep_dwidmow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_reward_dialog_jwidjow/trea_reward_dialog_jwidjow_c.dart';
 
+enum TreaRewardEnum{
+  box,wheel,lucky,card,
+}
+
 class TreaRewardDialogJwidjow extends TreaFaD<TreaRewardDialogJwidjowC>{
   double reward;
+  TreaRewardEnum rewardEnum;
+  String? playType;
   Function() dismissCallback;
   TreaRewardDialogJwidjow({
     required this.reward,
+    required this.rewardEnum,
     required this.dismissCallback,
+    this.playType,
 });
 
   @override
   TreaRewardDialogJwidjowC cccDiheiwidow() => TreaRewardDialogJwidjowC(
     reward: reward,
+    rewardEnum: rewardEnum,
+    playType: playType,
     dismissCallback: dismissCallback,
   );
 
@@ -72,7 +82,7 @@ class TreaRewardDialogJwidjow extends TreaFaD<TreaRewardDialogJwidjowC>{
         mainAxisSize: MainAxisSize.min,
         children: [
           Visibility(
-            visible: TreaGuideHepDwidmow.instance.checkShowDoubleBtn(),
+            visible: !TreaGuideHepDwidmow.instance.checkIsStep3(),
             child: TreaClickDhwidjow(
               onTap: (){
                 treaC.clickDouble();

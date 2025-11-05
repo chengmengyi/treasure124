@@ -1,10 +1,20 @@
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/bean/trea_cash_task_info_bean_wiodow.dart';
 import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 import 'package:treadwkd_bbbb/hep/trea_value_hep_jomeoc.dart';
 
 class TreaCashTaskDialogDwidijwC extends TreaFaC{
+  TreaCashTaskInfoBeanWiodow? cashTaskInfo;
+  TreaCashTaskDialogDwidijwC(this.cashTaskInfo);
+  @override
+  void onInit() {
+    super.onInit();
+    var withdrawTask = TreaValueHepJomeoc.instance.getWithdrawTaskById(cashTaskInfo?.taskId);
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.cash_task_pop,params: {"pop_from":withdrawTask?.type});
+  }
 
   String getTaskLeftStr(TreaCashTaskInfoBeanWiodow? cashTaskInfo){
     var withdrawTask = TreaValueHepJomeoc.instance.getWithdrawTaskById(cashTaskInfo?.taskId);
@@ -52,6 +62,8 @@ class TreaCashTaskDialogDwidijwC extends TreaFaC{
   }
 
   clickGo(Function() clickGoCallback){
+    var withdrawTask = TreaValueHepJomeoc.instance.getWithdrawTaskById(cashTaskInfo?.taskId);
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.cash_task_pop_c,params: {"pop_from":withdrawTask?.type});
     TreaRouDwjidw.backdwhudie();
     clickGoCallback.call();
   }

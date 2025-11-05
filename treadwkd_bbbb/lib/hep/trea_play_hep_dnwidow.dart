@@ -1,10 +1,10 @@
 import 'dart:math';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_hep_dhwidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
 import 'package:treadwkd_bbbase/ui/scratcher/scratcher.dart';
 import 'package:treadwkd_bbbb/bean/trea_reward_item_bean_dwod.dart';
 import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
@@ -62,15 +62,13 @@ class TreaPlayHepDnwidow{
   }
 
   playStart(){
-    if(TreaGuideHepDwidmow.instance.checkShowAutoGuaGuide()){
-      TreaGuideHepDwidmow.instance.setNewUserGuideStep3();
-    }
     TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.showOrHideAutoGuaAnimator,str: "hide");
   }
 
   playEnd()async{
     canClick=false;
     scratcherKey.currentState?.reveal();
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.scratch_count);
     TreaUserInfoHepDwidhiw.instance.addLuckyCardNum();
     TreaLevelHepDwifnowe.instance.addGuaKaNum();
     _startKeyAnimator();
@@ -100,6 +98,8 @@ class TreaPlayHepDnwidow{
       TreaRouDwjidw.showDdjwidjow(
         child: TreaRewardDialogJwidjow(
           reward: allReward,
+          playType: playType,
+          rewardEnum: TreaRewardEnum.card,
           dismissCallback: (){
             TreaGuideHepDwidmow.instance.setNewUserGuideStep4();
             _checkLuckyStatus();
@@ -185,6 +185,7 @@ class TreaPlayHepDnwidow{
   _resetPlay()async{
     canClick=true;
     scratcherKey.currentState?.reset();
+    TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.showOrHideAutoGuaAnimator,str: "show");
     resetPlayCallback.call();
     var playTypeInfo = await TreaPlayTypeHepFjwidjo.instance.queryCardInfoByType(playType);
     if((playTypeInfo?.currentPro??0)<=0){
@@ -266,6 +267,7 @@ class TreaPlayHepDnwidow{
       return;
     }
     canClick=false;
+    TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.showOrHideAutoGuaAnimator,str: "hide");
     var list = Random().nextBool()?_pathPoints1:_pathPoints2;
     const int stepsPerSegment = 30;
     const Duration delay = Duration(milliseconds: 5);

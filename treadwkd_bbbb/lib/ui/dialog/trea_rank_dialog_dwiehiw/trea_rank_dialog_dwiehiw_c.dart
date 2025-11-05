@@ -1,3 +1,4 @@
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -5,6 +6,9 @@ import 'package:treadwkd_bbbase/hep/trea_ad_hep_nwidiow.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ad_pos_id_enum_dwidjwm.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/bean/trea_cash_task_info_bean_wiodow.dart';
 import 'package:treadwkd_bbbb/bean/trea_rank_bean_djwoiejowj.dart';
@@ -20,13 +24,23 @@ class TreaRankDialogDwiehiwC extends TreaFaC{
   TreaRankDialogDwiehiwC(this.taskInfo,this.dismissCallback);
 
   @override
+  void onInit() {
+    super.onInit();
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.queue_page);
+  }
+
+  @override
   void onReady() {
     super.onReady();
     _initRankList();
   }
 
   clickSkip(){
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.queue_c);
     TreaAdHepNwidiow.instance.showAdndiwjdow(
+      adType: AdType.reward,
+      adPosId: TreaAdPosIdEnumDwidjwm.ytmcp_queue_rv,
+      showAd: true,
       closeAd: (give){
         if(give){
           _changeRankList();

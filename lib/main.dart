@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_firebase_hep_nievnie.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
+import 'package:treadwkd_bbbase/hep/trea_user_hep_dwijdiwm.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_web_dwiodmw/trea_common_router_name_dwjidjow.dart';
 import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
 import 'package:treadwkd_bbbb/hep/trea_box_hep_whidowmd.dart';
@@ -33,9 +35,12 @@ didowjo()async{
 
   //b
   TreaFirebaseHepNievnie.instance.init();
+  TreaUserHepDwijdiwm.instance.initCheckejije();
   await TreaPlayTypeHepFjwidjo.instance.initPlayType();
   await TreaBoxHepWhidowmd.instance.initTodayNum();
   TreaValueHepJomeoc.instance.init();
+
+  TreaTttIwjodwm.instance.installEventdwjodw();
 }
 
 class MyApp extends StatelessWidget {

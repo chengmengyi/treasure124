@@ -17,7 +17,7 @@ class TreaCashTaskDialogDwidijw extends TreaFaD<TreaCashTaskDialogDwidijwC>{
 });
 
   @override
-  TreaCashTaskDialogDwidijwC cccDiheiwidow() => TreaCashTaskDialogDwidijwC();
+  TreaCashTaskDialogDwidijwC cccDiheiwidow() => TreaCashTaskDialogDwidijwC(cashTaskInfo);
 
   @override
   Widget wwwdwjidwo() =>Column(

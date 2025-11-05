@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:treadwkd_bbbase/hep/trea_ad_hep_nwidiow.dart';
+import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ad_pos_id_enum_dwidjwm.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/hep/trea_user_info_hep_dwidhiw.dart';
 import 'package:treadwkd_bbbb/hep/trea_value_hep_jomeoc.dart';
@@ -31,6 +33,9 @@ class TreaLevelUpDialogDwidjiwC extends TreaFaC{
 
   clickDouble(){
     TreaAdHepNwidiow.instance.showAdndiwjdow(
+        adType: AdType.reward,
+        showAd: TreaValueHepJomeoc.instance.showAd(AdType.reward),
+        adPosId: TreaAdPosIdEnumDwidjwm.ytmcp_update_rv,
         closeAd: (give){
           TreaRouDwjidw.backdwhudie();
           if(give){
@@ -43,13 +48,16 @@ class TreaLevelUpDialogDwidjiwC extends TreaFaC{
 
   clickSingle(){
     TreaAdHepNwidiow.instance.showAdndiwjdow(
-        closeAd: (give){
-          TreaRouDwjidw.backdwhudie();
-          if(give){
-            TreaUserInfoHepDwidhiw.instance.updateMyMoney(reward);
-          }
-          dismissCallback.call();
+      adType: AdType.interstitial,
+      showAd: TreaValueHepJomeoc.instance.showAd(AdType.interstitial),
+      adPosId: TreaAdPosIdEnumDwidjwm.ytmcp_update_int,
+      closeAd: (give){
+        TreaRouDwjidw.backdwhudie();
+        if(give){
+          TreaUserInfoHepDwidhiw.instance.updateMyMoney(reward);
         }
+        dismissCallback.call();
+      },
     );
   }
 

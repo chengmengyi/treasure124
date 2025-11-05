@@ -1,0 +1,18 @@
+enum TreaAdPosIdEnumDwidjwm{
+  ytmcp_launch,
+  ytmcp_update_rv,
+  ytmcp_update_int,
+  ytmcp_unlock_rv,
+  ytmcp_box_rv,
+  ytmcp_box_int,
+  ytmcp_cash_rv,
+  ytmcp_wheelpop_rv,
+  ytmcp_wheelpop_int,
+  ytmcp_flop_int,
+  ytmcp_floppop_rv,
+  ytmcp_floppop_int,
+  ytmcp_queue_rv,
+  ytmcp_srcpop_rv,
+  ytmcp_srcpop_int,
+  ytmcp_src_rv,
+}

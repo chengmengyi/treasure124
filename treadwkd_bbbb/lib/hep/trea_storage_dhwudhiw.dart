@@ -13,6 +13,7 @@ class TreaStorageDhwudhiw{
   static const String bShowFirstHasMoneyDialog="bShowFirstHasMoneyDialog";
   static const String bNewUserGuideStep="bNewUserGuideStep";
   static const String bLastOpenAppTimer="bLastOpenAppTimer";
+  static const String bLastOldUserTimer="bLastOldUserTimer";
 }
 
 StorageData<double> bMyMoney=StorageData<double>(key: TreaStorageDhwudhiw.bMyMoney, defaultValue: 0.0);
@@ -25,6 +26,7 @@ StorageData<String> bValueConfig=StorageData<String>(key: TreaStorageDhwudhiw.bV
 StorageData<String> bSelectedCashType=StorageData<String>(key: TreaStorageDhwudhiw.bSelectedCashType, defaultValue: TreaCashType.paypal);
 StorageData<String> bNewUserGuideStep=StorageData<String>(key: TreaStorageDhwudhiw.bNewUserGuideStep, defaultValue: TreaGuideStepOmsmwo.step1GuideLucky77);
 StorageData<String> bLastOpenAppTimer=StorageData<String>(key: TreaStorageDhwudhiw.bLastOpenAppTimer, defaultValue: "");
+StorageData<String> bLastOldUserTimer=StorageData<String>(key: TreaStorageDhwudhiw.bLastOldUserTimer, defaultValue: "");
 
 StorageData<bool> bOpenEyeSwitch=StorageData<bool>(key: TreaStorageDhwudhiw.bOpenEyeSwitch, defaultValue: true);
 StorageData<bool> bShowFirstHasMoneyDialog=StorageData<bool>(key: TreaStorageDhwudhiw.bShowFirstHasMoneyDialog, defaultValue: true);

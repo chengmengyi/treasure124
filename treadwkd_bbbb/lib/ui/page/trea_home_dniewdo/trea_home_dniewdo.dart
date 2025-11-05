@@ -38,7 +38,6 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
         ],
       ),
       TreaBubbleWidgetDjwiodw(),
-      _boxFingerWidget(),
     ],
   );
 
@@ -121,7 +120,6 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
         key: treaC.boxGlobalKey,
         child: TreaBoxWidgetDjwidjow(
           clickBoxCallback: (){
-            treaC.hideBoxFinger();
           },
         ),
       ),
@@ -192,22 +190,5 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
         ),
       ],
     ),
-  );
-
-  _boxFingerWidget()=>GetBuilder<TreaHomeDniewdoC>(
-    id: "box",
-    builder: (_){
-      if(null==treaC.boxOffset){
-        return Container();
-      }
-      var dx = treaC.boxOffset?.dx??0;
-      var dy = treaC.boxOffset?.dy??0;
-      return Container(
-        margin: EdgeInsets.only(left: dx,top: dy),
-        child: IgnorePointer(
-          child: TreaFingerWidgetDjiwji(),
-        ),
-      );
-    },
   );
 }

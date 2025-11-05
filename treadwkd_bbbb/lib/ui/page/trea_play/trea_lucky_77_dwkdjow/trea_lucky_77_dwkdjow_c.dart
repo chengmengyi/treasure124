@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/bean/trea_reward_item_bean_dwod.dart';
+import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_hep_dwidmow.dart';
 import 'package:treadwkd_bbbb/hep/trea_play_hep_dnwidow.dart';
 import 'package:treadwkd_bbbb/hep/trea_play_type_hep_fjwidjo.dart';
 import 'package:treadwkd_bbbb/hep/trea_value_hep_jomeoc.dart';
@@ -26,6 +27,7 @@ class TreaLucky77DwkdjowC extends TreaFaC{
   void onReady() {
     super.onReady();
     _initList();
+    _showGuide2View();
   }
 
   _initList(){
@@ -50,5 +52,11 @@ class TreaLucky77DwkdjowC extends TreaFaC{
     list.shuffle();
     playHepDnwidow.setRewardList(list);
     update(["list"]);
+  }
+
+  _showGuide2View(){
+    if(TreaGuideHepDwidmow.instance.checkShowAutoGuaGuide()){
+      TreaGuideHepDwidmow.instance.showStep2GuideView(context, playHepDnwidow.scratcherKey);
+    }
   }
 }

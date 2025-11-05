@@ -22,7 +22,9 @@ class _TreaAutoGuaAnimatorDjwidjomwState extends State<TreaAutoGuaAnimatorDjwidj
 
   @override
   Widget build(BuildContext context) => Container(
-    margin: EdgeInsets.only(top: 200.h),
+    width: double.infinity,
+    height: double.infinity,
+    alignment: Alignment.topLeft,
     child: LayoutBuilder(
       builder: (context,bc){
         var width = bc.maxWidth-110.w;

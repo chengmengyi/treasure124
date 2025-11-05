@@ -4,6 +4,7 @@ import 'package:treadwkd_bbbase/hep/trea_ad_hep_nwidiow.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ad_pos_id_enum_dwidjwm.dart';
 import 'package:treadwkd_bbbase/ui/trea_gradient_text_dhwiodw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_click_dhwidjow.dart';
@@ -115,6 +116,9 @@ class _TreaBubbleWidgetDjwiodwState extends TreaFaWState<TreaBubbleWidgetDjwiodw
 
   _clickBubble(){
     TreaAdHepNwidiow.instance.showAdndiwjdow(
+      adType: AdType.reward,
+      showAd: TreaValueHepJomeoc.instance.showAd(AdType.reward),
+      adPosId: TreaAdPosIdEnumDwidjwm.ytmcp_cash_rv,
       closeAd: (give){
         if(give){
           TreaUserInfoHepDwidhiw.instance.updateMyMoney(addNum);

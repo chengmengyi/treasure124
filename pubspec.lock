@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.58"
+  adjust_sdk:
+    dependency: transitive
+    description:
+      name: adjust_sdk
+      sha256: "557dfee4da57ce38f7ea5f362ca36bc8dda7943bb33e216c1fd430b080428da0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.4.5"
   android_play_install_referrer:
     dependency: transitive
     description:
@@ -17,15 +25,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.0"
-  anythink_sdk:
-    dependency: transitive
-    description:
-      path: "plugins/anythink_sdk"
-      ref: ae011e7c685dc5df9bd1eab5a1926c97d5afd876
-      resolved-ref: ae011e7c685dc5df9bd1eab5a1926c97d5afd876
-      url: "https://github.com/Li-Xiang-Lan/flutter_ad_ios_plugins.git"
-    source: git
-    version: "1.0.5"
   app_settings:
     dependency: transitive
     description:
@@ -38,18 +37,10 @@ packages:
     dependency: transitive
     description:
       name: applovin_max
-      sha256: d7dab2d2f3dbecf61e70bd0519db355a9402dff598c011febc85195ac2ac01f0
+      sha256: a34f0c51781cb0ccd3246446060d7bf94d50ef74b6a83cd5611a8232bd0ebd42
       url: "https://pub.dev"
     source: hosted
-    version: "4.5.1"
-  appsflyer_sdk_plus:
-    dependency: transitive
-    description:
-      name: appsflyer_sdk_plus
-      sha256: "66d0c14aa6f1dce80a3622cff7a39c0d736acf5c97459db5fb6d595eeddcaac9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.4"
+    version: "4.6.0"
   archive:
     dependency: transitive
     description:
@@ -343,15 +334,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_ad_ios_plugins:
+  flutter_android_ad_plugins:
     dependency: transitive
     description:
-      path: "."
-      ref: "0.1.7"
-      resolved-ref: ae011e7c685dc5df9bd1eab5a1926c97d5afd876
-      url: "https://github.com/Li-Xiang-Lan/flutter_ad_ios_plugins.git"
-    source: git
-    version: "0.1.7"
+      name: flutter_android_ad_plugins
+      sha256: f4b37275c074b581b1db89ec44fc1387968cce9886f16e9e558e89ce17e9bbd1
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   flutter_app_lifecycle:
     dependency: transitive
     description:
@@ -360,14 +350,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.3"
-  flutter_check_af:
+  flutter_check_adjust:
     dependency: transitive
     description:
-      name: flutter_check_af
-      sha256: ac46d3dbb7e23bdd8c70d2f664e5e542f25d9c09dbdb7cd54164732cd47b9b56
+      name: flutter_check_adjust
+      sha256: "8d7d664d1eed30546cb4d2fd6bd283f74d6bec1dc2612ce31d0196a062bada5f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.7"
+    version: "0.0.1"
+  flutter_custom_facebook:
+    dependency: transitive
+    description:
+      name: flutter_custom_facebook
+      sha256: aeb860bb550cd3926a6258efd9c08700accd89aec942bf3b95e31f66cbe028ba
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.5"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -791,6 +789,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.6"
+  thinkup_sdk:
+    dependency: transitive
+    description:
+      name: thinkup_sdk
+      sha256: ccc967d22330ffc401b4c9c9c1163768671310774c801f83506ee336ffa7eabb
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.8"
   treadwkd_bbbase:
     dependency: "direct main"
     description:

@@ -5,6 +5,8 @@ import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_hep_dhwidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
@@ -30,6 +32,7 @@ class TreaWheelDialogDwiiwmC extends TreaFaC with GetSingleTickerProviderStateMi
     if(!canClick){
       return;
     }
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.wheel_page_c);
     if(bWheelNum.getData()<=0){
       TreaRouDwjidw.showDdjwidjow(
         child: TreaNoWheelDialogIejiw(
@@ -67,6 +70,7 @@ class TreaWheelDialogDwiiwmC extends TreaFaC with GetSingleTickerProviderStateMi
     TreaRouDwjidw.showDdjwidjow(
       child: TreaRewardDialogJwidjow(
         reward: wheelReward,
+        rewardEnum: TreaRewardEnum.wheel,
         dismissCallback: (){
           _initWheelRewardList();
           update(["wheel"]);

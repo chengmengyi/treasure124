@@ -14,11 +14,13 @@ import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
 
 class TreaTopWidgetDjheidow extends TreaFaW{
   bool fromHome;
+  GlobalKey? topMoneyGlobalKey;
   Function()? clickClose;
   Function()? clickMoneyCallback;
 
   TreaTopWidgetDjheidow({
     this.fromHome=false,
+    this.topMoneyGlobalKey,
     this.clickClose,
     this.clickMoneyCallback,
 });
@@ -75,6 +77,7 @@ class _TreaTopWidgetDjheidowState extends TreaFaWState<TreaTopWidgetDjheidow>{
     },
     child: Stack(
       alignment: Alignment.centerLeft,
+      key: widget.topMoneyGlobalKey,
       children: [
         Container(
           width: 102.w,

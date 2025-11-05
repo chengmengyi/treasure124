@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 
@@ -10,6 +12,12 @@ class TreaGiveMoneyAnimatorDialogDmwodmowC extends TreaFaC{
   late Function() dismissCallback;
 
   TreaGiveMoneyAnimatorDialogDmwodmowC(this.dismissCallback);
+
+  @override
+  void onInit() {
+    super.onInit();
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.payment_failed_c);
+  }
 
   @override
   void onReady() {

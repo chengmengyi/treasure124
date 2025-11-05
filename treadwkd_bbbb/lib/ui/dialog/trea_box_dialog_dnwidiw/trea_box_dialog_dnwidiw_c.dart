@@ -6,6 +6,8 @@ import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/hep/trea_box_hep_whidowmd.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
@@ -36,6 +38,7 @@ class TreaBoxDialogDnwidiwC extends TreaFaC with GetSingleTickerProviderStateMix
   }
 
   clickSpin()async{
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.treasure_c);
     if(boxNum<=0){
       showToast("Attempts Exhausted. Please Try Again Tomorrow.");
       return;
@@ -76,6 +79,7 @@ class TreaBoxDialogDnwidiwC extends TreaFaC with GetSingleTickerProviderStateMix
     TreaBoxHepWhidowmd.instance.updateBoxNum(-1);
     TreaRouDwjidw.showDdjwidjow(
       child: TreaRewardDialogJwidjow(
+        rewardEnum: TreaRewardEnum.box,
         reward: TreaValueHepJomeoc.instance.getBoxReward(),
         dismissCallback: (){
 

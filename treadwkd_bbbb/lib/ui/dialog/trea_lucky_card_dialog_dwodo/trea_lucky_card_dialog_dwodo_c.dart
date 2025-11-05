@@ -1,6 +1,10 @@
 import 'package:treadwkd_bbbase/hep/trea_ad_hep_nwidiow.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_hep_dhwidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ad_pos_id_enum_dwidjwm.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_user_info_hep_dwidhiw.dart';
@@ -22,6 +26,7 @@ class TreaLuckyCardDialogDwodoC extends TreaFaC{
     while(rewardList.length<6){
       rewardList.add(TreaValueHepJomeoc.instance.getLuckyCardReward());
     }
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.flip_card_page);
   }
 
   clickCardItem(index)async{
@@ -29,6 +34,7 @@ class TreaLuckyCardDialogDwodoC extends TreaFaC{
       return;
     }
     canClick=false;
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.card_c);
     TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.flipLuckyCard,i: index);
     await Future.delayed(Duration(milliseconds: 1000));
     TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.flipOtherLuckyCard,i: index);
@@ -36,6 +42,7 @@ class TreaLuckyCardDialogDwodoC extends TreaFaC{
     TreaRouDwjidw.showDdjwidjow(
       child: TreaRewardDialogJwidjow(
         reward: rewardList[index],
+        rewardEnum: TreaRewardEnum.lucky,
         dismissCallback: (){
           TreaUserInfoHepDwidhiw.instance.resetLuckyCardNum();
           TreaRouDwjidw.backdwhudie();
@@ -50,6 +57,9 @@ class TreaLuckyCardDialogDwodoC extends TreaFaC{
       return;
     }
     TreaAdHepNwidiow.instance.showAdndiwjdow(
+      adType: AdType.interstitial,
+      adPosId: TreaAdPosIdEnumDwidjwm.ytmcp_floppop_int,
+      showAd: TreaValueHepJomeoc.instance.showAd(AdType.interstitial),
       closeAd: (give){
         TreaUserInfoHepDwidhiw.instance.resetLuckyCardNum();
         TreaRouDwjidw.backdwhudie();

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
 import 'package:treadwkd_bbbase/ui/trea_gradient_text_dhwiodw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
 import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_click_dhwidjow.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_fa_w.dart';
 import 'package:treadwkd_bbbb/hep/trea_box_hep_whidowmd.dart';
+import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_box_dialog_dnwidiw/trea_box_dialog_dnwidiw.dart';
 
 class TreaBoxWidgetDjwidjow extends TreaFaW{
@@ -80,6 +84,7 @@ class _TreaBoxWidgetDjwidjowState extends TreaFaWState<TreaBoxWidgetDjwidjow>{
 
   _clickBox(){
     widget.clickBoxCallback?.call();
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.treasure_icon_c);
     if(boxNum<=0){
       showToast("Attempts Exhausted. Please Try Again Tomorrow.");
       return;
@@ -92,5 +97,17 @@ class _TreaBoxWidgetDjwidjowState extends TreaFaWState<TreaBoxWidgetDjwidjow>{
   _queryBoxNum()async{
     boxNum = await TreaBoxHepWhidowmd.instance.queryTodayBoxNum();
     setState(() {});
+  }
+
+  @override
+  bool initEventjdiwjdiow() => true;
+
+  @override
+  handleEventwhudwhi(TreaEventBeanDjwid bean) {
+    switch(bean.code){
+      case TreaEventCodeDhwdhwi.clickBoxGuide:
+        _clickBox();
+        break;
+    }
   }
 }

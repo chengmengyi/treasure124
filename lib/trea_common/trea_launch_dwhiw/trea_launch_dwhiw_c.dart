@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_ad_hep_nwidiow.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ad_pos_id_enum_dwidjwm.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
+import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
 
@@ -13,6 +16,7 @@ class TreaLaunchDwhiwC extends TreaFaC with GetSingleTickerProviderStateMixin{
   @override
   void onInit() {
     super.onInit();
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.launch_page);
     _initAnimator();
   }
 
@@ -41,6 +45,10 @@ class TreaLaunchDwhiwC extends TreaFaC with GetSingleTickerProviderStateMixin{
       return;
     }
     TreaAdHepNwidiow.instance.showAdndiwjdow(
+      adType: AdType.interstitial,
+      showAd: true,
+      adPosId: TreaAdPosIdEnumDwidjwm.ytmcp_launch,
+      isOpenAd: true,
       closeAd: (give){
         _toHome();
       },

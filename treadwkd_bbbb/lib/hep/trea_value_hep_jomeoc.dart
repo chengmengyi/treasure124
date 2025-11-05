@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
+import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_firebase_hep_nievnie.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_local_djwidj.dart';
@@ -313,5 +314,26 @@ class TreaValueHepJomeoc{
     }catch(e){
       _bean=TreaValueBeanWjoomc.fromJson(jsonDecode(TreaLocalDjwidj.localBase64.base64()));
     }
+  }
+
+  bool showAd(AdType adType){
+    if(adType==AdType.reward){
+      return true;
+    }
+    var list = _bean?.adIncentives??[];
+    if(list.isEmpty){
+      return false;
+    }
+    var last = list.last;
+    var coinsNum = bMyMoney.getData();
+    if(coinsNum>=(last.upperBound??1000)){
+      return Random().nextInt(100)<(last.points??60);
+    }
+    for (var value in list) {
+      if(coinsNum>=(value.lowerBound??0)&&coinsNum<(value.upperBound??0)){
+        return Random().nextInt(100)<(value.points??60);
+      }
+    }
+    return true;
   }
 }
