@@ -52,4 +52,8 @@ enum TreaPointEnumDjwidjo{
   ytmcp_ad_initsuc,
   ytmcp_ad_imp_close,
   ytmcp_ad_impression_fail,
+  risk_chance,
+  session_custom,
+  noti_req_refuse,
+  noti_req_allow,
 }

@@ -36,6 +36,10 @@ dependencies:
   app_settings: 6.1.1
   connectivity_plus: 7.0.0
   flutter_custom_facebook: 0.0.5
+  birdsong:
+    path: plugins/common_push-output
+  trea_feng:
+    path: plugins/trea_feng
 
 dev_dependencies:
   flutter_test:

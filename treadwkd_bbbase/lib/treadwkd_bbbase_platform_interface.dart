@@ -23,7 +23,7 @@ abstract class TreadwkdBbbasePlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
+  Future<void> treaOpen() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }

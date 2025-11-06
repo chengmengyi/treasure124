@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter_android_ad_plugins/data/ad_money_info_bean.dart';
 import 'package:flutter_check_adjust/flutter_check_adjust.dart';
 import 'package:flutter_check_adjust/request_adjust/request_adjust_callback.dart';
 import 'package:flutter_check_adjust/request_cloak/request_cloak_callback.dart';
@@ -70,5 +71,9 @@ class TreaUserHepDwijdiwm {
       "laissez":laissez,
       "bloat":bloat,
     };
+  }
+
+  uploadAdRevenueToAdjust(AdMoneyInfoBean? ad){
+    FlutterCheckAdjust.instance.uploadAdRevenueToAdjust(ad?.networkName??"", ad?.revenue??0, ad?.adUnitId??"");
   }
 }

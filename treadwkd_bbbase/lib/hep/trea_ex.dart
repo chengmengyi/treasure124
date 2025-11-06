@@ -10,4 +10,6 @@ export 'package:decimal/decimal.dart';
 export 'package:marqueer/marqueer.dart';
 export 'package:lottie/lottie.dart';
 export 'package:connectivity_plus/connectivity_plus.dart';
-
+export 'package:trea_feng/trea_feng.dart';
+export 'package:app_settings/app_settings.dart';
+export 'package:permission_handler/permission_handler.dart';

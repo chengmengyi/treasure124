@@ -88,11 +88,12 @@ class TreaBoxDialogDnwidiwC extends TreaFaC with GetSingleTickerProviderStateMix
     );
   }
 
-  clickClose(){
+  clickClose(Function() dismissCallback){
     if (isSpinning){
       return;
     }
     TreaRouDwjidw.backdwhudie();
+    dismissCallback.call();
   }
 
   _queryBoxNum()async{

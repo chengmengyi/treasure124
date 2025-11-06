@@ -1,20 +1,24 @@
 import 'dart:convert';
 
 import 'package:flutter_android_ad_plugins/data/ad_info_data.dart';
+import 'package:flutter_android_ad_plugins/data/ad_money_info_bean.dart';
 import 'package:flutter_android_ad_plugins/data/config_ad_data.dart';
 import 'package:flutter_android_ad_plugins/flutter_android_ad_plugins.dart';
 import 'package:flutter_android_ad_plugins/hep/ad_num_hep.dart';
 import 'package:flutter_android_ad_plugins/hep/ad_type.dart';
 import 'package:flutter_android_ad_plugins/hep/ios_ad_callback.dart';
 import 'package:flutter_android_ad_plugins/hep/ios_load_ad_result_callback.dart';
+import 'package:trea_feng/trea_feng.dart';
+import 'package:treadwkd_bbbase/hep/trea_facebook_hep_djwijowm.dart';
 import 'package:treadwkd_bbbase/hep/trea_firebase_hep_nievnie.dart';
-import 'package:treadwkd_bbbase/hep/trea_fk_hep_dwidowmd.dart';
+import 'package:treadwkd_bbbase/hep/trea_fk_dwidjow/trea_fk_hep_dwidowmd.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_local_djwidj.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ad_pos_id_enum_dwidjwm.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
+import 'package:treadwkd_bbbase/hep/trea_user_hep_dwijdiwm.dart';
 import 'package:treadwkd_bbbase/ui/dialog/trea_ad_limit_dialog_dwijow/trea_ad_limit_dialog_dwijow.dart';
 import 'package:treadwkd_bbbase/ui/dialog/trea_no_ad_dialog_dwijow/trea_no_ad_dialog_dwijow.dart';
 
@@ -54,12 +58,12 @@ class TreaAdHepNwidiow{
     bool isOpenAd=false,
   }){
     if(!showAd){
-      closeAd.call(false);
+      closeAd.call(true);
       return;
     }
     if(AdNumHep.instance.notLoad()){
       if(isOpenAd||adType==AdType.interstitial){
-        closeAd.call(false);
+        closeAd.call(true);
         return;
       }
       TreaRouDwjidw.showDdjwidjow(
@@ -73,7 +77,7 @@ class TreaAdHepNwidiow{
     }
     if(TreaFkHepDwidowmd.instance.checkHasFk()){
       if(isOpenAd||adType==AdType.interstitial){
-        closeAd.call(false);
+        closeAd.call(true);
         return;
       }
       showToast("The advertisement cannot be loaded");
@@ -84,9 +88,9 @@ class TreaAdHepNwidiow{
     var resultData = FlutterAndroidAdPlugins.instance.getCacheResultData(adType);
     if(null==resultData){
       FlutterAndroidAdPlugins.instance.loadAdWhenNoCache(adType);
-      // PsnBTbaUtils.instance.pointEvent(pointEnum: PsnTbaPointEnum.apwxi_ad_impression_fail,params: {"ad_pos_id":evnetEnum.name,"reason":"ad_nocache"});
+      TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.ytmcp_ad_impression_fail,params: {"ad_pos_id":adPosId.name,"reason":"ad_nocache"});
       if(isOpenAd||adType==AdType.interstitial){
-        closeAd.call(false);
+        closeAd.call(true);
         return;
       }
       TreaRouDwjidw.showDdjwidjow(
@@ -123,19 +127,7 @@ class TreaAdHepNwidiow{
       adType: adType,
       iosAdCallback: IosAdCallback(
         showSuccess: (ad,info){
-          // _checkRewardShowTime(adType);
-          // PsnFbUtils.instance.logPurchase(ad?.revenue??0.0,);
-          // FlutterCheckAf.instance.uploadAdRevenue(ad?.networkName??"", ad?.revenue??0, ad?.adUnitId??"", evnetEnum.name);
-          // PsnBTbaUtils.instance.adEvent(ad: ad, adEventEnum: evnetEnum, adInfoData: info);
-          // PsnMusicUtils.instance.pauseBackMp3();
-          // psnAdWatchNum.saveData(psnAdWatchNum.getData()+1);
-          // var adLevel = psnLastAdLevel.getData()+5;
-          // if(psnAdWatchNum.getData()>=adLevel){
-          //   PsnBTbaUtils.instance.pointEvent(pointEnum: PsnTbaPointEnum.cash_ad_detail,params: {"ad":adLevel});
-          //   psnLastAdLevel.saveData(adLevel);
-          // }
-
-          TreaTttIwjodwm.instance.adEventjdiwjio(ad: ad, posId: adPosId, adInfoData: info);
+          _handleAdShowSuccess(adType,ad,info,adPosId);
         },
         showFail: (){
           TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.ytmcp_ad_impression_fail,params: {"ad_pos_id":adPosId.name,"reason":"impfail"});
@@ -150,26 +142,11 @@ class TreaAdHepNwidiow{
           }
         },
         closeAd: (ad,info,hasReward){
-          // PsnBTbaUtils.instance.pointEvent(
-          //   pointEnum: PsnTbaPointEnum.zuytu_ad_imp_close,
-          //   params: {
-          //     "ad_pos_id":evnetEnum.name,
-          //     "ad_code_id":info?.adId,
-          //     "ad_format":info?.adType.name,
-          //     "msg":hasReward?"impsus":"impfail",
-          //   },
-          // );
-          // _checkRewardCloseTime(adType);
-          // lookAdCallback?.call();
-          // PsnMusicUtils.instance.playBackMp3();
-
-          TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.ytmcp_ad_imp_close,params: {"ad_pos_id":adPosId.name,"ad_code_id":info?.adId,"ad_format":info?.adType.name});
-
-
+          _handleCloseAdwjdowj(adPosId,ad,info,hasReward,adType);
           closeAd.call(true);
         },
         revenuePaid: (ad,info){
-          // _checkRevenuePaid(adType);
+          _handleRevenuePaiddwdpwkdpw(adType);
         },
       ),
     );
@@ -209,7 +186,75 @@ class TreaAdHepNwidiow{
   }
 
   updateAdInfo(){
-
+    FlutterAndroidAdPlugins.instance.updateAdData(_getConfigAdData());
   }
 
+  _handleAdShowSuccess(AdType adType, AdMoneyInfoBean? ad, AdInfoData? info, TreaAdPosIdEnumDwidjwm adPosId){
+    _handleTwoAdShowTimedhwidwid(adType);
+    TreaFacebookHepDjwijowm.instance.uploadRevenueToFacebook(ad);
+    TreaUserHepDwijdiwm.instance.uploadAdRevenueToAdjust(ad);
+    TreaTttIwjodwm.instance.adEventjdiwjio(ad: ad, posId: adPosId, adInfoData: info);
+    // PsnMusicUtils.instance.pauseBackMp3();
+    _uploadLookAdNumLevel();
+    TreaTttIwjodwm.instance.adEventjdiwjio(ad: ad, posId: adPosId, adInfoData: info);
+  }
+
+  _uploadLookAdNumLevel(){
+    treaLookAdNumwhdiwidwn.saveData(treaLookAdNumwhdiwidwn.getData()+1);
+    var adLevel = treaLocalAdLevelLastdwidow.getData()+5;
+    if(treaLookAdNumwhdiwidwn.getData()>=adLevel){
+      TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.cash_ad_detail,params: {"ad":adLevel});
+      treaLocalAdLevelLastdwidow.saveData(adLevel);
+    }
+  }
+
+  _handleTwoAdShowTimedhwidwid(AdType adType){
+    if(adType==AdType.interstitial) {
+      return;
+    }
+    var nowTime = DateTime.now().millisecondsSinceEpoch;
+    treaStartShowRewardAdTimedmwodmow.saveData(nowTime);
+    var i = nowTime-treaShowRewardAdTimeLastdwidjiow.getData();
+    var adShortShow = (TreaFkHepDwidowmd.instance.getAdShortShowSijoq()?.duration??30)*1000;
+    if(i<adShortShow){
+      treaTwoRewardAdTimeSoSmalldwodow.saveData(treaTwoRewardAdTimeSoSmalldwodow.getData()+1);
+    }
+    treaShowRewardAdTimeLastdwidjiow.saveData(DateTime.now().millisecondsSinceEpoch);
+  }
+
+  _handleCloseAdwjdowj(TreaAdPosIdEnumDwidjwm adPosId, AdMoneyInfoBean? ad, AdInfoData? info, bool hasReward, AdType adType){
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(
+      point: TreaPointEnumDjwidjo.ytmcp_ad_imp_close,
+      params: {
+        "ad_pos_id":adPosId.name,
+        "ad_code_id":info?.adId,
+        "ad_format":info?.adType.name,
+        "msg":hasReward?"impsus":"impfail",
+      },
+    );
+    _handleCloseAddjiwjdow(adType);
+    // PsnMusicUtils.instance.playBackMp3();
+
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.ytmcp_ad_imp_close,params: {"ad_pos_id":adPosId.name,"ad_code_id":info?.adId,"ad_format":info?.adType.name});
+  }
+
+  _handleCloseAddjiwjdow(AdType adType){
+    if(adType==AdType.interstitial) {
+      return;
+    }
+    var nowTime = DateTime.now().millisecondsSinceEpoch;
+    var startTime = treaStartShowRewardAdTimedmwodmow.getData();
+    var i = nowTime-startTime;
+    var j = (TreaFkHepDwidowmd.instance.getAdShortCloseDIWJEIWJ()?.duration??20)*1000;
+    if(i<j){
+      treaWatchAdTimeSoSmalldjwijdi.saveData(treaWatchAdTimeSoSmalldjwijdi.getData()+1);
+    }
+  }
+
+  _handleRevenuePaiddwdpwkdpw(AdType adType){
+    if(adType==AdType.interstitial) {
+      return;
+    }
+    treaGetRewardRevenueNumdwjdjwo.saveData(treaGetRewardRevenueNumdwjdjwo.getData()+1);
+  }
 }

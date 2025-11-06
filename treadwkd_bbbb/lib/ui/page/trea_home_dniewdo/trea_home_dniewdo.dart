@@ -4,17 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_p.dart';
-import 'package:treadwkd_bbbase/ui/trea_finger_widget_djiwji.dart';
 import 'package:treadwkd_bbbase/ui/trea_gradient_text_dhwiodw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
-import 'package:treadwkd_bbbase/ui/trea_spine_dwjoidjow.dart';
 import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_click_dhwidjow.dart';
 import 'package:treadwkd_bbbb/bean/trea_play_type_info_fhwiedhi.dart';
-import 'package:treadwkd_bbbb/hep/trea_hep_dnwidi.dart';
 import 'package:treadwkd_bbbb/ui/page/trea_home_dniewdo/trea_home_dniewdo_c.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_box_widget_djwidjow.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_bubble_widget_djwiodw.dart';
+import 'package:treadwkd_bbbb/ui/widget/trea_money_animator_widget.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_top_widget_djheidow.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_wheel_icon_widget_djwidjiw.dart';
 
@@ -38,6 +36,7 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
         ],
       ),
       TreaBubbleWidgetDjwiodw(),
+      TreaMoneyAnimatorWidget(),
     ],
   );
 

@@ -12,6 +12,7 @@ import 'package:treadwkd_bbbase/ui/widget/trea_click_dhwidjow.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_fa_w.dart';
 import 'package:treadwkd_bbbb/hep/trea_box_hep_whidowmd.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
+import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_hep_dwidmow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_box_dialog_dnwidiw/trea_box_dialog_dnwidiw.dart';
 
 class TreaBoxWidgetDjwidjow extends TreaFaW{
@@ -24,7 +25,7 @@ class TreaBoxWidgetDjwidjow extends TreaFaW{
 }
 
 class _TreaBoxWidgetDjwidjowState extends TreaFaWState<TreaBoxWidgetDjwidjow>{
-  var boxNum=0;
+  var boxNum=0,clickFromNotification=false;
 
   @override
   void initState() {
@@ -35,6 +36,7 @@ class _TreaBoxWidgetDjwidjowState extends TreaFaWState<TreaBoxWidgetDjwidjow>{
   @override
   Widget wwwdwjidwo() => TreaClickDhwidjow(
     onTap: (){
+      clickFromNotification=false;
       _clickBox();
     },
     child: SizedBox(
@@ -90,7 +92,13 @@ class _TreaBoxWidgetDjwidjowState extends TreaFaWState<TreaBoxWidgetDjwidjow>{
       return;
     }
     TreaRouDwjidw.showDdjwidjow(
-      child: TreaBoxDialogDnwidiw(),
+      child: TreaBoxDialogDnwidiw(
+        dismissCallback: (){
+          if(clickFromNotification){
+            TreaGuideHepDwidmow.instance.checkShowOpenNotificationDialog();
+          }
+        },
+      ),
     );
   }
 
@@ -106,6 +114,7 @@ class _TreaBoxWidgetDjwidjowState extends TreaFaWState<TreaBoxWidgetDjwidjow>{
   handleEventwhudwhi(TreaEventBeanDjwid bean) {
     switch(bean.code){
       case TreaEventCodeDhwdhwi.clickBoxGuide:
+        clickFromNotification=true;
         _clickBox();
         break;
     }

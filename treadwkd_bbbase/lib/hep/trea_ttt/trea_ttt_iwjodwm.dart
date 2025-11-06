@@ -1,5 +1,6 @@
 import 'package:flutter_android_ad_plugins/data/ad_info_data.dart';
 import 'package:flutter_android_ad_plugins/data/ad_money_info_bean.dart';
+import 'package:flutter_android_ad_plugins/hep/ad_type.dart';
 import 'package:flutter_android_ad_plugins/hep/hep.dart';
 import 'package:flutter_check_adjust/dio/dio_hep.dart';
 import 'package:treadwkd_bbbase/hep/trea_firebase_hep_nievnie.dart';
@@ -17,6 +18,7 @@ class TreaTttIwjodwm {
   static TreaTttIwjodwm get instance => _iwjodwm;
 
   installEventdwjodw({int tryNum=5})async{
+    sessionEventdwodjo();
     if(bInstallEvent.getData()){
       return;
     }

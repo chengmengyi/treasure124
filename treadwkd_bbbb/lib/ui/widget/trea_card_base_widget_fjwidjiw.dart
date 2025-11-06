@@ -21,6 +21,7 @@ import 'package:treadwkd_bbbb/ui/widget/trea_auto_gua_animator_djwidjomw.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_box_widget_djwidjow.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_key_animator_widget_dmwidow.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_lucky_card_animator_widget_diwdjiwm.dart';
+import 'package:treadwkd_bbbb/ui/widget/trea_money_animator_widget.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_top_widget_djheidow.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_wheel_icon_widget_djwidjiw.dart';
 
@@ -145,6 +146,7 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
         ),
         TreaKeyAnimatorWidgetDmwidow(),
         TreaLuckyCardAnimatorWidgetDiwdjiwm(),
+        TreaMoneyAnimatorWidget(),
       ],
     ),
     onWillPop: ()async{

@@ -10,8 +10,7 @@ class MethodChannelTreadwkdBbbase extends TreadwkdBbbasePlatform {
   final methodChannel = const MethodChannel('treadwkd_bbbase');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<void> treaOpen() async {
+    await methodChannel.invokeMethod<String>('treaOpen');
   }
 }

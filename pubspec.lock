@@ -121,6 +121,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.1"
+  birdsong:
+    dependency: transitive
+    description:
+      path: "treadwkd_bbbase/plugins/common_push-output"
+      relative: true
+    source: path
+    version: "0.0.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -797,6 +804,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  trea_feng:
+    dependency: transitive
+    description:
+      path: "treadwkd_bbbase/plugins/trea_feng"
+      relative: true
+    source: path
+    version: "0.0.1"
   treadwkd_bbbase:
     dependency: "direct main"
     description:

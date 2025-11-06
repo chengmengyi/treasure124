@@ -1,15 +1,17 @@
 import 'dart:async';
-import 'dart:math';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_hep_dhwidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_fk_dwidjow/trea_fk_hep_dwidowmd.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_local_djwidj.dart';
+import 'package:treadwkd_bbbase/hep/trea_notification_hep_dwjijdow.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
+import 'package:treadwkd_bbbase/hep/trea_voice_hep_dwidiwn.dart';
+import 'package:treadwkd_bbbase/treadwkd_bbbase.dart';
 import 'package:treadwkd_bbbase/ui/dialog/trea_ad_limit_dialog_dwijow/trea_ad_limit_dialog_dwijow.dart';
 import 'package:treadwkd_bbbase/ui/dialog/trea_no_ad_dialog_dwijow/trea_no_ad_dialog_dwijow.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
@@ -38,8 +40,10 @@ import 'package:treadwkd_bbbb/ui/dialog/trea_lucky_card_dialog_dwodo/trea_lucky_
 import 'package:treadwkd_bbbb/ui/dialog/trea_no_chance_dialog_cnidniw/trea_no_chance_dialog_cnidniw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_no_network_dialog_dwijow/trea_no_network_dialog_dwijow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_no_wheel_dialog_iejiw/trea_no_wheel_dialog_iejiw.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_open_notification_dialog_dniwdow/trea_open_notification_dialog_dniwdow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_rank_dialog_dwiehiw/trea_rank_dialog_dwiehiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_reward_dialog_jwidjow/trea_reward_dialog_jwidjow.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_set_dialog_djojow/trea_set_dialog_djojow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_unlock_dialog_doowdwju/trea_unlock_dialog_doowdwju.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_wheel_dialog_dwiiwm/trea_wheel_dialog_dwiiwm.dart';
 
@@ -55,6 +59,9 @@ class TreaHomeDniewdoC extends TreaFaC{
     super.onInit();
     _startAddPlayNum();
     TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.home_page);
+    TreaFkHepDwidowmd.instance.initFk();
+    TreadwkdBbbase.instance.treaOpen();
+    TreaVoiceHepDwidiwn.instance.playBgmdwmodwo();
   }
 
   @override
@@ -159,8 +166,9 @@ class TreaHomeDniewdoC extends TreaFaC{
 
     // _checkShowBoxFinger();
 
-    TreaGuideHepDwidmow.instance.checkShowNewUserGuide(context, lucky77GlobalKey,boxGlobalKey);
+    // TreaFkHepDwidowmd.instance.initFk();
 
+    TreaRouDwjidw.showDdjwidjow(child: TreaOpenNotificationDialogDniwdow());
   }
 
   @override

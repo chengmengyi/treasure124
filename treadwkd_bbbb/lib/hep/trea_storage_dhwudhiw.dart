@@ -14,6 +14,7 @@ class TreaStorageDhwudhiw{
   static const String bNewUserGuideStep="bNewUserGuideStep";
   static const String bLastOpenAppTimer="bLastOpenAppTimer";
   static const String bLastOldUserTimer="bLastOldUserTimer";
+  static const String bLastUploadMoneyLevel="bLastUploadMoneyLevel";
 }
 
 StorageData<double> bMyMoney=StorageData<double>(key: TreaStorageDhwudhiw.bMyMoney, defaultValue: 0.0);
@@ -21,6 +22,7 @@ StorageData<double> bMyMoney=StorageData<double>(key: TreaStorageDhwudhiw.bMyMon
 StorageData<int> bGuaKaNum=StorageData<int>(key: TreaStorageDhwudhiw.bGuaKaNum, defaultValue: 0);
 StorageData<int> bLuckyCardNum=StorageData<int>(key: TreaStorageDhwudhiw.bLuckyCardNum, defaultValue: 0);
 StorageData<int> bWheelNum=StorageData<int>(key: TreaStorageDhwudhiw.bWheelNum, defaultValue: 0);
+StorageData<int> bLastUploadMoneyLevel=StorageData<int>(key: TreaStorageDhwudhiw.bLastUploadMoneyLevel, defaultValue: 0);
 
 StorageData<String> bValueConfig=StorageData<String>(key: TreaStorageDhwudhiw.bValueConfig, defaultValue: "");
 StorageData<String> bSelectedCashType=StorageData<String>(key: TreaStorageDhwudhiw.bSelectedCashType, defaultValue: TreaCashType.paypal);

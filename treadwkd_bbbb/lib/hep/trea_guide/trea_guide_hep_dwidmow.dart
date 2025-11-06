@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_hep_dhwidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
@@ -12,6 +13,7 @@ import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_view/trea_new_user_guide
 import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_view/trea_new_user_guide4_view.dart';
 import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_view/trea_old_user_guide_view.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_open_notification_dialog_dniwdow/trea_open_notification_dialog_dniwdow.dart';
 
 class TreaGuideHepDwidmow{
   static final TreaGuideHepDwidmow _dwidmow=TreaGuideHepDwidmow();
@@ -118,6 +120,7 @@ class TreaGuideHepDwidmow{
           bNewUserGuideStep.saveData(TreaGuideStepOmsmwo.completed);
           TreaRouDwjidw.toJdeidedelde(routerName: TreaBbbbRoulistJfoejfo.cash);
           completedNewUserGuide();
+          checkShowOpenNotificationDialog();
         },
       ),
     );
@@ -147,5 +150,12 @@ class TreaGuideHepDwidmow{
 
   uploadUserGuideShowTbaPoint(String step){
     TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.newuser_guide,params: {"pop_step":step});
+  }
+
+  checkShowOpenNotificationDialog()async{
+    final status = await Permission.notification.status;
+    if (!status.isGranted) {
+      TreaRouDwjidw.showDdjwidjow(child: TreaOpenNotificationDialogDniwdow());
+    }
   }
 }

@@ -25,10 +25,12 @@ class TreaRouDwjidw {
 
   static showDdjwidjow({
     required Widget child,
+    Color? barrierColor,
   }){
     Get.dialog(
       child,
       barrierDismissible: false,
+      barrierColor: barrierColor,
     );
   }
 

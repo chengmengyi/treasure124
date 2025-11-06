@@ -11,6 +11,7 @@ import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_level_hep_dwifnowe.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_set_dialog_djojow/trea_set_dialog_djojow.dart';
 
 class TreaTopWidgetDjheidow extends TreaFaW{
   bool fromHome;
@@ -60,7 +61,7 @@ class _TreaTopWidgetDjheidowState extends TreaFaWState<TreaTopWidgetDjheidow>{
             Spacer(),
             TreaClickDhwidjow(
               onTap: (){
-
+                TreaRouDwjidw.showDdjwidjow(child: TreaSetDialogDjojow());
               },
               child: TreaImageDhwudhiw(name: "djwjow",width: 30.w,height: 30.w,),
             )

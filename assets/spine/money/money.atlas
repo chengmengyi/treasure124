@@ -1,0 +1,7 @@
+money.png
+size:126,80
+filter:Linear,Linear
+pma:true
+Mask group
+bounds:2,2,122,76
+offsets:4,1,128,82

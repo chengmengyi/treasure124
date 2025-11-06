@@ -10,6 +10,10 @@ import 'package:treadwkd_bbbb/ui/dialog/trea_box_dialog_dnwidiw/trea_box_dialog_
 
 
 class TreaBoxDialogDnwidiw extends TreaFaD<TreaBoxDialogDnwidiwC>{
+  Function() dismissCallback;
+  TreaBoxDialogDnwidiw({
+    required this.dismissCallback,
+});
   @override
   TreaBoxDialogDnwidiwC cccDiheiwidow() => TreaBoxDialogDnwidiwC();
 
@@ -168,7 +172,7 @@ class TreaBoxDialogDnwidiw extends TreaFaD<TreaBoxDialogDnwidiwC>{
         right: 38.w,
         child: TreaClickDhwidjow(
           onTap: (){
-            treaC.clickClose();
+            treaC.clickClose(dismissCallback);
           },
           child: TreaImageDhwudhiw(name: "icon_close",width: 24.w,height: 24.w,),
         ),

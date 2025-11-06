@@ -1,0 +1,135 @@
+{
+"skeleton": {
+	"hash": "s2WRl/oEyfY",
+	"spine": "4.2.43",
+	"x": -73.8,
+	"y": -57.73,
+	"width": 154.35,
+	"height": 77.87,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root", "scaleX": 0.5, "scaleY": 0.5 },
+	{ "name": "Mask group", "parent": "root" },
+	{ "name": "Mask group2", "parent": "root" },
+	{ "name": "Mask group3", "parent": "root" },
+	{ "name": "Mask group4", "parent": "root" },
+	{ "name": "Mask group5", "parent": "root" },
+	{ "name": "Mask group6", "parent": "root" },
+	{ "name": "Mask group7", "parent": "root" }
+],
+"slots": [
+	{ "name": "Mask group", "bone": "Mask group", "attachment": "Mask group" },
+	{ "name": "Mask group2", "bone": "Mask group2", "attachment": "Mask group" },
+	{ "name": "Mask group3", "bone": "Mask group3", "attachment": "Mask group" },
+	{ "name": "Mask group4", "bone": "Mask group4", "attachment": "Mask group" },
+	{ "name": "Mask group5", "bone": "Mask group5", "attachment": "Mask group" },
+	{ "name": "Mask group6", "bone": "Mask group6", "attachment": "Mask group" },
+	{ "name": "Mask group7", "bone": "Mask group7", "attachment": "Mask group" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Mask group": {
+				"Mask group": { "x": -72.7, "y": -17.95, "width": 128, "height": 82 }
+			},
+			"Mask group2": {
+				"Mask group": { "x": 40.07, "y": -55.29, "width": 128, "height": 82 }
+			},
+			"Mask group3": {
+				"Mask group": { "x": -83.61, "y": -58.77, "width": 128, "height": 82 }
+			},
+			"Mask group4": {
+				"Mask group": { "x": 14.25, "y": -74.46, "width": 128, "height": 82 }
+			},
+			"Mask group5": {
+				"Mask group": { "x": 97.1, "y": -35.69, "width": 128, "height": 82 }
+			},
+			"Mask group6": {
+				"Mask group": { "x": 38.24, "y": -50.58, "width": 128, "height": 82 }
+			},
+			"Mask group7": {
+				"Mask group": { "x": 8.36, "y": -0.72, "width": 128, "height": 82 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"Mask group": {
+				"translate": [
+					{ "time": 0.1 },
+					{ "time": 0.8333, "x": -232.84, "y": 675.88 }
+				],
+				"scale": [
+					{ "time": 0.1 },
+					{ "time": 0.8333, "x": 0, "y": 0 }
+				]
+			},
+			"Mask group2": {
+				"translate": [
+					{ "time": 0.1333 },
+					{ "time": 0.8667, "x": -232.84, "y": 675.88 }
+				],
+				"scale": [
+					{ "time": 0.1333 },
+					{ "time": 0.8667, "x": 0, "y": 0 }
+				]
+			},
+			"Mask group3": {
+				"translate": [
+					{ "time": 0.2 },
+					{ "time": 0.9, "x": -232.84, "y": 675.88 }
+				],
+				"scale": [
+					{ "time": 0.2 },
+					{ "time": 0.9, "x": 0, "y": 0 }
+				]
+			},
+			"Mask group4": {
+				"translate": [
+					{ "time": 0.2333 },
+					{ "time": 0.9667, "x": -232.84, "y": 675.88 }
+				],
+				"scale": [
+					{ "time": 0.2333 },
+					{ "time": 0.9667, "x": 0, "y": 0 }
+				]
+			},
+			"Mask group5": {
+				"translate": [
+					{ "time": 0.3 },
+					{ "time": 1, "x": -232.84, "y": 675.88 }
+				],
+				"scale": [
+					{ "time": 0.3 },
+					{ "time": 1, "x": 0, "y": 0 }
+				]
+			},
+			"Mask group6": {
+				"translate": [
+					{ "time": 0.3333 },
+					{ "time": 1.0667, "x": -232.84, "y": 675.88 }
+				],
+				"scale": [
+					{ "time": 0.3333 },
+					{ "time": 1.0667, "x": 0, "y": 0 }
+				]
+			},
+			"Mask group7": {
+				"translate": [
+					{ "time": 0.4 },
+					{ "time": 1.1, "x": -232.84, "y": 675.88 }
+				],
+				"scale": [
+					{ "time": 0.4 },
+					{ "time": 1.1, "x": 0, "y": 0 }
+				]
+			}
+		}
+	}
+}
+}

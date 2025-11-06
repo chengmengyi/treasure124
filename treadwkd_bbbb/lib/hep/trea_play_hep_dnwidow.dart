@@ -5,6 +5,7 @@ import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
+import 'package:treadwkd_bbbase/hep/trea_voice_hep_dwidiwn.dart';
 import 'package:treadwkd_bbbase/ui/scratcher/scratcher.dart';
 import 'package:treadwkd_bbbb/bean/trea_reward_item_bean_dwod.dart';
 import 'package:treadwkd_bbbb/hep/trea_bbbb_roulist_jfoejfo.dart';
@@ -62,6 +63,7 @@ class TreaPlayHepDnwidow{
   }
 
   playStart(){
+    TreaVoiceHepDwidiwn.instance.playSound(SoundType.gua);
     TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.showOrHideAutoGuaAnimator,str: "hide");
   }
 
@@ -107,6 +109,7 @@ class TreaPlayHepDnwidow{
         ),
       );
     }else{
+      TreaVoiceHepDwidiwn.instance.playSound(SoundType.fail);
       TreaRouDwjidw.showDdjwidjow(
         child: TreaNoRewardDialogCwidmdw(
           dismissCallback: (){

@@ -25,6 +25,18 @@ class TreaLocalDjwidj{
   static const String _debugAdjustAppToken="NHFlZGdhNjV1ZHE4";
   static const String _releaseAdjustAppToken="MXBhZmRqeXJiYTNr";
   static String adjustAppTokenBase64=kDebugMode&&Platform.isAndroid?_debugAdjustAppToken:_releaseAdjustAppToken;
+
+  static const String localFkStrBase64="ewogICJ1aSI6IHsKICAgICJudW1iZXIiOiAwLAogICAgImJlaGF2aW9yIjogMCwKICAgICJkZXZpY2UiOiAwCiAgfSwKICAiYmVoYXZpb3IiOiB7CiAgICAiYWRfc2hvcnRfc2hvdyI6IHsKICAgICAgImR1cmF0aW9uIjogMzAsCiAgICAgICJ2YWx1ZSI6IDMKICAgIH0sCiAgICAiYWRfc2hvcnRfY2xvc2UiOiB7CiAgICAgICJkdXJhdGlvbiI6IDIwLAogICAgICAidmFsdWUiOiAzCiAgICB9LAogICAgIndyb25nX2RlZW1fYWRfbGVzcyI6IDMsCiAgICAid3JvbmdfZGVlbV9hZF9tb3JlIjogOTAsCiAgICAibm9faW5zdGFsbCI6IDEsCiAgICAiYWRfZGFpbHlfc2hvdyI6IDYwCiAgfSwKICAiZGV2aWNlIjogWwogICAgInZwbiIsCiAgICAicm9vdCIsCiAgICAic2ltIiwKICAgICJzaW11bGF0b3IiLAogICAgImdvb2dsZXBsYXkiLAogICAgImRldmVsb3BlciIsCiAgICAiaXAiCiAgXQp9";
+
+  static const String smKeyEn="MToLCzgtJTY3EyY1FAofMj0tOT4+LT04Lws9Cy89Nj49MSUQSDcfBh4ELSUfLj8zGy80TBAGLggaCTVTFhoaJDMkDDQpJC4qEU8/LhUFMjBIMUkpTCoFTw0/VzQzSkhTHU0mJk46Oh83MDtKRRMzCikXPwkxDkw/PQs5PT0tQUE=";
+
+
+  static const String _debugFacebook="";
+  static const String _releaseFacebook="ewoiYXBwX2lkIjoiMTA5ODAxMzIyODg4MDkwNCIsCiJjbGllbnRfdG9rZW4iOiAiOWZmZTJlYjg2M2IzYTUzYTg0YzVmMWQyYTg3NDQyZGRhMTkzMGI2NTJiYzhhOWEzNTc3YmJmOTEyOTdlZTA1YyIsCiJhcHBfbmFtZSI6ICJDMTI0X0dQIgp9";
+  static String facebookLocalConfig=kDebugMode&&Platform.isAndroid?_debugFacebook:_releaseFacebook;
+
+  static String privacyUrl=kDebugMode&&Platform.isAndroid?"https://www.baidu.com":"https://sites.google.com/view/scratchluckpolicy/home";
+  static String email=kDebugMode&&Platform.isAndroid?"":"";
 }
 
 

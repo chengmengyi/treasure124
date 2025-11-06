@@ -15,4 +15,5 @@ class TreaEventCodeDhwdhwi{
   static const int newUserGuideStep2AutoPlay=114;
   static const int newUserGuideStep4MoneyFinger=115;
   static const int clickBoxGuide=116;
+  static const int showMoneyAnimator=117;
 }

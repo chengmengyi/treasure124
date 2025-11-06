@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_ad_hep_nwidiow.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
+import 'package:treadwkd_bbbase/hep/trea_notification_hep_dwjijdow.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ad_pos_id_enum_dwidjwm.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
@@ -18,6 +19,7 @@ class TreaLaunchDwhiwC extends TreaFaC with GetSingleTickerProviderStateMixin{
     super.onInit();
     TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.launch_page);
     _initAnimator();
+    TreaNotificationHepDwjijdow.instance.initNotificationdwoidjw();
   }
 
   @override

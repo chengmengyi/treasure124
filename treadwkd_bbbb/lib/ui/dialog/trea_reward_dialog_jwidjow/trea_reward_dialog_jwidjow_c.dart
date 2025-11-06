@@ -7,6 +7,7 @@ import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ad_pos_id_enum_dwidjwm.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
+import 'package:treadwkd_bbbase/hep/trea_voice_hep_dwidiwn.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_hep_dwidmow.dart';
 import 'package:treadwkd_bbbb/hep/trea_user_info_hep_dwidhiw.dart';
@@ -36,6 +37,7 @@ class TreaRewardDialogJwidjowC extends TreaFaC{
       TreaGuideHepDwidmow.instance.uploadUserGuideShowTbaPoint("pop3");
     }
     TreaTttIwjodwm.instance.pointEventdjwijiwo(point: isBigReward()?TreaPointEnumDjwidjo.coin_pop_s:TreaPointEnumDjwidjo.coin_pop_b,params: _getTbaParams(),);
+    TreaVoiceHepDwidiwn.instance.playSound(isBigReward()?SoundType.bigReward:SoundType.smallReward);
   }
 
   @override

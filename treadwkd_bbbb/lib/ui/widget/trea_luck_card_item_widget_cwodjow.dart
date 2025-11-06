@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
+import 'package:treadwkd_bbbase/hep/trea_voice_hep_dwidiwn.dart';
 import 'package:treadwkd_bbbase/ui/trea_gradient_text_dhwiodw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_fa_w.dart';
@@ -159,6 +160,7 @@ class _TreaLuckCardItemWidgetCwodjowState extends TreaFaWState<TreaLuckCardItemW
     if(i!=widget.index){
       return;
     }
+    TreaVoiceHepDwidiwn.instance.playSound(SoundType.fan);
     _controller.forward();
   }
 }
