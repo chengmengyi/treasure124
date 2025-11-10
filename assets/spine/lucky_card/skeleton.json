@@ -1,0 +1,85 @@
+{
+"skeleton": {
+	"hash": "wFaz3RkCLU4",
+	"spine": "4.2.43",
+	"x": -69,
+	"y": -100,
+	"width": 138,
+	"height": 200,
+	"images": "../../Desktop/新建文件夹 (5)/",
+	"audio": "./audio"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "Rectangle 10947", "parent": "root" },
+	{ "name": "Rectangle 10946", "parent": "root" }
+],
+"slots": [
+	{ "name": "Rectangle 10946", "bone": "Rectangle 10946", "attachment": "Rectangle 10946" },
+	{ "name": "zz", "bone": "root", "attachment": "zz" },
+	{ "name": "Rectangle 10947", "bone": "Rectangle 10947", "attachment": "Rectangle 10947" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Rectangle 10946": {
+				"Rectangle 10946": { "width": 138, "height": 200 }
+			},
+			"Rectangle 10947": {
+				"Rectangle 10947": { "color": "fefff3e4", "width": 138, "height": 200 }
+			},
+			"zz": {
+				"zz": {
+					"type": "clipping",
+					"end": "Rectangle 10947",
+					"vertexCount": 4,
+					"vertices": [ -67.56, 106.67, -80.24, 96.34, 90.61, -130.29, 107.58, -128.54 ],
+					"color": "ce3a3aff"
+				}
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"Rectangle 10946": {
+				"scale": [
+					{},
+					{ "time": 0.1667, "x": 0.8, "y": 0.8 },
+					{ "time": 0.3333 },
+					{ "time": 0.5, "x": 0.8, "y": 0.8 },
+					{ "time": 0.6667 }
+				]
+			},
+			"Rectangle 10947": {
+				"scale": [
+					{},
+					{ "time": 0.1667, "x": 0.8, "y": 0.8 },
+					{ "time": 0.3333 },
+					{ "time": 0.5, "x": 0.8, "y": 0.8 },
+					{ "time": 0.6667 }
+				]
+			}
+		},
+		"attachments": {
+			"default": {
+				"zz": {
+					"zz": {
+						"deform": [
+							{
+								"vertices": [ -158.16069, -195.87698, -158.16069, -195.87698, -158.16069, -195.87698, -158.16069, -195.87698 ]
+							},
+							{
+								"time": 0.3333,
+								"vertices": [ 71.85013, 130.83778, 71.85013, 130.83778, 71.85013, 130.83778, 71.85013, 130.83778 ]
+							}
+						]
+					}
+				}
+			}
+		}
+	}
+}
+}
