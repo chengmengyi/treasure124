@@ -16,9 +16,7 @@ class TreaUserInfoHepDwidhiw{
   updateMyMoney(double addNum)async{
     bMyMoney.saveData(addDecimal(bMyMoney.getData(), addNum));
     if(addNum>0){
-      if(bMyMoney.getData()>=TreaValueHepJomeoc.instance.getCashList().first){
-        TreaCashHepCneimdi.instance.showFirstHasMoneyDialog();
-      }
+      bShowAdMoneyTag.saveData(addDecimal(bShowAdMoneyTag.getData(), addNum));
       _handleMoneyLevelDJOWJDOdow();
       _handleFkInfodwhidw();
     }
@@ -67,5 +65,11 @@ class TreaUserInfoHepDwidhiw{
   updateWheelNum(int addNum){
     bWheelNum.saveData(bWheelNum.getData()+addNum);
     TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.updateWheelNum);
+  }
+
+  checkShowFirstCashDialog(){
+    if(bMyMoney.getData()>=TreaValueHepJomeoc.instance.getCashList().first){
+      TreaCashHepCneimdi.instance.showFirstHasMoneyDialog();
+    }
   }
 }

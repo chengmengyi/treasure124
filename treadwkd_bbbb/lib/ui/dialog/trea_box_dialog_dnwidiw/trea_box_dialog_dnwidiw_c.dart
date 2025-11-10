@@ -11,6 +11,7 @@ import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
 import 'package:treadwkd_bbbb/hep/trea_box_hep_whidowmd.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
+import 'package:treadwkd_bbbb/hep/trea_user_info_hep_dwidhiw.dart';
 import 'package:treadwkd_bbbb/hep/trea_value_hep_jomeoc.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_reward_dialog_jwidjow/trea_reward_dialog_jwidjow.dart';
 
@@ -82,7 +83,7 @@ class TreaBoxDialogDnwidiwC extends TreaFaC with GetSingleTickerProviderStateMix
         rewardEnum: TreaRewardEnum.box,
         reward: TreaValueHepJomeoc.instance.getBoxReward(),
         dismissCallback: (){
-
+          TreaUserInfoHepDwidhiw.instance.checkShowFirstCashDialog();
         },
       ),
     );

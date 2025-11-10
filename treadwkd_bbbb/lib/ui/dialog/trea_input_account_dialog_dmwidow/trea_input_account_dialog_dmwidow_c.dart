@@ -13,7 +13,7 @@ class TreaInputAccountDialogDmwidowC extends TreaFaC{
       showToast("The format you entered is incorrect.");
       return;
     }
-    if(!_isEmail(content)){
+    if(cashType==TreaCashType.paypal&&!_isEmail(content)){
       showToast("The format you entered is incorrect.");
       return;
     }

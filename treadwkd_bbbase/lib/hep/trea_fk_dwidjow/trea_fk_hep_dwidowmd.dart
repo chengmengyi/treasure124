@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_android_ad_plugins/flutter_android_ad_plugins.dart';
 import 'package:flutter_check_adjust/dio/dio_hep.dart';
 import 'package:flutter_tba_info/flutter_tba_info.dart';
@@ -113,6 +114,9 @@ class TreaFkHepDwidowmd {
   }
 
   bool checkHasFk(){
+    // if(kDebugMode){
+    //   return false;
+    // }
     var data = bHasFkLocalTag.getData();
     if(data.isNotEmpty){
       var tagDhwiudow = TreaFkTagDhwiudow.values.byName(data);

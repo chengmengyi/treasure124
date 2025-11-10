@@ -26,6 +26,8 @@ class TreaAdHepNwidiow{
   static final TreaAdHepNwidiow _adHepNwidiow=TreaAdHepNwidiow();
   static TreaAdHepNwidiow get instance=>_adHepNwidiow;
 
+  Function()? watchAdCashTaskCallback;
+
   initAdwieji(){
     FlutterAndroidAdPlugins.instance.initMax(
       maxKey: TreaLocalDjwidj.maxKeyBase64.base64(),
@@ -127,6 +129,7 @@ class TreaAdHepNwidiow{
       adType: adType,
       iosAdCallback: IosAdCallback(
         showSuccess: (ad,info){
+          watchAdCashTaskCallback?.call();
           _handleAdShowSuccess(adType,ad,info,adPosId);
         },
         showFail: (){

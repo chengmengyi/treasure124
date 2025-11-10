@@ -77,7 +77,7 @@ class TreaRewardDialogJwidjow extends TreaFaD<TreaRewardDialogJwidjowC>{
   );
 
   _btnWidget(){
-    if(treaC.isBigReward()){
+    if(treaC.isBigReward()&&rewardEnum!=TreaRewardEnum.lucky){
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [

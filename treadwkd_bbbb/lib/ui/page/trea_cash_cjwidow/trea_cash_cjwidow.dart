@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
+import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_p.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
 import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
@@ -178,7 +179,10 @@ class TreaCashCjwidow extends TreaFaP<TreaCashCjwidowC>{
     height: 210.h,
     child: Stack(
       children: [
-        TreaImageDhwudhiw(name: treaC.getTopBg(),width: double.infinity,height: double.infinity,),
+        GetBuilder<TreaCashCjwidowC>(
+          id: "top_bg",
+          builder: (_)=>TreaImageDhwudhiw(name: treaC.getTopBg(),width: double.infinity,height: double.infinity,),
+        ),
         SafeArea(
           top: true,
           child: Column(
@@ -204,7 +208,7 @@ class TreaCashCjwidow extends TreaFaP<TreaCashCjwidowC>{
       children: [
         TreaClickDhwidjow(
           onTap: (){
-
+            TreaRouDwjidw.backdwhudie();
           },
           child: SizedBox(
             width: 44.w,

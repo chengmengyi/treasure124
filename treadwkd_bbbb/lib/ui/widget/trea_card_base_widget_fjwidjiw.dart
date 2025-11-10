@@ -136,7 +136,7 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
                     alignment: Alignment.center,
                     children: [
                       TreaImageDhwudhiw(name: "mdjiwmdi",width: 216.w,height: 40.h,),
-                      TreaTextDwihdw(data: "Cheack Card", size: 20.sp, color: "#FFFFFF",lineColor: "#5E00FF",fontWeight: FontWeight.w900,),
+                      TreaTextDwihdw(data: "Check Card", size: 20.sp, color: "#FFFFFF",lineColor: "#5E00FF",fontWeight: FontWeight.w900,),
                     ],
                   ),
                 ),

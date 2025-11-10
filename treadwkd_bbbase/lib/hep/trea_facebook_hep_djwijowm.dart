@@ -7,12 +7,7 @@ class TreaFacebookHepDjwijowm{
   static final TreaFacebookHepDjwijowm _djwijowm=TreaFacebookHepDjwijowm();
   static TreaFacebookHepDjwijowm get instance => _djwijowm;
 
-  var _hasInit=false;
-
   initFacebook(String s){
-    if(_hasInit){
-      return;
-    }
     try{
       var json = jsonDecode(s);
       FlutterCustomFacebook.instance.initFaceBook(
@@ -20,16 +15,12 @@ class TreaFacebookHepDjwijowm{
         facebookToken: json["client_token"],
         facebookAppName: json["app_name"],
       );
-      _hasInit=true;
     }catch(e){
 
     }
   }
 
   uploadRevenueToFacebook(AdMoneyInfoBean? ad){
-    if(!_hasInit){
-      return;
-    }
     FlutterCustomFacebook.instance.logPurchase(amount: ad?.revenue??0, currency: "USD",);
   }
 }

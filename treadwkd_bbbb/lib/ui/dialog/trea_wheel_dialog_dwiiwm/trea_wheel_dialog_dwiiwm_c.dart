@@ -8,6 +8,7 @@ import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
 import 'package:treadwkd_bbbase/ui/page/trea_fa_c.dart';
+import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
 import 'package:treadwkd_bbbb/hep/trea_user_info_hep_dwidhiw.dart';
@@ -72,8 +73,10 @@ class TreaWheelDialogDwiiwmC extends TreaFaC with GetSingleTickerProviderStateMi
         reward: wheelReward,
         rewardEnum: TreaRewardEnum.wheel,
         dismissCallback: (){
+          TreaCashHepCneimdi.instance.updateCashTask(TreaTaskType.wheel);
           _initWheelRewardList();
           update(["wheel"]);
+          TreaUserInfoHepDwidhiw.instance.checkShowFirstCashDialog();
         },
       ),
     );

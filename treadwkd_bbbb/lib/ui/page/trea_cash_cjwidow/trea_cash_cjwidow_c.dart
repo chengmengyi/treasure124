@@ -69,7 +69,7 @@ class TreaCashCjwidowC extends TreaFaC{
   changeCashType(String value){
     cashType=value;
     bSelectedCashType.saveData(cashType);
-    update(["cash_type"]);
+    update(["cash_type","top_bg"]);
     _queryAmountList();
   }
 

@@ -7,6 +7,7 @@ import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_voice_hep_dwidiwn.dart';
 import 'package:treadwkd_bbbase/ui/trea_gradient_text_dhwiodw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
+import 'package:treadwkd_bbbase/ui/trea_spine_dwjoidjow.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_fa_w.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 
@@ -49,7 +50,15 @@ class _TreaLuckCardItemWidgetCwodjowState extends TreaFaWState<TreaLuckCardItemW
           Transform(
             transform: Matrix4.identity()..rotateY(pi),
             alignment: Alignment.center,
-            child: TreaImageDhwudhiw(name: "dwimdom",width: double.infinity,height: 94.h,),
+            // child: TreaImageDhwudhiw(name: "dwimdom",width: double.infinity,height: 94.h,),
+            child: TreaSpineDwjoidjow(
+              atlasFile: "115-card",
+              skeletonFile: "skeleton",
+              animatorName: "animation",
+              folder: "lucky_card",
+              width: double.infinity,
+              height: 94.h,
+            ),
           ),
         ),
       );

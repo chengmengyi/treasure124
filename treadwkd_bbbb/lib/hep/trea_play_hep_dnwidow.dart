@@ -55,7 +55,9 @@ class TreaPlayHepDnwidow{
     required this.playType,
     required this.updatePlayList,
     required this.resetPlayCallback,
-  });
+  }){
+    TreaUserInfoHepDwidhiw.instance.checkShowFirstCashDialog();
+  }
 
   setRewardList(List<TreaRewardItemBeanDwod> list){
     rewardList.clear();
@@ -200,6 +202,8 @@ class TreaPlayHepDnwidow{
           },
         ),
       );
+    }else{
+      TreaUserInfoHepDwidhiw.instance.checkShowFirstCashDialog();
     }
   }
 

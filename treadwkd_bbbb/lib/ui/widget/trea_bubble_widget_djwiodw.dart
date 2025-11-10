@@ -128,6 +128,7 @@ class _TreaBubbleWidgetDjwiodwState extends TreaFaWState<TreaBubbleWidgetDjwiodw
         setState(() {
           addNum=TreaValueHepJomeoc.instance.getBubbleReward();
         });
+        TreaUserInfoHepDwidhiw.instance.checkShowFirstCashDialog();
       },
     );
   }

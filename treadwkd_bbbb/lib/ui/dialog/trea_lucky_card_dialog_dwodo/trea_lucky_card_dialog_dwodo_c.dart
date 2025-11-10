@@ -39,6 +39,7 @@ class TreaLuckyCardDialogDwodoC extends TreaFaC{
     await Future.delayed(Duration(milliseconds: 1000));
     TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.flipOtherLuckyCard,i: index);
     await Future.delayed(Duration(milliseconds: 1000));
+    canClick=true;
     TreaRouDwjidw.showDdjwidjow(
       child: TreaRewardDialogJwidjow(
         reward: rewardList[index],

@@ -4,6 +4,7 @@ import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_step_omsmwo.dart';
 
 class TreaStorageDhwudhiw{
   static const String bMyMoney="bMyMoney";
+  static const String bShowAdMoneyTag="bShowAdMoneyTag";
   static const String bGuaKaNum="bGuaKaNum";
   static const String bLuckyCardNum="bLuckyCardNum";
   static const String bValueConfig="bValueConfig";
@@ -18,6 +19,7 @@ class TreaStorageDhwudhiw{
 }
 
 StorageData<double> bMyMoney=StorageData<double>(key: TreaStorageDhwudhiw.bMyMoney, defaultValue: 0.0);
+StorageData<double> bShowAdMoneyTag=StorageData<double>(key: TreaStorageDhwudhiw.bShowAdMoneyTag, defaultValue: 0.0);
 
 StorageData<int> bGuaKaNum=StorageData<int>(key: TreaStorageDhwudhiw.bGuaKaNum, defaultValue: 0);
 StorageData<int> bLuckyCardNum=StorageData<int>(key: TreaStorageDhwudhiw.bLuckyCardNum, defaultValue: 0);

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:treadwkd_bbbase/hep/trea_ad_hep_nwidiow.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_hep_dhwidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_fk_dwidjow/trea_fk_hep_dwidowmd.dart';
@@ -62,13 +63,15 @@ class TreaHomeDniewdoC extends TreaFaC{
     TreaFkHepDwidowmd.instance.initFk();
     TreadwkdBbbase.instance.treaOpen();
     TreaVoiceHepDwidiwn.instance.playBgmdwmodwo();
+    TreaAdHepNwidiow.instance.watchAdCashTaskCallback=(){
+      TreaCashHepCneimdi.instance.updateCashTask(TreaTaskType.ad);
+    };
   }
 
   @override
   void onReady() {
     super.onReady();
-    _initPlayTypeList();
-    TreaGuideHepDwidmow.instance.checkShowNewUserGuide(context,lucky77GlobalKey,boxGlobalKey);
+    _initPlayTypeList(true);
   }
 
   clickItem(TreaPlayTypeInfoFhwiedhi bean){
@@ -104,11 +107,16 @@ class TreaHomeDniewdoC extends TreaFaC{
     toWebPage(title: "More Fun", url: TreaLocalDjwidj.moreFunUrl);
   }
 
-  _initPlayTypeList()async{
+  _initPlayTypeList(bool showNewUserGuide)async{
     playTypeList.clear();
     var list = await TreaPlayTypeHepFjwidjo.instance.getPlayTypeList();
     playTypeList.addAll(list);
     update(["play_type_list"]);
+    if(showNewUserGuide){
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        TreaGuideHepDwidmow.instance.checkShowNewUserGuide(context,lucky77GlobalKey,boxGlobalKey);
+      });
+    }
   }
 
   String getPlayTypeImages(TreaPlayTypeInfoFhwiedhi bean){
@@ -130,7 +138,7 @@ class TreaHomeDniewdoC extends TreaFaC{
   handleEventwhudwhi(TreaEventBeanDjwid bean) {
     switch(bean.code){
       case TreaEventCodeDhwdhwi.updateHomeList:
-        _initPlayTypeList();
+        _initPlayTypeList(false);
         break;
       case TreaEventCodeDhwdhwi.toPlayPage:
         _toPlayPage();
@@ -168,13 +176,14 @@ class TreaHomeDniewdoC extends TreaFaC{
 
     // TreaFkHepDwidowmd.instance.initFk();
 
-    TreaRouDwjidw.showDdjwidjow(child: TreaOpenNotificationDialogDniwdow());
+    TreaRouDwjidw.showDdjwidjow(child: TreaLuckyCardDialogDwodo(dismissDialogCallback: (b){}));
   }
 
   @override
   void onClose() {
     _addPlayNumTimer?.cancel();
     _addPlayNumTimer=null;
+    TreaAdHepNwidiow.instance.watchAdCashTaskCallback=null;
     super.onClose();
   }
 }

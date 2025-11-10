@@ -117,6 +117,9 @@ class _TreaBoxWidgetDjwidjowState extends TreaFaWState<TreaBoxWidgetDjwidjow>{
         clickFromNotification=true;
         _clickBox();
         break;
+      case TreaEventCodeDhwdhwi.updateBoxNum:
+        _queryBoxNum();
+        break;
     }
   }
 }

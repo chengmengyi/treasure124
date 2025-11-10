@@ -36,7 +36,7 @@ class TreaRewardDialogJwidjowC extends TreaFaC{
     if(TreaGuideHepDwidmow.instance.checkIsStep3()){
       TreaGuideHepDwidmow.instance.uploadUserGuideShowTbaPoint("pop3");
     }
-    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: isBigReward()?TreaPointEnumDjwidjo.coin_pop_s:TreaPointEnumDjwidjo.coin_pop_b,params: _getTbaParams(),);
+    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: isBigReward()?TreaPointEnumDjwidjo.coin_pop_b:TreaPointEnumDjwidjo.coin_pop_s,params: _getTbaParams(),);
     TreaVoiceHepDwidiwn.instance.playSound(isBigReward()?SoundType.bigReward:SoundType.smallReward);
   }
 

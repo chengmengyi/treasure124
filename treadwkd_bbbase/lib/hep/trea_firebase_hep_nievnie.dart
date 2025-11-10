@@ -76,6 +76,7 @@ class TreaFirebaseHepNievnie{
     }
     var risk_control = remoteConfig.getString("risk_control");
     if(risk_control.isNotEmpty){
+      bFkConfig.saveData(risk_control);
       TreaFkHepDwidowmd.instance.initFk();
     }
   }

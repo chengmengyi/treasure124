@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
+import 'package:flutter/foundation.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_firebase_hep_nievnie.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
@@ -325,7 +326,7 @@ class TreaValueHepJomeoc{
       return false;
     }
     var last = list.last;
-    var coinsNum = bMyMoney.getData();
+    var coinsNum = bShowAdMoneyTag.getData();
     if(coinsNum>=(last.upperBound??1000)){
       return Random().nextInt(100)<(last.points??60);
     }
