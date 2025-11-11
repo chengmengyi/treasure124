@@ -7,10 +7,10 @@ class TreaFacebookHepDjwijowm{
   static final TreaFacebookHepDjwijowm _djwijowm=TreaFacebookHepDjwijowm();
   static TreaFacebookHepDjwijowm get instance => _djwijowm;
 
-  initFacebook(String s){
+  initFacebook(String s)async{
     try{
       var json = jsonDecode(s);
-      FlutterCustomFacebook.instance.initFaceBook(
+      var result = await FlutterCustomFacebook.instance.initFaceBook(
         facebookId: json["app_id"].toString(),
         facebookToken: json["client_token"],
         facebookAppName: json["app_name"],
@@ -21,6 +21,6 @@ class TreaFacebookHepDjwijowm{
   }
 
   uploadRevenueToFacebook(AdMoneyInfoBean? ad){
-    FlutterCustomFacebook.instance.logPurchase(amount: ad?.revenue??0, currency: "USD",);
+    FlutterCustomFacebook.instance.logPurchase(amount: ad?.revenue??0.0, currency: "USD",);
   }
 }

@@ -10,13 +10,16 @@ import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_click_dhwidjow.dart';
 import 'package:treadwkd_bbbase/ui/widget/trea_fa_w.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
+import 'package:treadwkd_bbbb/hep/trea_play_hep_dnwidow.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_wheel_dialog_dwiiwm/trea_wheel_dialog_dwiiwm.dart';
 
 class TreaWheelIconWidgetDjwidjiw extends TreaFaW{
   bool fromHome;
+  TreaPlayHepDnwidow? playHepDnwidow;
   TreaWheelIconWidgetDjwidjiw({
     required this.fromHome,
+    this.playHepDnwidow,
 });
   @override
   State<StatefulWidget> createState() => _TreaWheelIconWidgetDjwidjiwState();
@@ -26,6 +29,9 @@ class _TreaWheelIconWidgetDjwidjiwState extends TreaFaWState<TreaWheelIconWidget
   @override
   Widget wwwdwjidwo() => TreaClickDhwidjow(
     onTap: (){
+      if(null!=widget.playHepDnwidow&&widget.playHepDnwidow?.canClick==false){
+        return;
+      }
       TreaRouDwjidw.showDdjwidjow(
         child: TreaWheelDialogDwiiwm(
           fromHome: widget.fromHome,

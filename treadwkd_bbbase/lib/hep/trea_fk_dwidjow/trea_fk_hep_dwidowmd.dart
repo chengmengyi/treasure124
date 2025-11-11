@@ -20,10 +20,6 @@ class TreaFkHepDwidowmd {
   var _smSuccess=false,_ipSuccess=false;
   TreFkBeanFowjdow? _fkBeanFowjdow;
 
-  test(){
-    print("klk===${_fkBeanFowjdow?.behavior?.adDailyShow}");
-  }
-
   initFk()async{
     if(_smSuccess&&_ipSuccess){
       return;

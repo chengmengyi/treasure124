@@ -36,7 +36,7 @@ class TreaLocalDjwidj{
   static const String _releaseFacebook="ewoiYXBwX2lkIjoiMTA5ODAxMzIyODg4MDkwNCIsCiJjbGllbnRfdG9rZW4iOiAiOWZmZTJlYjg2M2IzYTUzYTg0YzVmMWQyYTg3NDQyZGRhMTkzMGI2NTJiYzhhOWEzNTc3YmJmOTEyOTdlZTA1YyIsCiJhcHBfbmFtZSI6ICJDMTI0X0dQIgp9";
   static String facebookLocalConfig=kDebugMode&&Platform.isAndroid?_debugFacebook:_releaseFacebook;
 
-  static String privacyUrl=kDebugMode&&Platform.isAndroid?"https://www.baidu.com":"https://sites.google.com/view/scratchluckpolicy/home";
+  static String privacyUrl=kDebugMode&&Platform.isAndroid?"https://www.baidu.com":"https://sites.google.com/view/scratchwinpolicy/home";
   static String email=kDebugMode&&Platform.isAndroid?"":"";
 }
 

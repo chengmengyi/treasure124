@@ -19,6 +19,7 @@ import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ad_pos_id_enum_dwidjwm.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
 import 'package:treadwkd_bbbase/hep/trea_user_hep_dwijdiwm.dart';
+import 'package:treadwkd_bbbase/hep/trea_voice_hep_dwidiwn.dart';
 import 'package:treadwkd_bbbase/ui/dialog/trea_ad_limit_dialog_dwijow/trea_ad_limit_dialog_dwijow.dart';
 import 'package:treadwkd_bbbase/ui/dialog/trea_no_ad_dialog_dwijow/trea_no_ad_dialog_dwijow.dart';
 
@@ -198,9 +199,8 @@ class TreaAdHepNwidiow{
     TreaFacebookHepDjwijowm.instance.uploadRevenueToFacebook(ad);
     TreaUserHepDwijdiwm.instance.uploadAdRevenueToAdjust(ad);
     TreaTttIwjodwm.instance.adEventjdiwjio(ad: ad, posId: adPosId, adInfoData: info);
-    // PsnMusicUtils.instance.pauseBackMp3();
+    TreaVoiceHepDwidiwn.instance.pauseBgmdwodpw();
     _uploadLookAdNumLevel();
-    TreaTttIwjodwm.instance.adEventjdiwjio(ad: ad, posId: adPosId, adInfoData: info);
   }
 
   _uploadLookAdNumLevel(){
@@ -220,11 +220,9 @@ class TreaAdHepNwidiow{
     treaStartShowRewardAdTimedmwodmow.saveData(nowTime);
     var i = nowTime-treaShowRewardAdTimeLastdwidjiow.getData();
     var adShortShow = (TreaFkHepDwidowmd.instance.getAdShortShowSijoq()?.duration??30)*1000;
-    print("kk==_handleTwoAdShowTimedhwidwid==${i}==${adShortShow}");
     if(i<adShortShow){
       treaTwoRewardAdTimeSoSmalldwodow.saveData(treaTwoRewardAdTimeSoSmalldwodow.getData()+1);
     }
-    print("kk==_handleTwoAdShowTimedhwidwid==${i}==${adShortShow}==cishu=${treaTwoRewardAdTimeSoSmalldwodow.getData()}");
     treaShowRewardAdTimeLastdwidjiow.saveData(DateTime.now().millisecondsSinceEpoch);
   }
 
@@ -239,9 +237,7 @@ class TreaAdHepNwidiow{
       },
     );
     _handleCloseAddjiwjdow(adType);
-    // PsnMusicUtils.instance.playBackMp3();
-
-    TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.ytmcp_ad_imp_close,params: {"ad_pos_id":adPosId.name,"ad_code_id":info?.adId,"ad_format":info?.adType.name});
+    TreaVoiceHepDwidiwn.instance.playBgmdwmodwo();
   }
 
   _handleCloseAddjiwjdow(AdType adType){

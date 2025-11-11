@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'package:flutter_android_ad_plugins/data/ad_money_info_bean.dart';
 import 'package:flutter_android_ad_plugins/hep/ad_num_hep.dart';
 import 'package:treadwkd_bbbase/hep/trea_ad_hep_nwidiow.dart';
 import 'package:treadwkd_bbbase/hep/trea_facebook_hep_djwijowm.dart';
@@ -79,5 +80,13 @@ class TreaFirebaseHepNievnie{
       bFkConfig.saveData(risk_control);
       TreaFkHepDwidowmd.instance.initFk();
     }
+  }
+
+  test()async{
+    var remoteConfig=FirebaseRemoteConfig.instance;
+
+    var scratchtreasure_fb_inform = remoteConfig.getString("scratchtreasure_fb_inform");
+    print("kk===${scratchtreasure_fb_inform}");
+    TreaFacebookHepDjwijowm.instance.uploadRevenueToFacebook(AdMoneyInfoBean(revenue: 0.00001,adUnitId: "",networkName: "",revenuePrecision: ""));
   }
 }

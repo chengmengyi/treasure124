@@ -37,33 +37,64 @@ class _TreaLuckCardItemWidgetCwodjowState extends TreaFaWState<TreaLuckCardItemW
 
   @override
   Widget wwwdwjidwo() => AnimatedBuilder(
-    animation: _animation,
+    animation: _controller,
     builder: (context, child) {
-      var angle = _animation.value * pi;
+      final angle = _controller.value * pi;
+      final transform = Matrix4.identity()
+        ..setEntry(3, 2, 0.001) // 增强 3D 透视感
+        ..rotateY(angle);
+
+      // 当前是否显示正面
+      final isFrontVisible = angle <= pi / 2;
+
       return Transform(
-        transform: Matrix4.identity()..setEntry(3, 2, 0.001)..rotateY(angle),
         alignment: Alignment.center,
-        child: Opacity(
-          opacity: angle <= pi / 2 ? 1 : 0,
-          child: showFront ?
-          _cardFrontWidget() :
-          Transform(
-            transform: Matrix4.identity()..rotateY(pi),
-            alignment: Alignment.center,
-            // child: TreaImageDhwudhiw(name: "dwimdom",width: double.infinity,height: 94.h,),
-            child: TreaSpineDwjoidjow(
-              atlasFile: "115-card",
-              skeletonFile: "skeleton",
-              animatorName: "animation",
-              folder: "lucky_card",
-              width: double.infinity,
-              height: 94.h,
-            ),
+        transform: transform,
+        child: isFrontVisible
+            ? _cardFrontWidget()
+            : Transform(
+          alignment: Alignment.center,
+          transform: Matrix4.identity()..rotateY(pi),
+          child: TreaSpineDwjoidjow(
+            atlasFile: "115-card",
+            skeletonFile: "skeleton",
+            animatorName: "animation",
+            folder: "lucky_card",
+            width: double.infinity,
+            height: 94.h,
           ),
         ),
       );
     },
   );
+  //     AnimatedBuilder(
+  //   animation: _animation,
+  //   builder: (context, child) {
+  //     var angle = _animation.value * pi;
+  //     return Transform(
+  //       transform: Matrix4.identity()..setEntry(3, 2, 0.001)..rotateY(angle),
+  //       alignment: Alignment.center,
+  //       child: Opacity(
+  //         opacity: angle <= pi / 2 ? 1 : 0,
+  //         child: showFront ?
+  //         _cardFrontWidget() :
+  //         Transform(
+  //           transform: Matrix4.identity()..rotateY(pi),
+  //           alignment: Alignment.center,
+  //           // child: TreaImageDhwudhiw(name: "dwimdom",width: double.infinity,height: 94.h,),
+  //           child: TreaSpineDwjoidjow(
+  //             atlasFile: "115-card",
+  //             skeletonFile: "skeleton",
+  //             animatorName: "animation",
+  //             folder: "lucky_card",
+  //             width: double.infinity,
+  //             height: 94.h,
+  //           ),
+  //         ),
+  //       ),
+  //     );
+  //   },
+  // );
 
   _cardFrontWidget(){
     if(showMissIcon){
@@ -121,23 +152,28 @@ class _TreaLuckCardItemWidgetCwodjowState extends TreaFaWState<TreaLuckCardItemW
 
   _initAnimator(){
     _controller = AnimationController(
+      duration: const Duration(milliseconds: 600),
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      value: 1.0,
     );
-    _animation = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.easeInOut,
-      ),
-    );
-    _controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        setState(() {
-          showFront=!showFront;
-        });
-        _controller.reverse();
-      }
-    });
+    // _controller = AnimationController(
+    //   vsync: this,
+    //   duration: const Duration(milliseconds: 500),
+    // );
+    // _animation = Tween<double>(begin: 0, end: 1).animate(
+    //   CurvedAnimation(
+    //     parent: _controller,
+    //     curve: Curves.easeInOut,
+    //   ),
+    // );
+    // _controller.addStatusListener((status) {
+    //   if (status == AnimationStatus.completed) {
+    //     setState(() {
+    //       showFront=!showFront;
+    //     });
+    //     _controller.reverse();
+    //   }
+    // });
   }
 
   @override
@@ -162,7 +198,12 @@ class _TreaLuckCardItemWidgetCwodjowState extends TreaFaWState<TreaLuckCardItemW
     setState(() {
       showMissIcon=true;
     });
-    _controller.forward();
+    if (showFront) {
+      _controller.forward();
+    } else {
+      _controller.reverse();
+    }
+    showFront = !showFront;
   }
 
   _flipLuckyCard(int? i){
@@ -170,6 +211,17 @@ class _TreaLuckCardItemWidgetCwodjowState extends TreaFaWState<TreaLuckCardItemW
       return;
     }
     TreaVoiceHepDwidiwn.instance.playSound(SoundType.fan);
-    _controller.forward();
+    if (showFront) {
+      _controller.forward();
+    } else {
+      _controller.reverse();
+    }
+    showFront = !showFront;
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }
