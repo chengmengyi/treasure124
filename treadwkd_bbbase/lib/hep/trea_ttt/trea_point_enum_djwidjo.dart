@@ -56,4 +56,5 @@ enum TreaPointEnumDjwidjo{
   session_custom,
   noti_req_refuse,
   noti_req_allow,
+  see_you_tommorow,
 }

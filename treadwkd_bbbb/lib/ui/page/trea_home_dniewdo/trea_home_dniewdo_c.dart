@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_ad_hep_nwidiow.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_hep_dhwidw.dart';
+import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_fk_dwidjow/trea_fk_hep_dwidowmd.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_local_djwidj.dart';
@@ -23,6 +24,7 @@ import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_hep_dwidmow.dart';
 import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_step_omsmwo.dart';
+import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_view/trea_old_user_guide_view.dart';
 import 'package:treadwkd_bbbb/hep/trea_hep_dnwidi.dart';
 import 'package:treadwkd_bbbb/hep/trea_level_hep_dwifnowe.dart';
 import 'package:treadwkd_bbbb/hep/trea_play_type_hep_fjwidjo.dart';
@@ -104,7 +106,8 @@ class TreaHomeDniewdoC extends TreaFaC{
   }
   
   clickMoreFun(){
-    toWebPage(title: "More Fun", url: TreaLocalDjwidj.moreFunUrl);
+    // toWebPage(title: "More Fun", url: TreaLocalDjwidj.moreFunUrl);
+    toWebPage(title: "More Fun", url: TreaLocalDjwidj.moreGame,isMoreGame: true,);
   }
 
   _initPlayTypeList(bool showNewUserGuide)async{
@@ -176,7 +179,11 @@ class TreaHomeDniewdoC extends TreaFaC{
 
     // TreaFkHepDwidowmd.instance.initFk();
 
-    TreaRouDwjidw.showDdjwidjow(child: TreaLuckyCardDialogDwodo(dismissDialogCallback: (b){}));
+    // TreaRouDwjidw.showDdjwidjow(child: TreaLuckyCardDialogDwodo(dismissDialogCallback: (b){}));
+
+
+    print("kkk===${AdNumHep.instance.notLoad()}");
+    // TreaFkHepDwidowmd.instance.test();
   }
 
   @override

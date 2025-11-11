@@ -8,4 +8,8 @@ class TreadwkdBbbase {
   treaOpen()async{
     TreadwkdBbbasePlatform.instance.treaOpen();
   }
+
+  intentTo(String url){
+    TreadwkdBbbasePlatform.instance.intentTo(url);
+  }
 }

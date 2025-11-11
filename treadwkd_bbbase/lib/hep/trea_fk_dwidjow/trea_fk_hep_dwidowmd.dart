@@ -20,6 +20,10 @@ class TreaFkHepDwidowmd {
   var _smSuccess=false,_ipSuccess=false;
   TreFkBeanFowjdow? _fkBeanFowjdow;
 
+  test(){
+    print("klk===${_fkBeanFowjdow?.behavior?.adDailyShow}");
+  }
+
   initFk()async{
     if(_smSuccess&&_ipSuccess){
       return;
@@ -29,6 +33,7 @@ class TreaFkHepDwidowmd {
       if(data.isEmpty){
         data=TreaLocalDjwidj.localFkStrBase64.base64();
       }
+      print("kk====initFk=${data}");
       _fkBeanFowjdow=TreFkBeanFowjdow.fromJson(jsonDecode(data));
     }catch(e){
       _fkBeanFowjdow=TreFkBeanFowjdow.fromJson(jsonDecode(TreaLocalDjwidj.localFkStrBase64.base64()));

@@ -16,8 +16,10 @@ import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_hep_dwidmow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_box_dialog_dnwidiw/trea_box_dialog_dnwidiw.dart';
 
 class TreaBoxWidgetDjwidjow extends TreaFaW{
+  bool fromHome;
   Function()? clickBoxCallback;
   TreaBoxWidgetDjwidjow({
+    this.fromHome=false,
     this.clickBoxCallback,
 });
   @override
@@ -114,8 +116,10 @@ class _TreaBoxWidgetDjwidjowState extends TreaFaWState<TreaBoxWidgetDjwidjow>{
   handleEventwhudwhi(TreaEventBeanDjwid bean) {
     switch(bean.code){
       case TreaEventCodeDhwdhwi.clickBoxGuide:
-        clickFromNotification=true;
-        _clickBox();
+        if(widget.fromHome){
+          clickFromNotification=true;
+          _clickBox();
+        }
         break;
       case TreaEventCodeDhwdhwi.updateBoxNum:
         _queryBoxNum();

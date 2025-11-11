@@ -97,8 +97,9 @@ extension Str2Int on String{
 toWebPage({
   required String title,
   required String url,
+  bool isMoreGame=false,
 }){
-  TreaRouDwjidw.toJdeidedelde(routerName: TreaCommonRouterNameDwjidjow.web,params: {"title":title,"url":url});
+  TreaRouDwjidw.toJdeidedelde(routerName: TreaCommonRouterNameDwjidjow.web,params: {"title":title,"url":url,"isMoreGame":isMoreGame});
 }
 
 //加密：“data”：原始字符串；“code”：需求文档标题前的项目编号

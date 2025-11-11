@@ -26,4 +26,8 @@ abstract class TreadwkdBbbasePlatform extends PlatformInterface {
   Future<void> treaOpen() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  Future<void> intentTo(String url) {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
 }

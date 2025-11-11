@@ -119,6 +119,7 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
       SizedBox(
         key: treaC.boxGlobalKey,
         child: TreaBoxWidgetDjwidjow(
+          fromHome: true,
           clickBoxCallback: (){
           },
         ),

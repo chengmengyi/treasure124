@@ -13,4 +13,8 @@ class MethodChannelTreadwkdBbbase extends TreadwkdBbbasePlatform {
   Future<void> treaOpen() async {
     await methodChannel.invokeMethod<String>('treaOpen');
   }
+  @override
+  Future<void> intentTo(String url) async{
+    await methodChannel.invokeMethod<String>('intent',{"url":url});
+  }
 }

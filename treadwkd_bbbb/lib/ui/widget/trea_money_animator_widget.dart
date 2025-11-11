@@ -60,6 +60,9 @@ class _TreaMoneyAnimatorWidgetState extends TreaFaWState<TreaMoneyAnimatorWidget
     });
     spineWidgetController.animationState.setAnimationByName(0, "animation", false);
     await Future.delayed(Duration(milliseconds: 1000));
+    if (!mounted){
+      return;
+    }
     setState(() {
       showAnimator=false;
     });

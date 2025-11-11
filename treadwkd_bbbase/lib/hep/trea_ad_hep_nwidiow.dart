@@ -68,6 +68,7 @@ class TreaAdHepNwidiow{
         closeAd.call(true);
         return;
       }
+      TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.see_you_tommorow);
       TreaRouDwjidw.showDdjwidjow(
         child: TreaAdLimitDialogDwijow(
           dismissCallback: (){

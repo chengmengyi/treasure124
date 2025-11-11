@@ -4,10 +4,12 @@ import androidx.annotation.NonNull
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.ViewGroup
 
 import java.io.File
+import androidx.core.net.toUri
 
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -26,8 +28,10 @@ class TreadwkdBbbasePlugin : FlutterPlugin, MethodCallHandler,ActivityAware {
     // when the Flutter Engine is detached from the Activity
     private lateinit var channel: MethodChannel
     private var activity: Activity? = null
+    private lateinit var mApplicationContext: Context
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+        mApplicationContext=flutterPluginBinding.applicationContext
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "treadwkd_bbbase")
         channel.setMethodCallHandler(this)
     }
@@ -44,8 +48,39 @@ class TreadwkdBbbasePlugin : FlutterPlugin, MethodCallHandler,ActivityAware {
             if (file.exists()) {
                 TreaJdwodow.treaSjdowjo1(activity, 6)
             }
-        } else {
+        } else if (call.method == "intent") {
+            intentTo(call)
+        }  else{
             result.notImplemented()
+        }
+    }
+
+    private fun intentTo(call: MethodCall){
+        call.arguments?.let{
+            val map = it as Map<String, Any>
+            val url = (map["url"] as? String) ?: ""
+            parseIntent(url)
+        }
+    }
+
+    private fun parseIntent(url: String) {
+        try {
+            var intent: Intent? = null
+
+            intent = if (url.startsWith("intent")) {
+                Intent.parseUri(url, Intent.URI_INTENT_SCHEME)
+            } else {
+                Intent(Intent.ACTION_VIEW, url.toUri())
+            }
+
+            if(intent != null){
+                intent.component=null
+                intent.flags =Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+
+            mApplicationContext.startActivity(intent)
+        } catch (e: Exception) {
+
         }
     }
 
