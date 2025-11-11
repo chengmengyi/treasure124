@@ -220,9 +220,11 @@ class TreaAdHepNwidiow{
     treaStartShowRewardAdTimedmwodmow.saveData(nowTime);
     var i = nowTime-treaShowRewardAdTimeLastdwidjiow.getData();
     var adShortShow = (TreaFkHepDwidowmd.instance.getAdShortShowSijoq()?.duration??30)*1000;
+    print("kk==_handleTwoAdShowTimedhwidwid==${i}==${adShortShow}");
     if(i<adShortShow){
       treaTwoRewardAdTimeSoSmalldwodow.saveData(treaTwoRewardAdTimeSoSmalldwodow.getData()+1);
     }
+    print("kk==_handleTwoAdShowTimedhwidwid==${i}==${adShortShow}==cishu=${treaTwoRewardAdTimeSoSmalldwodow.getData()}");
     treaShowRewardAdTimeLastdwidjiow.saveData(DateTime.now().millisecondsSinceEpoch);
   }
 

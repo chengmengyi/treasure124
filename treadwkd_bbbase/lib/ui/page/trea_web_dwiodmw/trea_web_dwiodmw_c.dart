@@ -24,7 +24,6 @@ class TreaWebDwiodmwC extends TreaFaC{
   }
 
   _loadMoreGame(url)async{
-    var gaid = await FlutterTbaInfo.instance.getGaid();
     controller=WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..runJavaScript("scratchwintreasure")
@@ -52,7 +51,7 @@ class TreaWebDwiodmwC extends TreaFaC{
           },
         ),
       )
-      ..loadRequest(Uri.parse(url+gaid));
+      ..loadRequest(Uri.parse(url));
   }
 
   bool _isDJijeo(String url) {

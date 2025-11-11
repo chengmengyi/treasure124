@@ -28,7 +28,7 @@ class TreaNoMoneyDialogWidowm extends TreaFaD<TreaNoMoneyWidowmC>{
           children: [
             TreaTextDwihdw(data: "Not Enough", size: 20.sp, color: "#272A2F",fontWeight: FontWeight.bold,),
             SizedBox(height: 36.h,),
-            TreaTextDwihdw(data: "Now you can spin the wheel or smash golden eggs  to earn extra cash!", size: 16.sp, color: "#5F727A",fontWeight: FontWeight.bold,),
+            TreaTextDwihdw(data: "Now you can scratch more cards to earn extra cash!", size: 16.sp, color: "#5F727A",fontWeight: FontWeight.bold,),
             SizedBox(height: 36.h,),
             TreaClickDhwidjow(
               onTap: (){

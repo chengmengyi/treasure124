@@ -69,7 +69,13 @@ class TreaRewardDialogJwidjowC extends TreaFaC{
     }
   }
 
-  clickSingle(){
+  clickSingle(bool isNewUser){
+    if(isNewUser){
+      TreaRouDwjidw.backdwhudie();
+      TreaUserInfoHepDwidhiw.instance.updateMyMoney(reward);
+      dismissCallback.call();
+      return;
+    }
     TreaTttIwjodwm.instance.pointEventdjwijiwo(point: isBigReward()?TreaPointEnumDjwidjo.coin_pop_bclaim:TreaPointEnumDjwidjo.coin_pop_sclaim,params: _getTbaParams(),);
     TreaAdHepNwidiow.instance.showAdndiwjdow(
       adType: AdType.interstitial,

@@ -116,7 +116,7 @@ class TreaWealthDmwidm extends TreaFaP<TreaWealthDmwidmC>{
   );
 
   _playItemWidget(TreaRewardItemBeanDwod bean)=>TreaBreathWidgetCjeidfjoe(
-    start: bean.win,
+    start: bean.win||bean.isKey,
     child: SizedBox(
       width: double.infinity,
       height: 66.6.h,

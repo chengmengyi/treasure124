@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
+import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
+import 'package:treadwkd_bbbase/hep/trea_local_djwidj.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
 import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
@@ -59,6 +61,16 @@ class _TreaTopWidgetDjheidowState extends TreaFaWState<TreaTopWidgetDjheidow>{
             SizedBox(width: 12.w,),
             _levelWidget(),
             Spacer(),
+            Visibility(
+              visible: widget.fromHome,
+              child: TreaClickDhwidjow(
+                onTap: (){
+                  toWebPage(title: "More Fun", url: TreaLocalDjwidj.moreFunUrl);
+                },
+                child: TreaImageDhwudhiw(name: "diwjdwj",width: 31.w,height: 38.h,),
+              ),
+            ),
+            SizedBox(width: 10.w,),
             TreaClickDhwidjow(
               onTap: (){
                 TreaRouDwjidw.showDdjwidjow(child: TreaSetDialogDjojow());

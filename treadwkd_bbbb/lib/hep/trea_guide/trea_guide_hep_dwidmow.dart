@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_hep_dhwidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
@@ -93,7 +94,9 @@ class TreaGuideHepDwidmow{
     );
   }
 
-  bool checkIsStep3()=>bNewUserGuideStep.getData()==TreaGuideStepOmsmwo.step3GuideNoDoubleBtn;
+  bool checkIsStep3(){
+    return bNewUserGuideStep.getData()==TreaGuideStepOmsmwo.step3GuideNoDoubleBtn;
+  }
 
   setNewUserGuideStep4(){
     if(!checkIsStep3()){

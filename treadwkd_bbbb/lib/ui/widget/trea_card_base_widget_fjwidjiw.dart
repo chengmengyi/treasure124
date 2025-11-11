@@ -19,6 +19,7 @@ import 'package:treadwkd_bbbb/hep/trea_play_type_hep_fjwidjo.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_auto_gua_animator_djwidjomw.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_box_widget_djwidjow.dart';
+import 'package:treadwkd_bbbb/ui/widget/trea_bubble_widget_djwiodw.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_key_animator_widget_dmwidow.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_lucky_card_animator_widget_diwdjiwm.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_money_animator_widget.dart';
@@ -128,18 +129,26 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
                   ),
                 ),
                 SizedBox(width: 20.w,),
-                TreaClickDhwidjow(
-                  onTap: (){
-                    widget.playHepDnwidow.autoPlay();
-                  },
-                  child: Stack(
-                    alignment: Alignment.center,
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TreaImageDhwudhiw(name: "mdjiwmdi",width: 216.w,height: 40.h,),
-                      TreaTextDwihdw(data: "Check Card", size: 20.sp, color: "#FFFFFF",lineColor: "#5E00FF",fontWeight: FontWeight.w900,),
+                      TreaClickDhwidjow(
+                        onTap: (){
+                          widget.playHepDnwidow.autoPlay();
+                        },
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            TreaImageDhwudhiw(name: "dmiwmow",width: 147.w,height: 40.h,),
+                            TreaTextDwihdw(data: "Check Card", size: 20.sp, color: "#FFFFFF",lineColor: "#5E00FF",fontWeight: FontWeight.w900,),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
+                _luckyCardWidget(),
               ],
             ),
           ),
@@ -147,6 +156,7 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
         TreaKeyAnimatorWidgetDmwidow(),
         TreaLuckyCardAnimatorWidgetDiwdjiwm(),
         TreaMoneyAnimatorWidget(),
+        TreaBubbleWidgetDjwiodw(),
       ],
     ),
     onWillPop: ()async{
@@ -157,8 +167,6 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
 
   _luckyCardAndBoxWidget()=>Row(
     children: [
-      SizedBox(width: 10.w,),
-      _luckyCardWidget(),
       Spacer(),
       TreaBoxWidgetDjwidjow(),
       SizedBox(width: 20.w,),
@@ -166,49 +174,55 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
   );
 
   _luckyCardWidget(){
-    var data = bLuckyCardNum.getData();
-    return SizedBox(
-      width: 80.w,
-      height: 73.w,
-      key: widget.playHepDnwidow.luckyCardIconGlobalKey,
-      child: Stack(
-        children: [
-          TreaImageDhwudhiw(name: "dowdowm",width: 73.w,height: 73.w,),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              margin: EdgeInsets.only(bottom: 10.h),
-              child: TreaGradientTextDhwiodw(
-                data: "lucky card",
-                size: 13.sp,
-                lineColor: "#000000",
-                fontWeight: FontWeight.bold,
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),]
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            top: 12.h,
-            right: 0,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                _luckyCardPointItemWidget(data>0),
-                SizedBox(height: 4.h,),
-                Container(
-                  margin: EdgeInsets.only(left: 8.w),
-                  child: _luckyCardPointItemWidget(data>1),
-                ),
-                SizedBox(height: 4.h,),
-                _luckyCardPointItemWidget(data>2),
-              ],
-            ),
-          ),
-        ],
+    // var data = bLuckyCardNum.getData();
+    return TreaClickDhwidjow(
+      onTap: (){
+        showToast("Every 3 scratched cards unlocks 1 Lucky Card!");
+      },
+      child: SizedBox(
+        width: 80.w,
+        height: 73.w,
+        key: widget.playHepDnwidow.luckyCardIconGlobalKey,
+        child: TreaImageDhwudhiw(name: "dowdowm",width: 73.w,height: 73.w,),
+        // child: Stack(
+        //   children: [
+        //     TreaImageDhwudhiw(name: "dowdowm",width: 73.w,height: 73.w,),
+        //     Align(
+        //       alignment: Alignment.bottomCenter,
+        //       child: Container(
+        //         margin: EdgeInsets.only(bottom: 10.h),
+        //         child: TreaGradientTextDhwiodw(
+        //           data: "lucky card",
+        //           size: 13.sp,
+        //           lineColor: "#000000",
+        //           fontWeight: FontWeight.bold,
+        //           gradient: LinearGradient(
+        //               begin: Alignment.topCenter,
+        //               end: Alignment.bottomCenter,
+        //               colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),]
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //     Positioned(
+        //       top: 12.h,
+        //       right: 0,
+        //       child: Column(
+        //         mainAxisSize: MainAxisSize.min,
+        //         children: [
+        //           _luckyCardPointItemWidget(data>0),
+        //           SizedBox(height: 4.h,),
+        //           Container(
+        //             margin: EdgeInsets.only(left: 8.w),
+        //             child: _luckyCardPointItemWidget(data>1),
+        //           ),
+        //           SizedBox(height: 4.h,),
+        //           _luckyCardPointItemWidget(data>2),
+        //         ],
+        //       ),
+        //     ),
+        //   ],
+        // ),
       ),
     );
   }

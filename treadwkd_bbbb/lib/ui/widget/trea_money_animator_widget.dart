@@ -29,14 +29,14 @@ class _TreaMoneyAnimatorWidgetState extends TreaFaWState<TreaMoneyAnimatorWidget
   Widget wwwdwjidwo()=>Offstage(
     offstage: !showAnimator,
     child: Container(
-      margin: EdgeInsets.only(top: 50.h),
+      margin: EdgeInsets.only(top: 80.h),
       child: TreaSpineDwjoidjow(
         atlasFile: "money",
         skeletonFile: "skeleton",
         animatorName: "animation",
         folder: "money",
-        width: double.infinity,
-        height: 300.h,
+        width: 200.w,
+        height: 100.h,
         controller: spineWidgetController,
       ),
     ),

@@ -75,8 +75,8 @@ class TreaPlayHepDnwidow{
     TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.scratch_count);
     TreaUserInfoHepDwidhiw.instance.addLuckyCardNum();
     TreaLevelHepDwifnowe.instance.addGuaKaNum();
+    await Future.delayed(Duration(milliseconds: 1500));
     _startKeyAnimator();
-    await Future.delayed(Duration(milliseconds: 1000));
     await TreaPlayTypeHepFjwidjo.instance.checkUnlockCardByLevel();
     await TreaPlayTypeHepFjwidjo.instance.updatePlayNumByType(playType, -1);
     _checkCashTask();

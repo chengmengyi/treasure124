@@ -88,7 +88,7 @@ class TreaLucky77Dwkdjow extends TreaFaP<TreaLucky77DwkdjowC>{
   );
 
   _playItemWidget(TreaRewardItemBeanDwod bean)=>TreaBreathWidgetCjeidfjoe(
-    start: bean.win,
+    start: bean.win||bean.isKey,
     child: SizedBox(
       width: double.infinity,
       height: 66.6.h,

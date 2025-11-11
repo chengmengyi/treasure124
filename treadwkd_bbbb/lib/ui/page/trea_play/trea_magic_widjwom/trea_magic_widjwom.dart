@@ -130,7 +130,7 @@ class TreaMagicWidjwom extends TreaFaP<TreaMagicWidjwomC>{
   );
 
   _playItemWidget(TreaRewardItemBeanDwod bean)=>TreaBreathWidgetCjeidfjoe(
-    start: bean.win,
+    start: bean.win||bean.isKey,
     child: SizedBox(
       width: double.infinity,
       height: 79.h,

@@ -105,9 +105,9 @@ class TreaHomeDniewdoC extends TreaFaC{
     TreaRouDwjidw.toJdeidedelde(routerName: TreaBbbbRoulistJfoejfo.cash);
   }
   
-  clickMoreFun(){
-    // toWebPage(title: "More Fun", url: TreaLocalDjwidj.moreFunUrl);
-    toWebPage(title: "More Fun", url: TreaLocalDjwidj.moreGame,isMoreGame: true,);
+  clickMoreFun()async{
+    var gaid =await FlutterTbaInfo.instance.getGaid();
+    toWebPage(title: "More Game", url: TreaLocalDjwidj.moreGame+gaid,isMoreGame: true,);
   }
 
   _initPlayTypeList(bool showNewUserGuide)async{
@@ -179,11 +179,12 @@ class TreaHomeDniewdoC extends TreaFaC{
 
     // TreaFkHepDwidowmd.instance.initFk();
 
-    // TreaRouDwjidw.showDdjwidjow(child: TreaLuckyCardDialogDwodo(dismissDialogCallback: (b){}));
+    TreaRouDwjidw.showDdjwidjow(child: TreaLuckyCardDialogDwodo(dismissDialogCallback: (b){},));
 
 
-    print("kkk===${AdNumHep.instance.notLoad()}");
+    // print("kkk===${AdNumHep.instance.notLoad()}");
     // TreaFkHepDwidowmd.instance.test();
+
   }
 
   @override

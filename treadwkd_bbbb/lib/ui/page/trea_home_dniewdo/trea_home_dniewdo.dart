@@ -139,7 +139,7 @@ class TreaHomeDniewdo extends TreaFaP<TreaHomeDniewdoC>{
         onTap: (){
           treaC.clickMoreFun();
         },
-        child: TreaImageDhwudhiw(name: "djwojdow",width: 49.w,height: 61.w,),
+        child: TreaImageDhwudhiw(name: "diwmodwm",width: 55.w,height: 66.w,),
       ),
       SizedBox(width: 20.w,),
     ],

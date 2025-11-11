@@ -3,6 +3,7 @@ import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/ui/trea_finger_widget_djiwji.dart';
 import 'package:treadwkd_bbbase/ui/trea_gradient_text_dhwiodw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
 import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
@@ -68,6 +69,16 @@ class _TreaWheelIconWidgetDjwidjiwState extends TreaFaWState<TreaWheelIconWidget
                     end: Alignment.bottomCenter,
                     colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),]
                 ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Visibility(
+              visible: bWheelNum.getData()>0,
+              child: TreaFingerWidgetDjiwji(
+                width: 60.w,
+                height: 60.h,
               ),
             ),
           ),

@@ -186,7 +186,7 @@ class TreaNumberDnwidnow extends TreaFaP<TreaNumberDnwidnowC>{
   );
 
   _playItemWidget(TreaRewardItemBeanDwod bean)=>TreaBreathWidgetCjeidfjoe(
-    start: bean.win,
+    start: bean.win||bean.isKey,
     child: SizedBox(
       width: double.infinity,
       height: 71.5.h,

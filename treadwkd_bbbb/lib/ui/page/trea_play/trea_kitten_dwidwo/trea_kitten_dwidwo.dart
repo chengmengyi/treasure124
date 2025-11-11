@@ -92,7 +92,7 @@ class TreaKittenDwidwo extends TreaFaP<TreaKittenDwidwoC>{
   );
 
   _playItemWidget(TreaRewardItemBeanDwod bean)=>TreaBreathWidgetCjeidfjoe(
-    start: bean.win,
+    start: bean.win||bean.isKey,
     child: SizedBox(
       width: double.infinity,
       height: 65.7.h,

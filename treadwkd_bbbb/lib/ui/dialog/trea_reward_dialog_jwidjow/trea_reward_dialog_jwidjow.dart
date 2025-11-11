@@ -77,32 +77,43 @@ class TreaRewardDialogJwidjow extends TreaFaD<TreaRewardDialogJwidjowC>{
   );
 
   _btnWidget(){
+    if(TreaGuideHepDwidmow.instance.checkIsStep3()){
+      return TreaClickDhwidjow(
+        onTap: (){
+          treaC.clickSingle(true);
+        },
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            TreaImageDhwudhiw(name: "nciwicw",width: 210.w,height: 46.h,),
+            TreaTextDwihdw(data: "Claim \$$reward", size: 20.sp, color: "#FFFFFF",fontWeight: FontWeight.w900,lineColor: "#2B8945",),
+          ],
+        ),
+      );
+    }
     if(treaC.isBigReward()&&rewardEnum!=TreaRewardEnum.lucky){
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Visibility(
-            visible: !TreaGuideHepDwidmow.instance.checkIsStep3(),
-            child: TreaClickDhwidjow(
-              onTap: (){
-                treaC.clickDouble();
-              },
-              child: Stack(
-                alignment: Alignment.topRight,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(top: 12.h),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        TreaImageDhwudhiw(name: "nciwicw",width: 210.w,height: 46.h,),
-                        TreaTextDwihdw(data: "Claim \$${doubleDecimal(reward)}", size: 20.sp, color: "#FFFFFF",fontWeight: FontWeight.w900,lineColor: "#2B8945",),
-                      ],
-                    ),
+          TreaClickDhwidjow(
+            onTap: (){
+              treaC.clickDouble();
+            },
+            child: Stack(
+              alignment: Alignment.topRight,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 12.h),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      TreaImageDhwudhiw(name: "nciwicw",width: 210.w,height: 46.h,),
+                      TreaTextDwihdw(data: "Claim \$${doubleDecimal(reward)}", size: 20.sp, color: "#FFFFFF",fontWeight: FontWeight.w900,lineColor: "#2B8945",),
+                    ],
                   ),
-                  TreaImageDhwudhiw(name: "dniwn",width: 28.w,height: 28.w,),
-                ],
-              ),
+                ),
+                TreaImageDhwudhiw(name: "dniwn",width: 28.w,height: 28.w,),
+              ],
             ),
           ),
           SizedBox(height: 12.h,),
@@ -112,7 +123,7 @@ class TreaRewardDialogJwidjow extends TreaFaD<TreaRewardDialogJwidjowC>{
               visible: treaC.showSingle,
               child: TreaClickDhwidjow(
                 onTap: (){
-                  treaC.clickSingle();
+                  treaC.clickSingle(false);
                 },
                 child: TreaTextDwihdw(data: "\$$reward", size: 20.sp, color: "#CEDFE3",fontWeight: FontWeight.w900,),
               ),
@@ -123,7 +134,7 @@ class TreaRewardDialogJwidjow extends TreaFaD<TreaRewardDialogJwidjowC>{
     }else{
       return TreaClickDhwidjow(
         onTap: (){
-          treaC.clickSingle();
+          treaC.clickSingle(false);
         },
         child: Stack(
           alignment: Alignment.center,

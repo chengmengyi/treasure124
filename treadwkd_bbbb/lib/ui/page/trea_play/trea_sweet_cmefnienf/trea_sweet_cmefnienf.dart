@@ -132,7 +132,7 @@ class TreaSweetCmefnienf extends TreaFaP<TreaSweetCmefnienfC>{
     children: [
       TreaImageDhwudhiw(name: "nciwndiw",width: double.infinity,height: 67.7.h,),
       TreaBreathWidgetCjeidfjoe(
-        start: bean.win,
+        start: bean.win||bean.isKey,
         child: SizedBox(
           width: double.infinity,
           height: 67.7.h,
