@@ -35,6 +35,8 @@ class TreaAdHepNwidiow{
       topOnAppId: "",
       topOnAppKey: "",
       data: _getConfigAdData(),
+      userConsent: true,
+      doNotSell: false,
       fengKongLogic: (){
         return TreaFkHepDwidowmd.instance.checkHasFk();
       },
@@ -45,7 +47,9 @@ class TreaAdHepNwidiow{
         loadAdSuccessCallback: (maxAd,info,loadTime){
           TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.ytmcp_ad_return,params: {"ad_code_id":info?.adId,"ad_format":info?.adType.name,"ad_platform":info?.adPlat,"ad_request_time":loadTime});
         },
-        loadAdFailCallback: (info){},
+        loadAdFailCallback: (info){
+          TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.ytmcp_ad_return_fail,params: {"ad_code_id":info?.adId,"ad_format":info?.adType.name,"ad_platform":info?.adPlat});
+        },
         initSdkSuccess: (time,platform){
           TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.ytmcp_ad_initsuc,params: {"ad_platform":platform,"oxrsl_ad_init_time":time});
         },

@@ -115,9 +115,9 @@ class TreaFkHepDwidowmd {
   }
 
   bool checkHasFk(){
-    // if(kDebugMode){
-    //   return false;
-    // }
+    if(kDebugMode){
+      return false;
+    }
     var data = bHasFkLocalTag.getData();
     if(data.isNotEmpty){
       var tagDhwiudow = TreaFkTagDhwiudow.values.byName(data);

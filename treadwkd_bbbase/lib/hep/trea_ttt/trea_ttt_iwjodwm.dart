@@ -78,9 +78,9 @@ class TreaTttIwjodwm {
     var url = await TreaUrlDjowjodw().getUrl();
     var header = await TreaHeaderJsonDjwidjow().getJson();
     var map = await TreaPointJsonDwidhiwjcla().getJson(point, params);
-    "tba--->ad--->params--->$map".log();
+    "tba--->point--->params--->$map".log();
     var dioResult = await DioHep.instance.requestPost(path: url, data: map,header: header);
-    "tba--->ad--->result--->${dioResult.success}--->params:$map".log();
+    "tba--->point--->result--->${dioResult.success}--->params:$map".log();
     if(!dioResult.success&&tryNum>0){
       await Future.delayed(Duration(seconds: 1));
       pointEventdjwijiwo(point: point,params: params,tryNum: tryNum-1);

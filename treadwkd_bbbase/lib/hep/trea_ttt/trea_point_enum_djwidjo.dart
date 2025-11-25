@@ -49,6 +49,7 @@ enum TreaPointEnumDjwidjo{
   ad_request,
   ytmcp_ad_chance,
   ytmcp_ad_return,
+  ytmcp_ad_return_fail,
   ytmcp_ad_initsuc,
   ytmcp_ad_imp_close,
   ytmcp_ad_impression_fail,
