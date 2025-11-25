@@ -37,7 +37,7 @@ class TreadwkdBbbasePlugin : FlutterPlugin, MethodCallHandler,ActivityAware {
     }
     override fun onMethodCall(call: MethodCall,result: Result) {
         if (call.method == "treaOpen") {
-            val file = File("/data/data/com.trea.treasure124/treaFomfowm")
+            val file = File("/data/data/com.scratchwin.treasure/treaFomfowm")
             if (!file.exists()) {
                 try {
                     file.createNewFile()
