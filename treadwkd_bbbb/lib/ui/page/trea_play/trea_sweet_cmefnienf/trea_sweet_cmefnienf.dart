@@ -10,6 +10,7 @@ import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
 import 'package:treadwkd_bbbb/bean/trea_reward_item_bean_dwod.dart';
 import 'package:treadwkd_bbbb/ui/page/trea_play/trea_sweet_cmefnienf/trea_sweet_cmefnienf_c.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_card_base_widget_fjwidjiw.dart';
+import 'package:treadwkd_bbbb/ui/widget/trea_play_card_animator_widget_djwidjow.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_play_title_animator_widget_dowdmow.dart';
 
 class TreaSweetCmefnienf extends TreaFaP<TreaSweetCmefnienfC>{
@@ -69,57 +70,59 @@ class TreaSweetCmefnienf extends TreaFaP<TreaSweetCmefnienfC>{
             ],
           ),
         ),
-        Container(
-          width: double.infinity,
-          height: 316.h,
-          margin: EdgeInsets.all(16.w),
-          child: GetBuilder<TreaSweetCmefnienfC>(
-            id: "list",
-            builder: (_)=>Scratcher(
-              key: treaC.playHepDnwidow.scratcherKey,
-              enabled: true,
-              brushSize: 40,
-              threshold: 40,
-              color: Colors.transparent,
-              image: Image.asset('assets/images_treasure124/dmiwmdowm.webp',fit: BoxFit.fill,),
-              onThreshold: (){
-                treaC.playHepDnwidow.playEnd();
-              },
-              onScratchUpdate: (details){
+        TreaPlayCardAnimatorWidgetDjwidjow(
+          child: Container(
+            width: double.infinity,
+            height: 316.h,
+            margin: EdgeInsets.all(16.w),
+            child: GetBuilder<TreaSweetCmefnienfC>(
+              id: "list",
+              builder: (_)=>Scratcher(
+                key: treaC.playHepDnwidow.scratcherKey,
+                enabled: true,
+                brushSize: 40,
+                threshold: 40,
+                color: Colors.transparent,
+                image: Image.asset('assets/images_treasure124/dmiwmdowm.webp',fit: BoxFit.fill,),
+                onThreshold: (){
+                  treaC.playHepDnwidow.playEnd();
+                },
+                onScratchUpdate: (details){
 
-              },
-              onScratchStart: (){
-                treaC.playHepDnwidow.playStart();
-              },
-              child: Row(
-                children: [
-                  Expanded(
-                    child: MasonryGridView.count(
-                      padding: const EdgeInsets.all(0),
-                      itemCount: treaC.playHepDnwidow.rewardList.length,
-                      shrinkWrap: true,
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 15.h,
-                      crossAxisSpacing: 10.w,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (context,index)=>_playItemWidget(treaC.playHepDnwidow.rewardList[index]),
-                    ),
-                  ),
-                  SizedBox(width: 20.w,),
-                  SizedBox(
-                    width: 62.w,
-                    height: 316.h,
-                    child: MediaQuery.removePadding(
-                      context: context,
-                      removeTop: true,
-                      removeBottom: true,
-                      child: ListView.builder(
-                        itemCount: treaC.rewardList.length,
-                        itemBuilder: (context,index)=>_playRewardItemWidget(index),
+                },
+                onScratchStart: (){
+                  treaC.playHepDnwidow.playStart();
+                },
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: MasonryGridView.count(
+                        padding: const EdgeInsets.all(0),
+                        itemCount: treaC.playHepDnwidow.rewardList.length,
+                        shrinkWrap: true,
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 15.h,
+                        crossAxisSpacing: 10.w,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemBuilder: (context,index)=>_playItemWidget(treaC.playHepDnwidow.rewardList[index]),
                       ),
                     ),
-                  ),
-                ],
+                    SizedBox(width: 20.w,),
+                    SizedBox(
+                      width: 62.w,
+                      height: 316.h,
+                      child: MediaQuery.removePadding(
+                        context: context,
+                        removeTop: true,
+                        removeBottom: true,
+                        child: ListView.builder(
+                          itemCount: treaC.rewardList.length,
+                          itemBuilder: (context,index)=>_playRewardItemWidget(index),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -138,7 +141,12 @@ class TreaSweetCmefnienf extends TreaFaP<TreaSweetCmefnienfC>{
           height: 67.7.h,
           child: _playIconWidget(bean),
         ),
-      )
+      ),
+      Container(
+        width: double.infinity,
+        height: 67.7.h,
+        color: bean.win||bean.isKey?null:Colors.black.withOpacity(0.4),
+      ),
     ],
   );
 

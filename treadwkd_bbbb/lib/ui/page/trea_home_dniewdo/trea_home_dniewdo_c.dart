@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:treadwkd_bbbase/hep/trea_ad_hep_nwidiow.dart';
@@ -41,6 +42,7 @@ import 'package:treadwkd_bbbb/ui/dialog/trea_first_has_money_dialog_mwdowm/trea_
 import 'package:treadwkd_bbbb/ui/dialog/trea_give_money_animator_dialog_dmwodmow/trea_give_money_animator_dialog_dmwodmow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_level_up_dialog_dwidjiw/trea_level_up_dialog_dwidjiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_lucky_card_dialog_dwodo/trea_lucky_card_dialog_dwodo.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_no_box_num_dialog_doowdwju/trea_no_box_num_dialog_doowdwju.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_no_chance_dialog_cnidniw/trea_no_chance_dialog_cnidniw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_no_network_dialog_dwijow/trea_no_network_dialog_dwijow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_no_wheel_dialog_iejiw/trea_no_wheel_dialog_iejiw.dart';
@@ -50,6 +52,9 @@ import 'package:treadwkd_bbbb/ui/dialog/trea_reward_dialog_jwidjow/trea_reward_d
 import 'package:treadwkd_bbbb/ui/dialog/trea_set_dialog_djojow/trea_set_dialog_djojow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_unlock_dialog_doowdwju/trea_unlock_dialog_doowdwju.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_wheel_dialog_dwiiwm/trea_wheel_dialog_dwiiwm.dart';
+import 'package:thinkup_sdk/at_interstitial.dart';
+import 'package:thinkup_sdk/at_rewarded.dart';
+import 'package:thinkup_sdk/at_splash.dart';
 
 class TreaHomeDniewdoC extends TreaFaC{
   Timer? _addPlayNumTimer;
@@ -172,7 +177,7 @@ class TreaHomeDniewdoC extends TreaFaC{
 
     // TreaPlayTypeHepFjwidjo.instance.updatePlayNumByType(TreaCardType.lucky77, -1);
 
-    TreaUserInfoHepDwidhiw.instance.updateMyMoney(200);
+    // TreaUserInfoHepDwidhiw.instance.updateMyMoney(200);
     // TreaRouDwjidw.showDdjwidjow(child: TreaNoWheelDialogIejiw());
     // TreaCashHepCneimdi.instance.updateCashTask(TreaTaskType.lucky);
 
@@ -180,13 +185,18 @@ class TreaHomeDniewdoC extends TreaFaC{
 
     // TreaFkHepDwidowmd.instance.initFk();
 
-    // TreaRouDwjidw.showDdjwidjow(child: TreaLuckyCardDialogDwodo(dismissDialogCallback: (b){},));
+    // TreaRouDwjidw.showDdjwidjow(child: TreaNoBoxNumDialogDoowdwju());
 
 
     // print("kkk===${AdNumHep.instance.notLoad()}");
     // TreaFkHepDwidowmd.instance.test();
 
     // TreaFirebaseHepNievnie.instance.test();
+
+    // bNewUserGuideStep.saveData(TreaGuideStepOmsmwo.step1GuideLucky77);
+    // TreaGuideHepDwidmow.instance.checkShowNewUserGuide(context,lucky77GlobalKey,boxGlobalKey);
+
+
   }
 
   @override

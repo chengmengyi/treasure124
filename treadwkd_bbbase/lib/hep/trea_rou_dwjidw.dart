@@ -30,7 +30,7 @@ class TreaRouDwjidw {
     Get.dialog(
       child,
       barrierDismissible: false,
-      barrierColor: barrierColor,
+      barrierColor: Colors.black.withOpacity(0.8),
     );
   }
 

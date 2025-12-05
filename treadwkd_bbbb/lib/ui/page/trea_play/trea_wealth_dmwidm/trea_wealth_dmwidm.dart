@@ -10,6 +10,7 @@ import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
 import 'package:treadwkd_bbbb/bean/trea_reward_item_bean_dwod.dart';
 import 'package:treadwkd_bbbb/ui/page/trea_play/trea_wealth_dmwidm/trea_wealth_dmwidm_c.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_card_base_widget_fjwidjiw.dart';
+import 'package:treadwkd_bbbb/ui/widget/trea_play_card_animator_widget_djwidjow.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_play_title_animator_widget_dowdmow.dart';
 
 class TreaWealthDmwidm extends TreaFaP<TreaWealthDmwidmC>{
@@ -70,43 +71,45 @@ class TreaWealthDmwidm extends TreaFaP<TreaWealthDmwidmC>{
             ],
           ),
         ),
-        Container(
-          width: double.infinity,
-          height: 333.h,
-          margin: EdgeInsets.all(16.w),
-          child: GetBuilder<TreaWealthDmwidmC>(
-            id: "list",
-            builder: (_)=>Scratcher(
-              key: treaC.playHepDnwidow.scratcherKey,
-              enabled: true,
-              brushSize: 40,
-              threshold: 40,
-              color: Colors.transparent,
-              image: Image.asset('assets/images_treasure124/dmiwdniw.webp',fit: BoxFit.fill,),
-              onThreshold: (){
-                treaC.playHepDnwidow.playEnd();
-              },
-              onScratchUpdate: (details){
+        TreaPlayCardAnimatorWidgetDjwidjow(
+          child: Container(
+            width: double.infinity,
+            height: 333.h,
+            margin: EdgeInsets.all(16.w),
+            child: GetBuilder<TreaWealthDmwidmC>(
+              id: "list",
+              builder: (_)=>Scratcher(
+                key: treaC.playHepDnwidow.scratcherKey,
+                enabled: true,
+                brushSize: 40,
+                threshold: 40,
+                color: Colors.transparent,
+                image: Image.asset('assets/images_treasure124/dmiwdniw.webp',fit: BoxFit.fill,),
+                onThreshold: (){
+                  treaC.playHepDnwidow.playEnd();
+                },
+                onScratchUpdate: (details){
 
-              },
-              onScratchStart: (){
-                treaC.playHepDnwidow.playStart();
-              },
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  TreaImageDhwudhiw(name: "dmwidmiw",width: double.infinity,height: double.infinity,),
-                  MasonryGridView.count(
-                    padding: const EdgeInsets.all(0),
-                    itemCount: treaC.playHepDnwidow.rewardList.length,
-                    shrinkWrap: true,
-                    crossAxisCount: 4,
-                    mainAxisSpacing: 0,
-                    crossAxisSpacing: 0,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemBuilder: (context,index)=>_playItemWidget(treaC.playHepDnwidow.rewardList[index]),
-                  ),
-                ],
+                },
+                onScratchStart: (){
+                  treaC.playHepDnwidow.playStart();
+                },
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    TreaImageDhwudhiw(name: "dmwidmiw",width: double.infinity,height: double.infinity,),
+                    MasonryGridView.count(
+                      padding: const EdgeInsets.all(0),
+                      itemCount: treaC.playHepDnwidow.rewardList.length,
+                      shrinkWrap: true,
+                      crossAxisCount: 4,
+                      mainAxisSpacing: 0,
+                      crossAxisSpacing: 0,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context,index)=>_playItemWidget(treaC.playHepDnwidow.rewardList[index]),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -115,18 +118,27 @@ class TreaWealthDmwidm extends TreaFaP<TreaWealthDmwidmC>{
     ),
   );
 
-  _playItemWidget(TreaRewardItemBeanDwod bean)=>TreaBreathWidgetCjeidfjoe(
-    start: bean.win||bean.isKey,
-    child: SizedBox(
-      width: double.infinity,
-      height: 66.6.h,
-      child: Stack(
-        children: [
-          _playIconWidget(bean),
-          _playRewardWidget(bean),
-        ],
+  _playItemWidget(TreaRewardItemBeanDwod bean)=>Stack(
+    children: [
+      TreaBreathWidgetCjeidfjoe(
+        start: bean.win||bean.isKey,
+        child: SizedBox(
+          width: double.infinity,
+          height: 66.6.h,
+          child: Stack(
+            children: [
+              _playIconWidget(bean),
+              _playRewardWidget(bean),
+            ],
+          ),
+        ),
       ),
-    ),
+      Container(
+        width: double.infinity,
+        height: 66.6.h,
+        color: bean.win||bean.isKey?null:Colors.black.withOpacity(0.4),
+      ),
+    ],
   );
 
   _playIconWidget(TreaRewardItemBeanDwod bean){

@@ -86,7 +86,7 @@ class _TreaTopWidgetDjheidowState extends TreaFaWState<TreaTopWidgetDjheidow>{
   _moneyWidget()=>TreaClickDhwidjow(
     onTap: (){
       widget.clickMoneyCallback?.call();
-      TreaRouDwjidw.toJdeidedelde(routerName: TreaBbbbRoulistJfoejfo.cash);
+      TreaRouDwjidw.toJdeidedelde(routerName: TreaBbbbRoulistJfoejfo.cash,params: {"fromHome":widget.fromHome});
     },
     child: Stack(
       alignment: Alignment.centerLeft,

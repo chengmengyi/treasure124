@@ -1,5 +1,6 @@
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_hep_dhwidw.dart';
 import 'package:treadwkd_bbbb/bean/trea_level_bean_jwijfo.dart';
+import 'package:treadwkd_bbbb/hep/trea_box_hep_whidowmd.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
 
@@ -30,6 +31,9 @@ class TreaLevelHepDwifnowe{
   addGuaKaNum(){
     bGuaKaNum.saveData(bGuaKaNum.getData()+1);
     TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.updateGuaKaNum);
+    if(bGuaKaNum.getData()%5==0){
+      TreaBoxHepWhidowmd.instance.updateBoxNum(1);
+    }
   }
 
   bool checkUpLevel()=>_upLevelCosts.contains(bGuaKaNum.getData());

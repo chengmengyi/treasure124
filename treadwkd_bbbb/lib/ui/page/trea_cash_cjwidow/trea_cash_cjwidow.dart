@@ -18,27 +18,33 @@ class TreaCashCjwidow extends TreaFaP<TreaCashCjwidowC>{
   TreaCashCjwidowC cccDiheiwidow() => TreaCashCjwidowC();
 
   @override
-  Widget wwwdwjidwo() => Stack(
-    children: [
-      Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: "#E7EEF3".toColordwdowfw(),
-      ),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _topWidget(),
-          SizedBox(height: 36.h,),
-          Container(
-            margin: EdgeInsets.only(left: 16.w),
-            child: TreaTextDwihdw(data: "Select Withdrawal Amount", size: 16.sp, color: "#000000",fontWeight: FontWeight.bold,),
-          ),
-          SizedBox(height: 12.h,),
-          _amountListWidget(),
-        ],
-      ),
-    ],
+  Widget wwwdwjidwo() => WillPopScope(
+    child: Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          height: double.infinity,
+          color: "#E7EEF3".toColordwdowfw(),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _topWidget(),
+            SizedBox(height: 36.h,),
+            Container(
+              margin: EdgeInsets.only(left: 16.w),
+              child: TreaTextDwihdw(data: "Select Withdrawal Amount", size: 16.sp, color: "#000000",fontWeight: FontWeight.bold,),
+            ),
+            SizedBox(height: 12.h,),
+            _amountListWidget(),
+          ],
+        ),
+      ],
+    ),
+    onWillPop: ()async{
+      treaC.clickBack();
+      return false;
+    },
   );
 
   _amountListWidget()=>Expanded(
@@ -208,7 +214,7 @@ class TreaCashCjwidow extends TreaFaP<TreaCashCjwidowC>{
       children: [
         TreaClickDhwidjow(
           onTap: (){
-            TreaRouDwjidw.backdwhudie();
+            treaC.clickBack();
           },
           child: SizedBox(
             width: 44.w,

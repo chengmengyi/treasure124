@@ -8,6 +8,7 @@ import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
 import 'package:treadwkd_bbbb/bean/trea_reward_item_bean_dwod.dart';
 import 'package:treadwkd_bbbb/ui/page/trea_play/trea_magic_widjwom/trea_magic_widjwom_c.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_card_base_widget_fjwidjiw.dart';
+import 'package:treadwkd_bbbb/ui/widget/trea_play_card_animator_widget_djwidjow.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_play_title_animator_widget_dowdmow.dart';
 
 class TreaMagicWidjwom extends TreaFaP<TreaMagicWidjwomC>{
@@ -42,100 +43,111 @@ class TreaMagicWidjwom extends TreaFaP<TreaMagicWidjwomC>{
 
   _playWidget()=>Align(
     alignment: Alignment.bottomCenter,
-    child: Container(
-      width: double.infinity,
-      height: 316.h,
-      margin: EdgeInsets.all(16.w),
-      child: GetBuilder<TreaMagicWidjwomC>(
-        id: "list",
-        builder: (_)=>Scratcher(
-          key: treaC.playHepDnwidow.scratcherKey,
-          enabled: true,
-          brushSize: 40,
-          threshold: 40,
-          color: Colors.transparent,
-          image: Image.asset('assets/images_treasure124/cniefnhre.webp',fit: BoxFit.fill,),
-          onThreshold: (){
-            treaC.playHepDnwidow.playEnd();
-          },
-          onScratchUpdate: (details){
+    child: TreaPlayCardAnimatorWidgetDjwidjow(
+      child: Container(
+        width: double.infinity,
+        height: 316.h,
+        margin: EdgeInsets.all(16.w),
+        child: GetBuilder<TreaMagicWidjwomC>(
+          id: "list",
+          builder: (_)=>Scratcher(
+            key: treaC.playHepDnwidow.scratcherKey,
+            enabled: true,
+            brushSize: 40,
+            threshold: 40,
+            color: Colors.transparent,
+            image: Image.asset('assets/images_treasure124/cniefnhre.webp',fit: BoxFit.fill,),
+            onThreshold: (){
+              treaC.playHepDnwidow.playEnd();
+            },
+            onScratchUpdate: (details){
 
-          },
-          onScratchStart: (){
-            treaC.playHepDnwidow.playStart();
-          },
-          child: Row(
-            children: [
-              Expanded(
-                child: Stack(
-                  children: [
-                    TreaImageDhwudhiw(name: "ceovniefe",width: double.infinity,height: 316.h,),
-                    MasonryGridView.count(
-                      padding: const EdgeInsets.all(0),
-                      itemCount: treaC.playHepDnwidow.rewardList.length,
-                      shrinkWrap: true,
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 0,
-                      crossAxisSpacing: 0,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (context,index)=>_playItemWidget(treaC.playHepDnwidow.rewardList[index]),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(width: 12.w,),
-              Stack(
-                children: [
-                  TreaImageDhwudhiw(name: "cmeomowd",width: 86.w,height: 316.h,),
-                  SizedBox(
-                    width: 86.w,
-                    height: 316.h,
-                    child: MediaQuery.removePadding(
-                      context: context,
-                      removeTop: true,
-                      removeBottom: true,
-                      child: ListView.builder(
-                        itemCount: treaC.rewardList.length,
+            },
+            onScratchStart: (){
+              treaC.playHepDnwidow.playStart();
+            },
+            child: Row(
+              children: [
+                Expanded(
+                  child: Stack(
+                    children: [
+                      TreaImageDhwudhiw(name: "ceovniefe",width: double.infinity,height: 316.h,),
+                      MasonryGridView.count(
+                        padding: const EdgeInsets.all(0),
+                        itemCount: treaC.playHepDnwidow.rewardList.length,
                         shrinkWrap: true,
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 0,
+                        crossAxisSpacing: 0,
                         physics: NeverScrollableScrollPhysics(),
-                        itemBuilder: (context,index)=>SizedBox(
-                          width: 86.w,
-                          height: 79.h,
-                          child: Stack(
-                            children: [
-                              Align(
-                                alignment: Alignment.topCenter,
-                                child: TreaImageDhwudhiw(name: "icon_money",width: 60.w,height: 60.h,),
-                              ),
-                              Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Container(
-                                  margin: EdgeInsets.only(bottom: 4.h),
-                                  child: TreaTextDwihdw(data: "\$${treaC.rewardList[index]}", size: 15.sp, color: "#3A3F48",fontWeight: FontWeight.w900,),
+                        itemBuilder: (context,index)=>_playItemWidget(treaC.playHepDnwidow.rewardList[index]),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 12.w,),
+                Stack(
+                  children: [
+                    TreaImageDhwudhiw(name: "cmeomowd",width: 86.w,height: 316.h,),
+                    SizedBox(
+                      width: 86.w,
+                      height: 316.h,
+                      child: MediaQuery.removePadding(
+                        context: context,
+                        removeTop: true,
+                        removeBottom: true,
+                        child: ListView.builder(
+                          itemCount: treaC.rewardList.length,
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemBuilder: (context,index)=>SizedBox(
+                            width: 86.w,
+                            height: 79.h,
+                            child: Stack(
+                              children: [
+                                Align(
+                                  alignment: Alignment.topCenter,
+                                  child: TreaImageDhwudhiw(name: "icon_money",width: 60.w,height: 60.h,),
                                 ),
-                              ),
-                            ],
+                                Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Container(
+                                    margin: EdgeInsets.only(bottom: 4.h),
+                                    child: TreaTextDwihdw(data: "\$${treaC.rewardList[index]}", size: 15.sp, color: "#3A3F48",fontWeight: FontWeight.w900,),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
     ),
   );
 
-  _playItemWidget(TreaRewardItemBeanDwod bean)=>TreaBreathWidgetCjeidfjoe(
-    start: bean.win||bean.isKey,
-    child: SizedBox(
-      width: double.infinity,
-      height: 79.h,
-      child: _playIconWidget(bean),
-    ),
+  _playItemWidget(TreaRewardItemBeanDwod bean)=>Stack(
+    children: [
+      TreaBreathWidgetCjeidfjoe(
+        start: bean.win||bean.isKey,
+        child: SizedBox(
+          width: double.infinity,
+          height: 79.h,
+          child: _playIconWidget(bean),
+        ),
+      ),
+      Container(
+        width: double.infinity,
+        height: 79.h,
+        color: bean.win||bean.isKey?null:Colors.black.withOpacity(0.4),
+      ),
+    ],
   );
 
   _playIconWidget(TreaRewardItemBeanDwod bean){

@@ -12,6 +12,7 @@ import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_step_omsmwo.dart';
 import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_view/trea_new_user_guide1_view.dart';
 import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_view/trea_new_user_guide2_view.dart';
 import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_view/trea_new_user_guide4_view.dart';
+import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_view/trea_new_user_guide5_view.dart';
 import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_view/trea_old_user_guide_view.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_open_notification_dialog_dniwdow/trea_open_notification_dialog_dniwdow.dart';
@@ -120,9 +121,32 @@ class TreaGuideHepDwidmow{
         offset: offset,
         clickCallback: (){
           hideOverlay();
-          bNewUserGuideStep.saveData(TreaGuideStepOmsmwo.completed);
+          bNewUserGuideStep.saveData(TreaGuideStepOmsmwo.step5ShowLuckSlotsGuide);
           TreaRouDwjidw.toJdeidedelde(routerName: TreaBbbbRoulistJfoejfo.cash);
+          // bNewUserGuideStep.saveData(TreaGuideStepOmsmwo.completed);
+          // TreaRouDwjidw.toJdeidedelde(routerName: TreaBbbbRoulistJfoejfo.cash);
+          // completedNewUserGuide();
+          // checkShowOpenNotificationDialog();
+        },
+      ),
+    );
+  }
+
+  showStep5GuideView(BuildContext context,GlobalKey? globalKey){
+    if(null==globalKey||bNewUserGuideStep.getData()!=TreaGuideStepOmsmwo.step5ShowLuckSlotsGuide){
+      return;
+    }
+    var renderBox = globalKey.currentContext?.findRenderObject() as RenderBox;
+    var offset = renderBox.localToGlobal(Offset.zero);
+    uploadUserGuideShowTbaPoint("pop5");
+    showOverlay(
+      context: context,
+      widget: TreaNewUserGuide5View(
+        offset: offset,
+        clickCallback: (){
+          hideOverlay();
           completedNewUserGuide();
+          TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.clickBoxGuide);
           checkShowOpenNotificationDialog();
         },
       ),

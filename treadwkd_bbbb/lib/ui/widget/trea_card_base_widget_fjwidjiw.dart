@@ -42,12 +42,14 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
   var showGuaGuideAnimator=true;
   TreaPlayTypeInfoFhwiedhi? playTypeInfoFhwiedhi;
   GlobalKey topMoneyGlobalKey=GlobalKey();
+  GlobalKey boxGlobalKey=GlobalKey();
 
   @override
   void initState() {
     super.initState();
     _queryPlayNum();
     TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.card_detail_page,params: {"page_from":widget.playHepDnwidow.playType});
+    _checkShowSlotsGuide();
   }
 
   @override
@@ -169,7 +171,10 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
   _luckyCardAndBoxWidget()=>Row(
     children: [
       Spacer(),
-      TreaBoxWidgetDjwidjow(),
+      SizedBox(
+        key: boxGlobalKey,
+        child: TreaBoxWidgetDjwidjow(),
+      ),
       SizedBox(width: 20.w,),
     ],
   );
@@ -184,48 +189,66 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
         width: 80.w,
         height: 73.w,
         key: widget.playHepDnwidow.luckyCardIconGlobalKey,
-        child: TreaImageDhwudhiw(name: "dowdowm",width: 73.w,height: 73.w,),
-        // child: Stack(
-        //   children: [
-        //     TreaImageDhwudhiw(name: "dowdowm",width: 73.w,height: 73.w,),
-        //     Align(
-        //       alignment: Alignment.bottomCenter,
-        //       child: Container(
-        //         margin: EdgeInsets.only(bottom: 10.h),
-        //         child: TreaGradientTextDhwiodw(
-        //           data: "lucky card",
-        //           size: 13.sp,
-        //           lineColor: "#000000",
-        //           fontWeight: FontWeight.bold,
-        //           gradient: LinearGradient(
-        //               begin: Alignment.topCenter,
-        //               end: Alignment.bottomCenter,
-        //               colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),]
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //     Positioned(
-        //       top: 12.h,
-        //       right: 0,
-        //       child: Column(
-        //         mainAxisSize: MainAxisSize.min,
-        //         children: [
-        //           _luckyCardPointItemWidget(data>0),
-        //           SizedBox(height: 4.h,),
-        //           Container(
-        //             margin: EdgeInsets.only(left: 8.w),
-        //             child: _luckyCardPointItemWidget(data>1),
-        //           ),
-        //           SizedBox(height: 4.h,),
-        //           _luckyCardPointItemWidget(data>2),
-        //         ],
-        //       ),
-        //     ),
-        //   ],
-        // ),
+        child: Stack(
+          children: [
+            TreaImageDhwudhiw(name: "dowdowm",width: 73.w,height: 73.w,),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: 57.w,
+                height: 8.w,
+                padding: EdgeInsets.all(1.w),
+                alignment: Alignment.centerLeft,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(29.w),
+                  color: "#191919".toColordwdowfw(),
+                  border: Border.all(
+                    width: 1.w,
+                    color: "#AE3485".toColordwdowfw(),
+                  ),
+                ),
+                child: Container(
+                  width: (55.w)*getLuckyCardPro(),
+                  height: 6.w,
+                  decoration: BoxDecoration(
+                    color: "#67FF20".toColordwdowfw(),
+                    borderRadius: BorderRadius.circular(27.w),
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                margin: EdgeInsets.only(bottom: 10.w),
+                child: TreaGradientTextDhwiodw(
+                  data: "lucky card",
+                  size: 13.sp,
+                  lineColor: "#000000",
+                  fontWeight: FontWeight.bold,
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),]
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
+  }
+
+  double getLuckyCardPro(){
+    var d = bLuckyCardNum.getData()/3;
+    if(d<0){
+      return 0.0;
+    }else if(d>1){
+      return 1.0;
+    }else{
+      return d;
+    }
   }
 
   _luckyCardPointItemWidget(bool show)=>Container(
@@ -270,11 +293,20 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
       case TreaEventCodeDhwdhwi.newUserGuideStep4MoneyFinger:
         TreaGuideHepDwidmow.instance.showStep4GuideView(context, topMoneyGlobalKey);
         break;
+      case TreaEventCodeDhwdhwi.showHomeBoxGuide:
+        _checkShowSlotsGuide();
+        break;
     }
   }
 
   _queryPlayNum()async{
     playTypeInfoFhwiedhi = await TreaPlayTypeHepFjwidjo.instance.queryCardInfoByType(widget.playHepDnwidow.playType);
     setState(() {});
+  }
+
+  _checkShowSlotsGuide(){
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      TreaGuideHepDwidmow.instance.showStep5GuideView(context, boxGlobalKey);
+    });
   }
 }

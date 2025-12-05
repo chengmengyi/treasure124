@@ -17,11 +17,13 @@ import 'package:treadwkd_bbbb/ui/dialog/trea_no_wheel_dialog_iejiw/trea_no_wheel
 import 'package:treadwkd_bbbb/ui/dialog/trea_reward_dialog_jwidjow/trea_reward_dialog_jwidjow.dart';
 
 class TreaWheelDialogDwiiwmC extends TreaFaC with GetSingleTickerProviderStateMixin{
-  var wheelReward=0.0,canClick=true;
+  var wheelReward=0.0,canClick=true,fromHome=false;
   List<double> wheelList=[];
   late AnimationController _wheelAnimationController;
   Animation<double>? wheelAnimation;
   late AnimationStatusListener _statusListener;
+
+  TreaWheelDialogDwiiwmC(this.fromHome);
 
   @override
   void onInit() {
@@ -29,7 +31,13 @@ class TreaWheelDialogDwiiwmC extends TreaFaC with GetSingleTickerProviderStateMi
     _initAnimator();
   }
 
-  clickSpin(bool fromHome){
+  @override
+  void onReady() {
+    super.onReady();
+    clickSpin();
+  }
+
+  clickSpin(){
     if(!canClick){
       return;
     }

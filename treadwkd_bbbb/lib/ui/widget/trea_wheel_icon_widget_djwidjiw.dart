@@ -3,6 +3,7 @@ import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart
 import 'package:treadwkd_bbbase/hep/trea_ex.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
+import 'package:treadwkd_bbbase/ui/trea_breath_widget_cjeidfjoe.dart';
 import 'package:treadwkd_bbbase/ui/trea_finger_widget_djiwji.dart';
 import 'package:treadwkd_bbbase/ui/trea_gradient_text_dhwiodw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
@@ -27,68 +28,71 @@ class TreaWheelIconWidgetDjwidjiw extends TreaFaW{
 
 class _TreaWheelIconWidgetDjwidjiwState extends TreaFaWState<TreaWheelIconWidgetDjwidjiw>{
   @override
-  Widget wwwdwjidwo() => TreaClickDhwidjow(
-    onTap: (){
-      if(null!=widget.playHepDnwidow&&widget.playHepDnwidow?.canClick==false){
-        return;
-      }
-      TreaRouDwjidw.showDdjwidjow(
-        child: TreaWheelDialogDwiiwm(
-          fromHome: widget.fromHome,
-        ),
-      );
-    },
-    child: SizedBox(
-      width: 88.w,
-      height: 60.h,
-      child: Stack(
-        children: [
-          TreaImageDhwudhiw(name: "mndiwndiw",width: 88.w,height: 60.h,),
-          Positioned(
-            top: 8.h,
-            right: 20.w,
-            child: Container(
+  Widget wwwdwjidwo() => TreaBreathWidgetCjeidfjoe(
+    start: true,
+    child: TreaClickDhwidjow(
+      onTap: (){
+        if(null!=widget.playHepDnwidow&&widget.playHepDnwidow?.canClick==false){
+          return;
+        }
+        TreaRouDwjidw.showDdjwidjow(
+          child: TreaWheelDialogDwiiwm(
+            fromHome: widget.fromHome,
+          ),
+        );
+      },
+      child: SizedBox(
+        width: 88.w,
+        height: 60.h,
+        child: Stack(
+          children: [
+            TreaImageDhwudhiw(name: "mndiwndiw",width: 88.w,height: 60.h,),
+            Positioned(
+              top: 8.h,
+              right: 20.w,
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.only(left: 3.w,right: 3.w,top: 1.h,),
+                decoration: BoxDecoration(
+                  color: "#FF4949".toColordwdowfw(),
+                  borderRadius: BorderRadius.circular(9.w),
+                  border: Border.all(
+                    width: 2.w,
+                    color: "#FFFFFF".toColordwdowfw(),
+                  ),
+                ),
+                child: TreaTextDwihdw(data: "${bWheelNum.getData()}", size: 12.sp, color: "#FFFFFF",fontWeight: FontWeight.bold,),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                margin: EdgeInsets.only(bottom: 4.h),
+                child: TreaGradientTextDhwiodw(
+                  data: "Lucky spin",
+                  size: 13.sp,
+                  lineColor: "#000000",
+                  fontWeight: FontWeight.bold,
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),]
+                  ),
+                ),
+              ),
+            ),
+            Align(
               alignment: Alignment.center,
-              padding: EdgeInsets.only(left: 3.w,right: 3.w,top: 1.h,),
-              decoration: BoxDecoration(
-                color: "#FF4949".toColordwdowfw(),
-                borderRadius: BorderRadius.circular(9.w),
-                border: Border.all(
-                  width: 2.w,
-                  color: "#FFFFFF".toColordwdowfw(),
-                ),
-              ),
-              child: TreaTextDwihdw(data: "${bWheelNum.getData()}", size: 12.sp, color: "#FFFFFF",fontWeight: FontWeight.bold,),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              margin: EdgeInsets.only(bottom: 4.h),
-              child: TreaGradientTextDhwiodw(
-                data: "Lucky spin",
-                size: 13.sp,
-                lineColor: "#000000",
-                fontWeight: FontWeight.bold,
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),]
+              child: Visibility(
+                visible: bWheelNum.getData()>0,
+                child: TreaFingerWidgetDjiwji(
+                  width: 60.w,
+                  height: 60.h,
                 ),
               ),
             ),
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Visibility(
-              visible: bWheelNum.getData()>0,
-              child: TreaFingerWidgetDjiwji(
-                width: 60.w,
-                height: 60.h,
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );

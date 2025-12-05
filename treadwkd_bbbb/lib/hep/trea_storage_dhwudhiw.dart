@@ -16,6 +16,7 @@ class TreaStorageDhwudhiw{
   static const String bLastOpenAppTimer="bLastOpenAppTimer";
   static const String bLastOldUserTimer="bLastOldUserTimer";
   static const String bLastUploadMoneyLevel="bLastUploadMoneyLevel";
+  static const String bIsFirstPlayCard="bIsFirstPlayCard";
 }
 
 StorageData<double> bMyMoney=StorageData<double>(key: TreaStorageDhwudhiw.bMyMoney, defaultValue: 0.0);
@@ -34,3 +35,4 @@ StorageData<String> bLastOldUserTimer=StorageData<String>(key: TreaStorageDhwudh
 
 StorageData<bool> bOpenEyeSwitch=StorageData<bool>(key: TreaStorageDhwudhiw.bOpenEyeSwitch, defaultValue: true);
 StorageData<bool> bShowFirstHasMoneyDialog=StorageData<bool>(key: TreaStorageDhwudhiw.bShowFirstHasMoneyDialog, defaultValue: true);
+StorageData<bool> bIsFirstPlayCard=StorageData<bool>(key: TreaStorageDhwudhiw.bIsFirstPlayCard, defaultValue: true);

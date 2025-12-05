@@ -91,7 +91,7 @@ class TreaRewardDialogJwidjow extends TreaFaD<TreaRewardDialogJwidjowC>{
         ),
       );
     }
-    if(treaC.isBigReward()&&rewardEnum!=TreaRewardEnum.lucky){
+    if(treaC.isBigReward()){
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [

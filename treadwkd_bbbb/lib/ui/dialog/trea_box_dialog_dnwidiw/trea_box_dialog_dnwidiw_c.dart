@@ -30,12 +30,13 @@ class TreaBoxDialogDnwidiwC extends TreaFaC with GetSingleTickerProviderStateMix
   }
 
   @override
-  void onReady() {
+  void onReady() async{
     super.onReady();
-    _queryBoxNum();
+    await _queryBoxNum();
     for (final c in controllers) {
       c.jumpToItem(1);
     }
+    clickSpin();
   }
 
   clickSpin()async{

@@ -32,8 +32,8 @@ class TreaAdHepNwidiow{
   initAdwieji(){
     FlutterAndroidAdPlugins.instance.initMax(
       maxKey: TreaLocalDjwidj.maxKeyBase64.base64(),
-      topOnAppId: "",
-      topOnAppKey: "",
+      topOnAppId: TreaLocalDjwidj.topOnAppId.base64(),
+      topOnAppKey: TreaLocalDjwidj.topOnAppKey.base64(),
       data: _getConfigAdData(),
       userConsent: true,
       doNotSell: false,

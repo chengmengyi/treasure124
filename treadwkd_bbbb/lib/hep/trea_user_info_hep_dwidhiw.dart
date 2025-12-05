@@ -4,6 +4,7 @@ import 'package:treadwkd_bbbase/hep/trea_fk_dwidjow/trea_fk_hep_dwidowmd.dart';
 import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
+import 'package:treadwkd_bbbase/hep/trea_voice_hep_dwidiwn.dart';
 import 'package:treadwkd_bbbb/hep/trea_cash_hep_cneimdi.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_storage_dhwudhiw.dart';
@@ -16,6 +17,7 @@ class TreaUserInfoHepDwidhiw{
   updateMyMoney(double addNum)async{
     bMyMoney.saveData(addDecimal(bMyMoney.getData(), addNum));
     if(addNum>0){
+      TreaVoiceHepDwidiwn.instance.playSound(SoundType.get_money);
       bShowAdMoneyTag.saveData(addDecimal(bShowAdMoneyTag.getData(), addNum));
       _handleMoneyLevelDJOWJDOdow();
       _handleFkInfodwhidw();

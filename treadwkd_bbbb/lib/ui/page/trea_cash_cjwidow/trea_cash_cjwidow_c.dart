@@ -1,4 +1,5 @@
 import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_bean_djwid.dart';
+import 'package:treadwkd_bbbase/hep/trea_event_dwhidw/trea_event_hep_dhwidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
@@ -186,5 +187,10 @@ class TreaCashCjwidowC extends TreaFaC{
         _queryAmountList();
         break;
     }
+  }
+
+  clickBack(){
+    TreaRouDwjidw.backdwhudie();
+    TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.showHomeBoxGuide);
   }
 }

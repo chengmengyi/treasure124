@@ -5,6 +5,7 @@ import 'package:treadwkd_bbbase/hep/trea_hep_dhwidhiw.dart';
 import 'package:treadwkd_bbbase/hep/trea_rou_dwjidw.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_point_enum_djwidjo.dart';
 import 'package:treadwkd_bbbase/hep/trea_ttt/trea_ttt_iwjodwm.dart';
+import 'package:treadwkd_bbbase/ui/trea_breath_widget_cjeidfjoe.dart';
 import 'package:treadwkd_bbbase/ui/trea_gradient_text_dhwiodw.dart';
 import 'package:treadwkd_bbbase/ui/trea_image_dhwudhiw.dart';
 import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
@@ -14,6 +15,7 @@ import 'package:treadwkd_bbbb/hep/trea_box_hep_whidowmd.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_hep_dwidmow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_box_dialog_dnwidiw/trea_box_dialog_dnwidiw.dart';
+import 'package:treadwkd_bbbb/ui/dialog/trea_no_box_num_dialog_doowdwju/trea_no_box_num_dialog_doowdwju.dart';
 
 class TreaBoxWidgetDjwidjow extends TreaFaW{
   bool fromHome;
@@ -36,52 +38,55 @@ class _TreaBoxWidgetDjwidjowState extends TreaFaWState<TreaBoxWidgetDjwidjow>{
   }
 
   @override
-  Widget wwwdwjidwo() => TreaClickDhwidjow(
-    onTap: (){
-      clickFromNotification=false;
-      _clickBox();
-    },
-    child: SizedBox(
-      width: 61.w,
-      height: 61.w,
-      child: Stack(
-        children: [
-          TreaImageDhwudhiw(name: "mdiwjdiw",width: 61.w,height: 61.w,),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              margin: EdgeInsets.only(bottom: 4.h),
-              child: TreaGradientTextDhwiodw(
-                data: "Treasure",
-                size: 13.sp,
-                lineColor: "#000000",
-                fontWeight: FontWeight.bold,
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),]
+  Widget wwwdwjidwo() => TreaBreathWidgetCjeidfjoe(
+    start: true,
+    child: TreaClickDhwidjow(
+      onTap: (){
+        clickFromNotification=false;
+        _clickBox();
+      },
+      child: SizedBox(
+        width: 61.w,
+        height: 61.w,
+        child: Stack(
+          children: [
+            TreaImageDhwudhiw(name: "mdiwjdiw",width: 61.w,height: 61.w,),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                margin: EdgeInsets.only(bottom: 4.h),
+                child: TreaGradientTextDhwiodw(
+                  data: "Treasure",
+                  size: 13.sp,
+                  lineColor: "#000000",
+                  fontWeight: FontWeight.bold,
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: ["#FFFF00".toColordwdowfw(),"#FFF6ED".toColordwdowfw(),]
+                  ),
                 ),
               ),
             ),
-          ),
-          Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              width: 18.w,
-              height: 18.w,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: "#FF4949".toColordwdowfw(),
-                borderRadius: BorderRadius.circular(9.w),
-                border: Border.all(
-                  width: 2.w,
-                  color: "#FFFFFF".toColordwdowfw(),
+            Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                width: 18.w,
+                height: 18.w,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: "#FF4949".toColordwdowfw(),
+                  borderRadius: BorderRadius.circular(9.w),
+                  border: Border.all(
+                    width: 2.w,
+                    color: "#FFFFFF".toColordwdowfw(),
+                  ),
                 ),
+                child: TreaTextDwihdw(data: "$boxNum", size: 12.sp, color: "#FFFFFF",fontWeight: FontWeight.bold,),
               ),
-              child: TreaTextDwihdw(data: "$boxNum", size: 12.sp, color: "#FFFFFF",fontWeight: FontWeight.bold,),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     ),
   );
@@ -90,7 +95,11 @@ class _TreaBoxWidgetDjwidjowState extends TreaFaWState<TreaBoxWidgetDjwidjow>{
     widget.clickBoxCallback?.call();
     TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.treasure_icon_c);
     if(boxNum<=0){
-      showToast("Attempts Exhausted. Please Try Again Tomorrow.");
+      TreaRouDwjidw.showDdjwidjow(
+        child: TreaNoBoxNumDialogDoowdwju(
+          fromHome: widget.fromHome,
+        ),
+      );
       return;
     }
     TreaRouDwjidw.showDdjwidjow(

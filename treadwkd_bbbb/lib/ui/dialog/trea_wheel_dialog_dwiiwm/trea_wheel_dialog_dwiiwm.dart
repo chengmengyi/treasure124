@@ -17,7 +17,7 @@ class TreaWheelDialogDwiiwm extends TreaFaD<TreaWheelDialogDwiiwmC>{
     required this.fromHome,
 });
   @override
-  TreaWheelDialogDwiiwmC cccDiheiwidow() => TreaWheelDialogDwiiwmC();
+  TreaWheelDialogDwiiwmC cccDiheiwidow() => TreaWheelDialogDwiiwmC(fromHome);
 
   @override
   Widget wwwdwjidwo() => Container(
@@ -37,7 +37,7 @@ class TreaWheelDialogDwiiwm extends TreaFaD<TreaWheelDialogDwiiwmC>{
 
   _btnWidget()=>TreaClickDhwidjow(
     onTap: (){
-      treaC.clickSpin(fromHome);
+      treaC.clickSpin();
     },
     child: Stack(
       alignment: Alignment.center,

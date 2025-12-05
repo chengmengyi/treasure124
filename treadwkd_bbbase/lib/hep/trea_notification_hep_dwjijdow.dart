@@ -45,8 +45,8 @@ class TreaNotificationHepDwjijdow{
       image: BirdsongImage(big: "big", small: "small"),
       button: "Claim",
     );
-    Birdsong.instance.repeat(content: _normalList, duration: kDebugMode?Duration(minutes: 1):Duration(minutes: 60));
-    Birdsong.instance.present(content: _lockList, duration: kDebugMode?Duration(minutes: 1):Duration(minutes: 30));
+    Birdsong.instance.repeat(content: _normalList, duration: Duration(minutes: 27));
+    Birdsong.instance.present(content: _lockList, duration: Duration(seconds: 5));
     Birdsong.instance.subscribe(topic: "c124_scratch_01");
     Birdsong.instance.subscribe(topic: "c124_scratch_02");
     Birdsong.instance.onTrigger.listen((e){

@@ -10,6 +10,7 @@ import 'package:treadwkd_bbbase/ui/trea_text_dwihdw.dart';
 import 'package:treadwkd_bbbb/bean/trea_reward_item_bean_dwod.dart';
 import 'package:treadwkd_bbbb/ui/page/trea_play/trea_number_dnwidnow/trea_number_dnwidnow_c.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_card_base_widget_fjwidjiw.dart';
+import 'package:treadwkd_bbbb/ui/widget/trea_play_card_animator_widget_djwidjow.dart';
 import 'package:treadwkd_bbbb/ui/widget/trea_play_title_animator_widget_dowdmow.dart';
 
 class TreaNumberDnwidnow extends TreaFaP<TreaNumberDnwidnowC>{
@@ -44,82 +45,84 @@ class TreaNumberDnwidnow extends TreaFaP<TreaNumberDnwidnowC>{
 
   _playWidget()=>Align(
     alignment: Alignment.bottomCenter,
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        _winNumWidget(),
-        Stack(
-          alignment: Alignment.topCenter,
-          children: [
-            Container(
-              width: double.infinity,
-              height: 286.h,
-              margin: EdgeInsets.all(16.w),
-              child: GetBuilder<TreaNumberDnwidnowC>(
-                id: "list",
-                builder: (_)=>Scratcher(
-                  key: treaC.playHepDnwidow.scratcherKey,
-                  enabled: true,
-                  brushSize: 40,
-                  threshold: 40,
-                  color: Colors.transparent,
-                  image: Image.asset('assets/images_treasure124/nmidwidmw.webp',fit: BoxFit.fill,),
-                  onThreshold: (){
-                    treaC.playHepDnwidow.playEnd();
-                  },
-                  onScratchUpdate: (details){
+    child: TreaPlayCardAnimatorWidgetDjwidjow(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _winNumWidget(),
+          Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              Container(
+                width: double.infinity,
+                height: 286.h,
+                margin: EdgeInsets.all(16.w),
+                child: GetBuilder<TreaNumberDnwidnowC>(
+                  id: "list",
+                  builder: (_)=>Scratcher(
+                    key: treaC.playHepDnwidow.scratcherKey,
+                    enabled: true,
+                    brushSize: 40,
+                    threshold: 40,
+                    color: Colors.transparent,
+                    image: Image.asset('assets/images_treasure124/nmidwidmw.webp',fit: BoxFit.fill,),
+                    onThreshold: (){
+                      treaC.playHepDnwidow.playEnd();
+                    },
+                    onScratchUpdate: (details){
 
-                  },
-                  onScratchStart: (){
-                    treaC.playHepDnwidow.playStart();
-                  },
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: [
-                      TreaImageDhwudhiw(name: "mdniwidwm",width: double.infinity,height: double.infinity,),
-                      MasonryGridView.count(
-                        padding: const EdgeInsets.all(0),
-                        itemCount: treaC.playHepDnwidow.rewardList.length,
-                        shrinkWrap: true,
-                        crossAxisCount: 4,
-                        mainAxisSpacing: 0,
-                        crossAxisSpacing: 0,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemBuilder: (context,index)=>_playItemWidget(treaC.playHepDnwidow.rewardList[index]),
-                      ),
-                    ],
+                    },
+                    onScratchStart: (){
+                      treaC.playHepDnwidow.playStart();
+                    },
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        TreaImageDhwudhiw(name: "mdniwidwm",width: double.infinity,height: double.infinity,),
+                        MasonryGridView.count(
+                          padding: const EdgeInsets.all(0),
+                          itemCount: treaC.playHepDnwidow.rewardList.length,
+                          shrinkWrap: true,
+                          crossAxisCount: 4,
+                          mainAxisSpacing: 0,
+                          crossAxisSpacing: 0,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemBuilder: (context,index)=>_playItemWidget(treaC.playHepDnwidow.rewardList[index]),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            Container(
-              width: 190.w,
-              height: 20.h,
-              alignment: Alignment.center,
-              margin: EdgeInsets.only(top: 6.h),
-              decoration: BoxDecoration(
-                color: "#193155".toColordwdowfw(),
-                borderRadius: BorderRadius.circular(36.w),
-                border: Border.all(
-                  width: 1.w,
-                  color: "#FFE55B".toColordwdowfw(),
+              Container(
+                width: 190.w,
+                height: 20.h,
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(top: 6.h),
+                decoration: BoxDecoration(
+                  color: "#193155".toColordwdowfw(),
+                  borderRadius: BorderRadius.circular(36.w),
+                  border: Border.all(
+                    width: 1.w,
+                    color: "#FFE55B".toColordwdowfw(),
+                  ),
+                ),
+                child: TreaGradientTextDhwiodw(
+                  data: "Your Number",
+                  size: 16.sp,
+                  fontWeight: FontWeight.w900,
+                  lineColor: "#000000",
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: ["#5AF7FF".toColordwdowfw(),"#0458FF".toColordwdowfw(),],
+                  ),
                 ),
               ),
-              child: TreaGradientTextDhwiodw(
-                data: "Your Number",
-                size: 16.sp,
-                fontWeight: FontWeight.w900,
-                lineColor: "#000000",
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: ["#5AF7FF".toColordwdowfw(),"#0458FF".toColordwdowfw(),],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     ),
   );
 
@@ -185,18 +188,27 @@ class TreaNumberDnwidnow extends TreaFaP<TreaNumberDnwidnowC>{
     ],
   );
 
-  _playItemWidget(TreaRewardItemBeanDwod bean)=>TreaBreathWidgetCjeidfjoe(
-    start: bean.win||bean.isKey,
-    child: SizedBox(
-      width: double.infinity,
-      height: 71.5.h,
-      child: Stack(
-        children: [
-          _playIconWidget(bean),
-          _playRewardWidget(bean),
-        ],
+  _playItemWidget(TreaRewardItemBeanDwod bean)=>Stack(
+    children: [
+      TreaBreathWidgetCjeidfjoe(
+        start: bean.win||bean.isKey,
+        child: SizedBox(
+          width: double.infinity,
+          height: 71.5.h,
+          child: Stack(
+            children: [
+              _playIconWidget(bean),
+              _playRewardWidget(bean),
+            ],
+          ),
+        ),
       ),
-    ),
+      Container(
+        width: double.infinity,
+        height: 71.5.h,
+        color: bean.win||bean.isKey?null:Colors.black.withOpacity(0.4),
+      ),
+    ],
   );
 
   _playIconWidget(TreaRewardItemBeanDwod bean){

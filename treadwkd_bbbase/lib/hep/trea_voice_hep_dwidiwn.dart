@@ -2,7 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:treadwkd_bbbase/hep/trea_firebase_hep_nievnie.dart';
 
 enum SoundType{
-  bgm,bigReward,bubble,button,click,fail,fan,gua,smallReward,
+  bgm,bigReward,bubble,button,click,fail,fan,gua,smallReward,gua2,get_money,
 }
 
 class TreaVoiceHepDwidiwn{

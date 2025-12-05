@@ -190,6 +190,8 @@ class TreaPlayHepDnwidow{
   _resetPlay()async{
     canClick=true;
     scratcherKey.currentState?.reset();
+    TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.startPlayCardAnimator);
+    await Future.delayed(Duration(milliseconds: 300));
     TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.showOrHideAutoGuaAnimator,str: "show");
     resetPlayCallback.call();
     var playTypeInfo = await TreaPlayTypeHepFjwidjo.instance.queryCardInfoByType(playType);
@@ -250,6 +252,10 @@ class TreaPlayHepDnwidow{
         reward=divDecimal(result, 3);
         break;
     }
+    if(bIsFirstPlayCard.getData()){
+      bIsFirstPlayCard.saveData(false);
+      return 60;
+    }
     return reward;
   }
 
@@ -274,6 +280,7 @@ class TreaPlayHepDnwidow{
       return;
     }
     canClick=false;
+    TreaVoiceHepDwidiwn.instance.playSound(SoundType.gua);
     TreaEventHepDhwidw.instance.send(code: TreaEventCodeDhwdhwi.showOrHideAutoGuaAnimator,str: "hide");
     var list = Random().nextBool()?_pathPoints1:_pathPoints2;
     const int stepsPerSegment = 30;
