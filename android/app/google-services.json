@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "841770887217",
-    "project_id": "trea124",
-    "storage_bucket": "trea124.firebasestorage.app"
+    "project_number": "482630199971",
+    "project_id": "c124-sratchwinteasure",
+    "storage_bucket": "c124-sratchwinteasure.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:841770887217:android:b551796440dbbaca7e4d10",
+        "mobilesdk_app_id": "1:482630199971:android:03e4a30f62e7468ad2ed16",
         "android_client_info": {
-          "package_name": "com.trea.treasure124"
+          "package_name": "com.scratchwin.treasure"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCaZjtENY0N-vRFooc4MfiD0YmPBTgEpxo"
+          "current_key": "AIzaSyCKM76RkazB9_MabViuP8cDFlFsKhTtd7Q"
         }
       ],
       "services": {
