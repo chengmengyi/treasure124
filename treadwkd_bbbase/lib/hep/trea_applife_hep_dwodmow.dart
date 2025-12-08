@@ -41,6 +41,8 @@ class TreaApplifeHepDwodmow{
         await Future.delayed(Duration(milliseconds: 1000));
         TreaNotificationHepDwjijdow.instance.initNotificationdwoidjw();
         toOpenNotification=false;
+      }else{
+        TreaNotificationHepDwjijdow.instance.checkNotificationNum();
       }
       await Future.delayed(Duration(milliseconds: 200));
       if(_back&&!FlutterAndroidAdPlugins.instance.adShowing()){

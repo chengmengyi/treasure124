@@ -20,6 +20,7 @@ class TreaLaunchDwhiwC extends TreaFaC with GetSingleTickerProviderStateMixin{
     TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.launch_page);
     _initAnimator();
     TreaNotificationHepDwjijdow.instance.initNotificationdwoidjw();
+    TreaNotificationHepDwjijdow.instance.checkClickByLaunchApp();
   }
 
   @override

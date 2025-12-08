@@ -37,8 +37,8 @@ dependencies:
   connectivity_plus: 7.0.0
   flutter_custom_facebook: 0.0.5
   url_launcher: 6.3.2
-  birdsong:
-    path: plugins/common_push-output
+  flutter_local_notifications:
+    path: plugins/common_notifications-master
   trea_feng:
     path: plugins/trea_feng
 

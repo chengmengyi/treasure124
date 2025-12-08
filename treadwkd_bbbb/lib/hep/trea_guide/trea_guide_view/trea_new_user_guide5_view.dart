@@ -14,8 +14,8 @@ class TreaNewUserGuide5View extends StatelessWidget{
   @override
   Widget build(BuildContext context) => Material(
     type: MaterialType.transparency,
-    child: TreaClickDhwidjow(
-      onTap: (){
+    child: GestureDetector(
+      onPanDown: (d){
         clickCallback.call();
       },
       child: Container(
