@@ -318,6 +318,9 @@ class TreaValueHepJomeoc{
   }
 
   bool showAd(AdType adType){
+    if(kDebugMode){
+      return true;
+    }
     if(adType==AdType.reward){
       return true;
     }

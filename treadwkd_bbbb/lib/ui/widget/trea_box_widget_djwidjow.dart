@@ -14,15 +14,18 @@ import 'package:treadwkd_bbbase/ui/widget/trea_fa_w.dart';
 import 'package:treadwkd_bbbb/hep/trea_box_hep_whidowmd.dart';
 import 'package:treadwkd_bbbb/hep/trea_event_code_dhwdhwi.dart';
 import 'package:treadwkd_bbbb/hep/trea_guide/trea_guide_hep_dwidmow.dart';
+import 'package:treadwkd_bbbb/hep/trea_play_hep_dnwidow.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_box_dialog_dnwidiw/trea_box_dialog_dnwidiw.dart';
 import 'package:treadwkd_bbbb/ui/dialog/trea_no_box_num_dialog_doowdwju/trea_no_box_num_dialog_doowdwju.dart';
 
 class TreaBoxWidgetDjwidjow extends TreaFaW{
   bool fromHome;
+  TreaPlayHepDnwidow? playHepDnwidow;
   Function()? clickBoxCallback;
   TreaBoxWidgetDjwidjow({
     this.fromHome=false,
     this.clickBoxCallback,
+    this.playHepDnwidow,
 });
   @override
   State<StatefulWidget> createState() => _TreaBoxWidgetDjwidjowState();
@@ -92,6 +95,9 @@ class _TreaBoxWidgetDjwidjowState extends TreaFaWState<TreaBoxWidgetDjwidjow>{
   );
 
   _clickBox(){
+    if(widget.playHepDnwidow?.canClick==false){
+      return;
+    }
     widget.clickBoxCallback?.call();
     TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.treasure_icon_c);
     if(boxNum<=0){

@@ -173,7 +173,9 @@ class _TreaCardBaseWidgetFjwidjiwState extends TreaFaWState<TreaCardBaseWidgetFj
       Spacer(),
       SizedBox(
         key: boxGlobalKey,
-        child: TreaBoxWidgetDjwidjow(),
+        child: TreaBoxWidgetDjwidjow(
+          playHepDnwidow: widget.playHepDnwidow,
+        ),
       ),
       SizedBox(width: 20.w,),
     ],

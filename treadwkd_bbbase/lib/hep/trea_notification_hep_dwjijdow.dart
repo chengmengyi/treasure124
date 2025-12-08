@@ -44,21 +44,6 @@ class TreaNotificationHepDwjijdow{
     }
     TreaTttIwjodwm.instance.pointEventdjwijiwo(point: TreaPointEnumDjwidjo.push_status);
 
-    // await Birdsong.instance.initialize(
-    //   image: BirdsongImage(big: "big", small: "small"),
-    //   button: "Claim",
-    // );
-    // Birdsong.instance.repeat(content: _normalList, duration: Duration(minutes: 27));
-    // Birdsong.instance.present(content: _lockList, duration: Duration(seconds: 5));
-    // Birdsong.instance.subscribe(topic: "c124_scratch_01");
-    // Birdsong.instance.subscribe(topic: "c124_scratch_02");
-    // Birdsong.instance.onTrigger.listen((e){
-    //   _uploadShowdwodow(e.source);
-    // });
-    // Birdsong.instance.onTap.listen((e){
-    //   _uploadClickdwodow(e.source);
-    // });
-
     var success = await plugin.initialize(
       AndroidInitializationSettings("logo"),
       onDidReceiveNotificationResponse: (NotificationResponse response) {
